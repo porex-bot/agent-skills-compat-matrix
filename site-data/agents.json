@@ -22,7 +22,8 @@
       "glob_scoping": "unsupported",
       "model_override": "unsupported"
     },
-    "notes": "CLI pair-programmer, not an agentic harness. Rules are convention files (e.g. CONVENTIONS.md) read into every session via the read: key in .aider.conf.yml or --read flag; plain Markdown, no YAML frontmatter, no per-skill directory. No PreToolUse/PostToolUse lifecycle hooks; runs lint/test commands after edits (auto-lint, --test/--lint) — different mechanism. No subagents, no context fork, no per-skill tool allowlist (auto-run via global --yes/--yes-always), no user-defined slash commands, no glob scoping, no per-skill model override (model/weak-model global via --model). Porting means flattening to CONVENTIONS.md; hook/agent/tool-allowlist features cannot be expressed."
+    "notes": "CLI pair-programmer, not an agentic harness. Rules are convention files (e.g. CONVENTIONS.md) read into every session via the read: key in .aider.conf.yml or --read flag; plain Markdown, no YAML frontmatter, no per-skill directory. No PreToolUse/PostToolUse lifecycle hooks; runs lint/test commands after edits (auto-lint, --test/--lint) — different mechanism. No subagents, no context fork, no per-skill tool allowlist (auto-run via global --yes/--yes-always), no user-defined slash commands, no glob scoping, no per-skill model override (model/weak-model global via --model). Porting means flattening to CONVENTIONS.md; hook/agent/tool-allowlist features cannot be expressed.",
+    "notes_zh": "CLI 结对编程工具，非 agentic harness。rules 为约定文件（如 CONVENTIONS.md），通过 .aider.conf.yml 中的 read: 键或 --read 标志读入每个会话；纯 Markdown，无 YAML frontmatter，无 per-skill 目录。无 PreToolUse/PostToolUse 生命周期 hooks；在编辑后运行 lint/test 命令（auto-lint、--test/--lint）——机制不同。无 subagents，无 context fork，无 per-skill 工具允许列表（通过全局 --yes/--yes-always 自动运行），无用户自定义 slash commands，无 glob scoping，无 per-skill 模型覆盖（model/weak-model 通过 --model 全局设置）。移植意味着展平为 CONVENTIONS.md；hook/agent/tool-allowlist 特性无法表达。"
   },
   {
     "id": "amp",
@@ -47,7 +48,8 @@
       "glob_scoping": "unsupported",
       "model_override": "unsupported"
     },
-    "notes": "Strong AGENTS.md adopter: rules are plain-Markdown AGENTS.md files (project root + subdirs, merged root→cwd) with no YAML frontmatter and no native SKILL.md. Runtime is richer than Codex CLI — built-in Sourcegraph code-search tools, MCP support, async/background cloud agents, and an approval system — but none of this is wired to per-skill frontmatter. pre_approved_tools partial: Amp has command/tool approval settings (auto-approve vs. ask) but no per-AGENTS.md allowed-tools allowlist. No hooks, no per-skill subagent delegation (background agents are async execution, not skill-scoped), no context fork, no slash-command skill invocation, no glob scoping (directory-scoped only), no per-skill model override."
+    "notes": "Strong AGENTS.md adopter: rules are plain-Markdown AGENTS.md files (project root + subdirs, merged root→cwd) with no YAML frontmatter and no native SKILL.md. Runtime is richer than Codex CLI — built-in Sourcegraph code-search tools, MCP support, async/background cloud agents, and an approval system — but none of this is wired to per-skill frontmatter. pre_approved_tools partial: Amp has command/tool approval settings (auto-approve vs. ask) but no per-AGENTS.md allowed-tools allowlist. No hooks, no per-skill subagent delegation (background agents are async execution, not skill-scoped), no context fork, no slash-command skill invocation, no glob scoping (directory-scoped only), no per-skill model override.",
+    "notes_zh": "强 AGENTS.md 采用者：rules 为纯 Markdown 的 AGENTS.md 文件（项目根 + 子目录，root→cwd 合并），无 YAML frontmatter，无原生 SKILL.md。运行时比 Codex CLI 更丰富——内置 Sourcegraph 代码搜索工具、MCP 支持、异步/后台 cloud agent 和审批系统——但均未与 per-skill frontmatter 关联。pre_approved_tools 为 partial：Amp 有命令/工具审批设置（auto-approve vs. ask）但无 per-AGENTS.md 的 allowed-tools 允许列表。无 hooks，无 per-skill subagent 委派（后台 agent 为异步执行，非 skill 作用域），无 context fork，无 slash-command skill 调用，无 glob scoping（仅目录作用域），无 per-skill 模型覆盖。"
   },
   {
     "id": "claude-code",
@@ -84,7 +86,8 @@
       "glob_scoping": "unsupported",
       "model_override": "native"
     },
-    "notes": "Superset of the open standard. Most portable skills work here; Claude-specific extensions (hooks, context:fork, agent) only run here. Custom commands under .claude/commands/ are merged into skills."
+    "notes": "Superset of the open standard. Most portable skills work here; Claude-specific extensions (hooks, context:fork, agent) only run here. Custom commands under .claude/commands/ are merged into skills.",
+    "notes_zh": "开放标准的超集。大多数可移植 skill 可在此运行；Claude 专属扩展（hooks、context:fork、agent）仅在此运行。.claude/commands/ 下的自定义命令会被合并进 skills。"
   },
   {
     "id": "cline",
@@ -109,7 +112,8 @@
       "glob_scoping": "unsupported",
       "model_override": "unsupported"
     },
-    "notes": "VS Code extension (formerly Claude Dev). Rules are plain Markdown/.clinerules with no YAML frontmatter; the whole file is loaded as always-on context (no glob/auto-trigger, no description-driven activation). No skills system, no native SKILL.md. Strong Auto-Approve settings panel (toggle per tool family: file edits, commands, MCP, browser) — closest analog to pre-approved tools, but global/workspace setting, not per-skill allowed-tools frontmatter. Model chosen per session in UI. Skills must be flattened into .clinerules; hook/agent extensions cannot be expressed."
+    "notes": "VS Code extension (formerly Claude Dev). Rules are plain Markdown/.clinerules with no YAML frontmatter; the whole file is loaded as always-on context (no glob/auto-trigger, no description-driven activation). No skills system, no native SKILL.md. Strong Auto-Approve settings panel (toggle per tool family: file edits, commands, MCP, browser) — closest analog to pre-approved tools, but global/workspace setting, not per-skill allowed-tools frontmatter. Model chosen per session in UI. Skills must be flattened into .clinerules; hook/agent extensions cannot be expressed.",
+    "notes_zh": "VS Code 扩展（前身为 Claude Dev）。rules 为纯 Markdown/.clinerules，无 YAML frontmatter；整个文件作为常驻上下文加载（无 glob/自动触发，无 description 驱动激活）。无 skills 系统，无原生 SKILL.md。强大的 Auto-Approve 设置面板（按工具族切换：文件编辑、命令、MCP、浏览器）——最接近 pre-approved tools 的对应物，但为全局/工作区设置，而非 per-skill 的 allowed-tools frontmatter。模型在 UI 中按会话选择。skill 必须展平进 .clinerules；hook/agent 扩展无法表达。"
   },
   {
     "id": "codex-cli",
@@ -137,7 +141,8 @@
       "glob_scoping": "unsupported",
       "model_override": "unsupported"
     },
-    "notes": "Pure plain Markdown, no YAML frontmatter yet. 32 KiB combined instruction budget (project_doc_max_bytes) — large skill libraries may be truncated. AGENTS.override.md replaces (not merges) the same-level file."
+    "notes": "Pure plain Markdown, no YAML frontmatter yet. 32 KiB combined instruction budget (project_doc_max_bytes) — large skill libraries may be truncated. AGENTS.override.md replaces (not merges) the same-level file.",
+    "notes_zh": "纯 Markdown，暂不支持 YAML frontmatter。32 KiB 合并指令预算（project_doc_max_bytes）——大型 skill 库可能被截断。AGENTS.override.md 会替换（而非合并）同级文件。"
   },
   {
     "id": "continue",
@@ -167,7 +172,8 @@
       "glob_scoping": "unsupported",
       "model_override": "partial"
     },
-    "notes": "Open-source AI coding extension. Rules/configuration live in config.yaml (~/.continue/config.yaml global, .continue/config.yaml or .continuerc.json project) as YAML, not Markdown frontmatter. Skills analog is custom slash commands defined under customCommands/slashCommands (name, description, prompt, optional context providers) in config.yaml, or as separate prompt files in ~/.continue/prompts/ — invoked via /name in chat. No native SKILL.md, no YAML frontmatter on rules. model_override partial: Continue supports many local/cloud models and allows per-slash-command model binding in some prompt-file formats, but it is not the open-standard model field. No hooks, no subagent spawning, no context fork, no per-skill tool allowlist (tool usage governed by global config + approvals), no glob-triggered rules (context pulled via @-mention context providers)."
+    "notes": "Open-source AI coding extension. Rules/configuration live in config.yaml (~/.continue/config.yaml global, .continue/config.yaml or .continuerc.json project) as YAML, not Markdown frontmatter. Skills analog is custom slash commands defined under customCommands/slashCommands (name, description, prompt, optional context providers) in config.yaml, or as separate prompt files in ~/.continue/prompts/ — invoked via /name in chat. No native SKILL.md, no YAML frontmatter on rules. model_override partial: Continue supports many local/cloud models and allows per-slash-command model binding in some prompt-file formats, but it is not the open-standard model field. No hooks, no subagent spawning, no context fork, no per-skill tool allowlist (tool usage governed by global config + approvals), no glob-triggered rules (context pulled via @-mention context providers).",
+    "notes_zh": "开源 AI coding 扩展。rules/配置以 YAML 形式存在于 config.yaml（~/.continue/config.yaml 全局，.continue/config.yaml 或 .continuerc.json 项目），而非 Markdown frontmatter。skill 的对应物是定义在 config.yaml 的 customCommands/slashCommands（name、description、prompt、可选 context providers）中的自定义 slash commands，或作为 ~/.continue/prompts/ 下独立的 prompt 文件——通过聊天中的 /name 调用。无原生 SKILL.md，rules 上无 YAML frontmatter。model_override 为 partial：Continue 支持众多本地/云模型，并允许在某些 prompt-file 格式中绑定 per-slash-command 模型，但并非开放标准的 model 字段。无 hooks，无 subagent 生成，无 context fork，无 per-skill 工具允许列表（工具使用由全局配置 + 审批管理），无 glob 触发的 rules（上下文通过 @-mention context providers 拉取）。"
   },
   {
     "id": "cursor",
@@ -197,7 +203,8 @@
       "glob_scoping": "native",
       "model_override": "unsupported"
     },
-    "notes": "Activation model differs: rules use alwaysApply + globs instead of name/description triggering. SKILL.md files run but lose Claude-specific fields. No hooks, no per-skill tool allowlist."
+    "notes": "Activation model differs: rules use alwaysApply + globs instead of name/description triggering. SKILL.md files run but lose Claude-specific fields. No hooks, no per-skill tool allowlist.",
+    "notes_zh": "激活模型不同：rules 使用 alwaysApply + globs 触发，而非 name/description 触发。SKILL.md 文件可运行，但会丢失 Claude 专属字段。无 hooks，无 per-skill 工具允许列表。"
   },
   {
     "id": "gemini-cli",
@@ -230,7 +237,8 @@
       "glob_scoping": "unsupported",
       "model_override": "unsupported"
     },
-    "notes": "Implements the open standard plus hooks (SessionStart/BeforeTool/AfterTool/etc.) in settings.json. Skills managed via /skills list|enable|disable|reload and the gemini skills install|link CLI. Three-tier discovery: workspace > user > extension."
+    "notes": "Implements the open standard plus hooks (SessionStart/BeforeTool/AfterTool/etc.) in settings.json. Skills managed via /skills list|enable|disable|reload and the gemini skills install|link CLI. Three-tier discovery: workspace > user > extension.",
+    "notes_zh": "实现开放标准，并在 settings.json 中支持 hooks（SessionStart/BeforeTool/AfterTool 等）。通过 /skills list|enable|disable|reload 命令及 gemini skills install|link CLI 管理 skill。三级发现机制：workspace > user > extension。"
   },
   {
     "id": "github-copilot",
@@ -261,7 +269,8 @@
       "glob_scoping": "native",
       "model_override": "partial"
     },
-    "notes": "Closest analog to skills splits into two file types. Prompt files (.github/prompts/*.prompt.md) are slash-invoked via /prompt-name in Chat and accept frontmatter: description, mode (chat/agent/edit), tools (per-prompt tool allowlist), model (per-prompt override, constrained to Copilot catalog). Instruction files (.github/instructions/*.instructions.md) auto-apply based on applyTo glob. .github/copilot-instructions.md is always-on. Cloud Copilot coding agent additionally reads AGENTS.md. No native SKILL.md, no hooks, no subagents, no context fork. pre_approved_tools partial because the prompt-file tools field is a real per-prompt allowlist but uses Copilot-specific tool identifiers. model_override partial because the model field exists but is limited to Copilot-offered models."
+    "notes": "Closest analog to skills splits into two file types. Prompt files (.github/prompts/*.prompt.md) are slash-invoked via /prompt-name in Chat and accept frontmatter: description, mode (chat/agent/edit), tools (per-prompt tool allowlist), model (per-prompt override, constrained to Copilot catalog). Instruction files (.github/instructions/*.instructions.md) auto-apply based on applyTo glob. .github/copilot-instructions.md is always-on. Cloud Copilot coding agent additionally reads AGENTS.md. No native SKILL.md, no hooks, no subagents, no context fork. pre_approved_tools partial because the prompt-file tools field is a real per-prompt allowlist but uses Copilot-specific tool identifiers. model_override partial because the model field exists but is limited to Copilot-offered models.",
+    "notes_zh": "最接近 skill 的对应物分为两种文件类型。Prompt 文件（.github/prompts/*.prompt.md）通过 Chat 中的 /prompt-name 进行 slash 调用，并接受 frontmatter：description、mode（chat/agent/edit）、tools（per-prompt 工具允许列表）、model（per-prompt 覆盖，限定于 Copilot 目录）。Instruction 文件（.github/instructions/*.instructions.md）基于 applyTo glob 自动应用。.github/copilot-instructions.md 为常驻。云端 Copilot coding agent 另外读取 AGENTS.md。无原生 SKILL.md，无 hooks，无 subagents，无 context fork。pre_approved_tools 为 partial，因为 prompt-file 的 tools 字段是真正的 per-prompt 允许列表，但使用 Copilot 专属工具标识符。model_override 为 partial，因为 model 字段存在但限于 Copilot 提供的模型。"
   },
   {
     "id": "jules",
@@ -286,7 +295,8 @@
       "glob_scoping": "unsupported",
       "model_override": "unsupported"
     },
-    "notes": "Google's async, GitHub-connected coding agent: picks up a task (issue/PR), runs in an isolated cloud VM, opens a pull request. Project instructions from AGENTS.md at repo root (plain Markdown, no YAML frontmatter, no native SKILL.md). No user-level rules path (repo-centric). No hooks, no per-skill subagents (one agent per task, multi-step), no context fork, no per-skill tool allowlist (tool permissions fixed by sandbox VM), no slash-command skill invocation (tasks created from GitHub issue / web UI), no glob scoping, no per-skill model override (runs on Gemini models). Portability similar to Codex CLI (flatten SKILL.md into AGENTS.md) but Jules is async/PR-oriented rather than interactive."
+    "notes": "Google's async, GitHub-connected coding agent: picks up a task (issue/PR), runs in an isolated cloud VM, opens a pull request. Project instructions from AGENTS.md at repo root (plain Markdown, no YAML frontmatter, no native SKILL.md). No user-level rules path (repo-centric). No hooks, no per-skill subagents (one agent per task, multi-step), no context fork, no per-skill tool allowlist (tool permissions fixed by sandbox VM), no slash-command skill invocation (tasks created from GitHub issue / web UI), no glob scoping, no per-skill model override (runs on Gemini models). Portability similar to Codex CLI (flatten SKILL.md into AGENTS.md) but Jules is async/PR-oriented rather than interactive.",
+    "notes_zh": "Google 的异步、GitHub 连接的 coding agent：接收任务（issue/PR）后在隔离的 cloud VM 中运行，最终发起 pull request。项目指令来自 repo 根目录的 AGENTS.md（纯 Markdown，无 YAML frontmatter，无原生 SKILL.md）。无 user-level rules 路径（以 repo 为中心）。无 hooks，无 per-skill subagent（每任务一个 agent，多步骤），无 context fork，无 per-skill 工具允许列表（工具权限由 sandbox VM 固定），无 slash-command skill 调用（任务通过 GitHub issue / web UI 创建），无 glob scoping，无 per-skill 模型覆盖（运行于 Gemini 模型）。可移植性类似 Codex CLI（将 SKILL.md 展平进 AGENTS.md），但 Jules 是异步/PR 导向而非交互式。"
   },
   {
     "id": "open-standard",
@@ -319,7 +329,8 @@
       "glob_scoping": "unsupported",
       "model_override": "unsupported"
     },
-    "notes": "The portable baseline. Skills written to this subset run in Claude Code, Gemini CLI, Codex CLI (as AGENTS.md fragments), and Cursor (as .mdc with manual conversion). allowed-tools is experimental."
+    "notes": "The portable baseline. Skills written to this subset run in Claude Code, Gemini CLI, Codex CLI (as AGENTS.md fragments), and Cursor (as .mdc with manual conversion). allowed-tools is experimental.",
+    "notes_zh": "可移植基线。按此子集编写的 skill 可在 Claude Code、Gemini CLI、Codex CLI（作为 AGENTS.md 片段）和 Cursor（手动转换为 .mdc）中运行。allowed-tools 为实验性特性。"
   },
   {
     "id": "windsurf",
@@ -349,7 +360,8 @@
       "glob_scoping": "native",
       "model_override": "unsupported"
     },
-    "notes": "Activation model is trigger/glob-driven (like Cursor), not description-driven. The frontmatter trigger field accepts always/manual/glob/model_decision; globs is required when trigger=glob, description is used by model_decision and manual. No PreToolUse/PostToolUse hooks, no per-rule subagent spawning, no per-rule tool allowlist, no per-rule model override (Cascade model is chosen globally). SKILL.md is not natively recognized; open-standard skills must be rewritten as .windsurf/rules/*.md files."
+    "notes": "Activation model is trigger/glob-driven (like Cursor), not description-driven. The frontmatter trigger field accepts always/manual/glob/model_decision; globs is required when trigger=glob, description is used by model_decision and manual. No PreToolUse/PostToolUse hooks, no per-rule subagent spawning, no per-rule tool allowlist, no per-rule model override (Cascade model is chosen globally). SKILL.md is not natively recognized; open-standard skills must be rewritten as .windsurf/rules/*.md files.",
+    "notes_zh": "激活模型基于 trigger/glob 驱动（类似 Cursor），而非 description 驱动。frontmatter 的 trigger 字段接受 always/manual/glob/model_decision；trigger=glob 时 globs 必填，description 供 model_decision 和 manual 使用。无 PreToolUse/PostToolUse hooks，无 per-rule subagent 生成，无 per-rule 工具允许列表，无 per-rule 模型覆盖（Cascade 模型为全局选择）。SKILL.md 不被原生识别；开放标准 skill 必须改写为 .windsurf/rules/*.md 文件。"
   },
   {
     "id": "zed",
@@ -374,6 +386,7 @@
       "glob_scoping": "unsupported",
       "model_override": "unsupported"
     },
-    "notes": "Zed's AI is an inline-edit / Assistant panel feature. Project context via AGENTS.md (read by the Assistant) plus .zed/settings.json; no dedicated rules filesystem, no SKILL.md support, no YAML frontmatter. Model selection is global via Assistant Profiles (each binds a provider+model), not per-rule. Built-in assistant slash commands (/file, /tab, /project) insert context but cannot invoke user-defined skills. No hooks, no subagent spawning, no context fork, no per-skill tool allowlist, no glob-triggered rules. MCP-style Context Servers exist for retrieval but are not a skills system. Porting means flattening a skill body into AGENTS.md; all advanced extensions are dropped."
+    "notes": "Zed's AI is an inline-edit / Assistant panel feature. Project context via AGENTS.md (read by the Assistant) plus .zed/settings.json; no dedicated rules filesystem, no SKILL.md support, no YAML frontmatter. Model selection is global via Assistant Profiles (each binds a provider+model), not per-rule. Built-in assistant slash commands (/file, /tab, /project) insert context but cannot invoke user-defined skills. No hooks, no subagent spawning, no context fork, no per-skill tool allowlist, no glob-triggered rules. MCP-style Context Servers exist for retrieval but are not a skills system. Porting means flattening a skill body into AGENTS.md; all advanced extensions are dropped.",
+    "notes_zh": "Zed 的 AI 是内联编辑 / Assistant 面板特性。通过 AGENTS.md（由 Assistant 读取）加 .zed/settings.json 提供项目上下文；无专用 rules 文件系统，无 SKILL.md 支持，无 YAML frontmatter。模型通过 Assistant Profiles 全局选择（每个绑定 provider+model），而非 per-rule。内置 assistant slash commands（/file、/tab、/project）插入上下文但无法调用用户自定义 skill。无 hooks，无 subagent 生成，无 context fork，无 per-skill 工具允许列表，无 glob 触发的 rules。存在 MCP 风格的 Context Servers 用于检索，但不是 skills 系统。移植意味着将 skill 正文展平进 AGENTS.md；所有高级扩展均被丢弃。"
   }
 ]
