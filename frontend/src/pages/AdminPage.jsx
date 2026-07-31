@@ -127,7 +127,7 @@ export default function AdminPage() {
             § 03 — Crawler Console
           </span>
         </div>
-        <h1 className="font-[var(--font-serif)] font-bold text-4xl md:text-5xl tracking-[-0.025em] text-[var(--color-text)] mb-3">
+        <h1 className="font-[var(--font-sans)] font-bold text-[32px] md:text-[40px] tracking-[-0.025em] text-[var(--color-text)] mb-3">
           {t('adminTitle')}
         </h1>
         <p className="text-[17px] leading-[1.6] text-[var(--color-text-dim)] max-w-[62ch]">
@@ -251,7 +251,7 @@ export default function AdminPage() {
 
           {/* 历史表格 */}
           <section>
-            <h2 className="font-[var(--font-serif)] text-2xl mb-4 border-b border-[var(--color-rule)] pb-2">
+            <h2 className="font-[var(--font-sans)] font-bold text-2xl mb-4 border-b border-[var(--color-rule)] pb-2">
               {t('crawlHistory')}
             </h2>
             <div className="overflow-x-auto border border-[var(--color-border)] rounded">

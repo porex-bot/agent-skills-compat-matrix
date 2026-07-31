@@ -45,7 +45,7 @@ export default function AgentsPage() {
             § 02 — Agents
           </span>
         </div>
-        <h1 className="font-[var(--font-serif)] font-bold text-4xl md:text-5xl tracking-[-0.025em] text-[var(--color-text)] mb-3">
+        <h1 className="font-[var(--font-sans)] font-bold text-[32px] md:text-[40px] tracking-[-0.025em] text-[var(--color-text)] mb-3">
           {t('agentCapMatrix')}
         </h1>
         <p className="text-[17px] leading-[1.6] text-[var(--color-text-dim)] max-w-[62ch]">
@@ -114,7 +114,7 @@ export default function AgentsPage() {
                 className="block border border-[var(--color-border)] rounded p-4 hover:border-[var(--color-accent-2)] transition-colors"
               >
                 <div className="flex items-baseline justify-between gap-3 mb-1">
-                  <span className="font-[var(--font-serif)] text-lg text-[var(--color-text)] leading-tight">{a.name}</span>
+                  <span className="font-[var(--font-sans)] font-semibold text-lg text-[var(--color-text)] leading-tight">{a.name}</span>
                   <span className="font-[var(--font-mono)] text-[10px] uppercase tracking-wider text-[var(--color-text-faint)]">{a.vendor}</span>
                 </div>
                 {a.notes && (

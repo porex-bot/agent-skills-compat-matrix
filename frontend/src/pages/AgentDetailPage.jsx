@@ -71,7 +71,7 @@ export default function AgentDetailPage() {
         <span className="font-[var(--font-mono)] text-[10px] uppercase tracking-wider text-[var(--color-text-dim)]">{agent.vendor || '—'}</span>
       </div>
 
-      <h1 className="font-[var(--font-serif)] font-bold text-4xl md:text-5xl tracking-[-0.025em] text-[var(--color-text)] leading-[1.1]">
+      <h1 className="font-[var(--font-sans)] font-bold text-[32px] md:text-[40px] tracking-[-0.025em] text-[var(--color-text)] leading-[1.1]">
         {agent.name}
       </h1>
 
@@ -94,7 +94,7 @@ export default function AgentDetailPage() {
 
       {/* 特性 grid */}
       <section className="mt-10">
-        <h2 className="font-[var(--font-serif)] text-2xl mb-4 border-b border-[var(--color-rule)] pb-2">
+        <h2 className="font-[var(--font-sans)] font-bold text-2xl mb-4 border-b border-[var(--color-rule)] pb-2">
           {t('features')}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -119,7 +119,7 @@ export default function AgentDetailPage() {
 
       {/* Facts */}
       <section className="mt-10">
-        <h2 className="font-[var(--font-serif)] text-2xl mb-4 border-b border-[var(--color-rule)] pb-2">
+        <h2 className="font-[var(--font-sans)] font-bold text-2xl mb-4 border-b border-[var(--color-rule)] pb-2">
           Facts
         </h2>
         <dl className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">

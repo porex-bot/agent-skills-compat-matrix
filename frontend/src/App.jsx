@@ -12,12 +12,12 @@ export default function App() {
 
   return (
     <div className="min-h-[100dvh] flex flex-col">
-      <header className="sticky top-0 z-50 border-b border-[var(--color-rule)] bg-[rgba(16,14,12,0.92)] backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-[var(--color-rule)] bg-[rgba(255,255,255,0.85)] backdrop-blur">
         <div className="max-w-[1320px] mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5 text-[var(--color-text)] hover:no-underline">
             <span className="text-xl leading-none">🧩</span>
             <span className="font-[var(--font-serif)] font-semibold text-[19px] tracking-[-0.01em]">
-              Compat <span className="italic font-black text-[var(--color-accent)]">Matrix</span>
+              Compat <span className="font-bold text-[var(--color-accent)]">Matrix</span>
             </span>
           </Link>
           <nav className="flex items-center gap-1">

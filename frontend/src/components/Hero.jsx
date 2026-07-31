@@ -9,9 +9,9 @@ export default function Hero({ kicker, titleParts, lede, sectionNumber = '01' })
           {kicker ?? `§ ${sectionNumber}`}
         </span>
       </div>
-      <h1 className="font-[var(--font-serif)] font-bold text-[44px] md:text-[56px] leading-[1.04] tracking-[-0.025em] text-[var(--color-text)] max-w-[20ch] md:max-w-[24ch]">
+      <h1 className="font-[var(--font-sans)] font-bold text-[40px] md:text-[46px] leading-[1.08] tracking-[-0.02em] text-[var(--color-text)] max-w-[20ch] md:max-w-[24ch]">
         {titleParts.pre}
-        <em className="font-black text-[var(--color-accent)]">{titleParts.accent}</em>
+        <span className="text-[var(--color-accent)]">{titleParts.accent}</span>
         {titleParts.post}
       </h1>
       {lede && (

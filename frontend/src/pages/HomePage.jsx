@@ -208,7 +208,7 @@ export default function HomePage() {
                     className="block border border-[var(--color-border)] rounded p-4 hover:border-[var(--color-accent-2)] transition-colors"
                   >
                     <div className="flex items-start justify-between gap-3 mb-2">
-                      <span className="font-[var(--font-serif)] text-lg text-[var(--color-text)] leading-tight">{sk.name}</span>
+                      <span className="font-[var(--font-sans)] font-semibold text-lg text-[var(--color-text)] leading-tight">{sk.name}</span>
                       <CategoryTag category={sk.category} />
                     </div>
                     {description && (

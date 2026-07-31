@@ -58,7 +58,7 @@ export default function SkillDetailPage() {
         <CategoryTag category={skill.category} />
       </div>
 
-      <h1 className="font-[var(--font-serif)] font-bold text-4xl md:text-5xl tracking-[-0.025em] text-[var(--color-text)] leading-[1.1]">
+      <h1 className="font-[var(--font-sans)] font-bold text-[32px] md:text-[40px] tracking-[-0.025em] text-[var(--color-text)] leading-[1.1]">
         {skill.name}
       </h1>
 
@@ -101,7 +101,7 @@ export default function SkillDetailPage() {
 
       {/* 各 Agent 兼容情况 */}
       <section className="mt-10">
-        <h2 className="font-[var(--font-serif)] text-2xl mb-3 border-b border-[var(--color-rule)] pb-2">
+        <h2 className="font-[var(--font-sans)] font-bold text-2xl mb-3 border-b border-[var(--color-rule)] pb-2">
           {t('compatPerAgent')}
         </h2>
         <div className="overflow-x-auto border border-[var(--color-border)] rounded">
@@ -145,7 +145,7 @@ export default function SkillDetailPage() {
 
       {/* 使用教程 */}
       <section className="mt-10">
-        <h2 className="font-[var(--font-serif)] text-2xl mb-4 border-b border-[var(--color-rule)] pb-2">
+        <h2 className="font-[var(--font-sans)] font-bold text-2xl mb-4 border-b border-[var(--color-rule)] pb-2">
           {t('usageTutorial')}
         </h2>
         {skill.usage_tutorial ? (
@@ -153,7 +153,7 @@ export default function SkillDetailPage() {
             <ReactMarkdown>{skill.usage_tutorial}</ReactMarkdown>
           </div>
         ) : (
-          <p className="text-[var(--color-text-dim)] italic">{t('usageTutorialEmpty')}</p>
+          <p className="text-[var(--color-text-dim)]">{t('usageTutorialEmpty')}</p>
         )}
       </section>
     </div>

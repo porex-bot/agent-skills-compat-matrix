@@ -1,42 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 /* ============================================================
-   Agent Skills Compatibility Matrix — "Technical Dossier" 主题
-   遵循 taste-skill anti-slop 原则:
-   - 不用 AI 默认紫渐变 / 居中 hero / 玻璃态 / Inter+slate
-   - 暖色调近黑底 + 琥珀强调 (项目视觉身份)
-   - 衬线(Fraunces) + 等宽(IBM Plex Mono) + 无衬线(IBM Plex Sans)
-   - 旋钮: VARIANCE 6 / MOTION 4 / DENSITY 6 (数据矩阵需要密度)
+   Agent Skills Compatibility Matrix — "Clean Light" 主题
+   明亮极简 + 现代无衬线 (Inter) + 深蓝紫点缀
+   - 白/浅灰底, 深灰文字, 单一品牌色
+   - 状态色用现代饱和度: 绿/琥珀/红/灰
+   - 旋钮: VARIANCE 5 / MOTION 3 / DENSITY 5 (极简阅读优先)
    ============================================================ */
 
 @theme {
-  /* 配色: 暖色调近黑底, 琥珀强调, 语义状态色 */
-  --color-bg: #100e0c;
-  --color-bg-elev: #181410;
-  --color-bg-elev-2: #221c14;
-  --color-border: #322a1d;
-  --color-border-soft: #281f15;
-  --color-rule: #4a3d28;
-  --color-text: #f0e8d8;
-  --color-text-dim: #a89c85;
-  --color-text-faint: #6b6053;
-  --color-accent: #e8a838;       /* 琥珀 */
-  --color-accent-2: #c97b3a;     /* 焦橙 */
-  --color-native: #8fb069;       /* 鼠尾草绿 */
-  --color-compatible: #8fb069;
-  --color-partial: #e8a838;
-  --color-unsupported: #d96846;  /* 赤陶 */
-  --color-unknown: #6b6053;
+  /* 配色: 明亮极简, 深蓝紫点缀 */
+  --color-bg: #ffffff;
+  --color-bg-elev: #f8f9fb;
+  --color-bg-elev-2: #f1f3f7;
+  --color-border: #e4e7ec;
+  --color-border-soft: #eef0f4;
+  --color-rule: #d8dce4;
+  --color-text: #0f172a;          /* slate-900 */
+  --color-text-dim: #475569;      /* slate-600 */
+  --color-text-faint: #94a3b8;    /* slate-400 */
+  --color-accent: #6366f1;        /* indigo-500 深蓝紫 */
+  --color-accent-2: #4f46e5;      /* indigo-600 */
+  --color-accent-soft: #eef2ff;   /* indigo-50 */
+  --color-native: #10b981;        /* emerald-500 */
+  --color-compatible: #10b981;
+  --color-partial: #f59e0b;       /* amber-500 */
+  --color-unsupported: #ef4444;   /* red-500 */
+  --color-unknown: #cbd5e1;       /* slate-300 */
 
-  /* 字体族 */
-  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
-  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* 字体族: Inter 为主, JetBrains Mono 用于数字/代码 */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font-serif: "Inter", -apple-system, sans-serif; /* 极简风不再用衬线, 统一映射到 sans */
 }
-
-/* 自托管字体太重, 开发期用 Google Fonts; 生产可换 @font-face self-host */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 
 * { box-sizing: border-box; }
 
@@ -46,23 +43,21 @@ html, body {
   color: var(--color-text);
   font-family: var(--font-sans);
   font-size: 15px;
-  line-height: 1.55;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv11" 1, "ss01" 1; /* Inter 优化: 数字 + 替代字形 */
 }
 
-/* 纸张颗粒: 暖色径向渐变叠加, 避免纯黑死板 */
 body {
-  background-image:
-    radial-gradient(circle at 20% 0%, rgba(232,168,56,0.05), transparent 50%),
-    radial-gradient(circle at 80% 100%, rgba(201,123,58,0.04), transparent 50%);
-  background-attachment: fixed;
   min-height: 100dvh;
+  background-image: none; /* 极简风, 纯白底, 无渐变颗粒 */
 }
 
 a { color: var(--color-accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-/* 等宽数字对齐, 用于统计/表格 */
+/* 等宽数字对齐 */
 .tnum { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
 
 /* 状态色点 */
@@ -71,41 +66,41 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .dot-unsupported { background: var(--color-unsupported); }
 .dot-unknown { background: var(--color-unknown); }
 
-/* taste-skill: 克制动效 — 只用淡入, 不用花哨 */
+/* 克制动效: 仅淡入 */
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.fade-in { animation: fade-in 0.25s ease-out both; }
+.fade-in { animation: fade-in 0.2s ease-out both; }
 
 /* 滚动条 */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: var(--color-rule); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-accent-2); }
+::-webkit-scrollbar-track { background: var(--color-bg-elev); }
+::-webkit-scrollbar-thumb { background: var(--color-rule); border-radius: 5px; border: 2px solid var(--color-bg-elev); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-faint); }
 
 /* markdown 渲染 (使用教程) */
-.prose-tutorial { color: var(--color-text); line-height: 1.7; }
+.prose-tutorial { color: var(--color-text); line-height: 1.75; }
 .prose-tutorial h1, .prose-tutorial h2, .prose-tutorial h3 {
-  font-family: var(--font-serif); color: var(--color-text); margin: 1.4em 0 0.6em; line-height: 1.2;
+  font-family: var(--font-sans); color: var(--color-text); margin: 1.6em 0 0.6em; line-height: 1.25; font-weight: 700;
 }
-.prose-tutorial h1 { font-size: 1.5rem; }
-.prose-tutorial h2 { font-size: 1.25rem; }
+.prose-tutorial h1 { font-size: 1.6rem; }
+.prose-tutorial h2 { font-size: 1.3rem; }
 .prose-tutorial h3 { font-size: 1.1rem; }
-.prose-tutorial p { margin: 0.7em 0; color: var(--color-text-dim); }
+.prose-tutorial p { margin: 0.8em 0; color: var(--color-text-dim); }
 .prose-tutorial code {
   font-family: var(--font-mono); font-size: 0.85em; background: var(--color-bg-elev-2);
-  padding: 0.15em 0.4em; border-radius: 3px; color: var(--color-accent);
+  padding: 0.15em 0.4em; border-radius: 4px; color: var(--color-accent-2);
 }
 .prose-tutorial pre {
   background: var(--color-bg-elev); border: 1px solid var(--color-border);
-  padding: 14px 16px; border-radius: 4px; overflow-x: auto; margin: 1em 0;
+  padding: 16px; border-radius: 8px; overflow-x: auto; margin: 1em 0;
 }
 .prose-tutorial pre code { background: none; padding: 0; color: var(--color-text); }
-.prose-tutorial ul, .prose-tutorial ol { margin: 0.7em 0; padding-left: 1.4em; color: var(--color-text-dim); }
-.prose-tutorial li { margin: 0.3em 0; }
+.prose-tutorial ul, .prose-tutorial ol { margin: 0.8em 0; padding-left: 1.5em; color: var(--color-text-dim); }
+.prose-tutorial li { margin: 0.4em 0; }
 .prose-tutorial a { color: var(--color-accent); }
 .prose-tutorial blockquote {
-  border-left: 2px solid var(--color-accent-2); margin: 1em 0; padding-left: 1em;
-  color: var(--color-text-dim); font-style: italic;
+  border-left: 3px solid var(--color-accent); margin: 1em 0; padding-left: 1em;
+  color: var(--color-text-dim); font-style: normal;
 }
