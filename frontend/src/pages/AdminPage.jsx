@@ -92,7 +92,13 @@ export default function AdminPage() {
     setSaving(true);
     setError(null);
     try {
-      const updated = await updateCrawlConfig(draft);
+      // 编辑期允许空串(方便清空重输), 提交时归一为 0
+      const payload = {
+        ...draft,
+        min_stars: draft.min_stars === '' ? 0 : draft.min_stars,
+        interval_hours: draft.interval_hours === '' ? 0 : draft.interval_hours,
+      };
+      const updated = await updateCrawlConfig(payload);
       setConfig(updated);
       setDraft({ ...updated });
       setSavedMsg(true);
@@ -161,8 +167,8 @@ export default function AdminPage() {
                   <input
                     type="number"
                     min="0"
-                    value={draft.min_stars ?? 0}
-                    onChange={(e) => setDraft({ ...draft, min_stars: parseInt(e.target.value, 10) || 0 })}
+                    value={draft.min_stars ?? ''}
+                    onChange={(e) => setDraft({ ...draft, min_stars: e.target.value === '' ? '' : parseInt(e.target.value, 10) })}
                     className={inputCls}
                   />
                 </Field>
@@ -170,8 +176,8 @@ export default function AdminPage() {
                   <input
                     type="number"
                     min="0"
-                    value={draft.interval_hours ?? 0}
-                    onChange={(e) => setDraft({ ...draft, interval_hours: parseInt(e.target.value, 10) || 0 })}
+                    value={draft.interval_hours ?? ''}
+                    onChange={(e) => setDraft({ ...draft, interval_hours: e.target.value === '' ? '' : parseInt(e.target.value, 10) })}
                     className={inputCls}
                   />
                 </Field>
