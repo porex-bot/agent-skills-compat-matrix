@@ -6,7 +6,7 @@
       "repo": "anthropics/skills",
       "url": "https://github.com/anthropics/skills",
       "category": "productivity",
-      "description": "Meta-skill for drafting, evaluating, and iteratively improving agent skills using a bundled eval harness with quantitative benchmarks.",
+      "description": "Drafts, evaluates, and iteratively improves agent skills using a bundled eval harness with quantitative benchmarks. Effect: produces higher-quality skills whose behavior is measured, not guessed.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -37,7 +37,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "用内置的评测工具和量化基准来起草、评估并迭代改进 agent skill。效果：产出的 skill 质量更高，行为有数据支撑而非凭感觉。",
+      "caveats_zh": {
+        "cursor": "以 alwaysApply:false 的 .mdc 安装;eval-viewer/generate_review.py 测试套件通过 bash 运行,但必须手动调用。",
+        "codex-cli": "将提示主体放入 AGENTS.md;scripts/eval-viewer 下的 eval 脚本必须显式引用,且 32 KiB 预算可能会截断方法论。",
+        "open-standard": "流程化的编写指导可干净迁移;定量 eval 套件是打包脚本,需要手动连接。"
+      }
     },
     {
       "id": "anthropics-webapp-testing",
@@ -45,7 +51,7 @@
       "repo": "anthropics/skills",
       "url": "https://github.com/anthropics/skills",
       "category": "debug",
-      "description": "Playwright-based toolkit for driving, inspecting, and verifying local web apps via a bundled with_server.py lifecycle helper.",
+      "description": "Drives, inspects, and verifies local web apps with Playwright via a bundled with_server.py lifecycle helper. Effect: catches runtime/DOM/console regressions before a human would, without manual clicking.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -76,7 +82,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "用 Playwright 驱动、检查并验证本地 web 应用，附带 with_server.py 生命周期助手。效果：在人工点击之前就能发现运行时、DOM、控制台的回归问题。",
+      "caveats_zh": {
+        "cursor": "脚本通过 bash 运行,但 Playwright 必须单独安装,且 scripts/with_server.py 需手动调用而非自动发现。",
+        "codex-cli": "打包的 scripts/with_server.py 不会被自动发现;必须在 AGENTS.md 中显式引用,缺少它则多服务器编排模式会退化。",
+        "open-standard": "流程化的测试指导可迁移;打包的 Python 辅助工具需要手动连接资源。"
+      }
     },
     {
       "id": "anthropics-pdf",
@@ -84,7 +96,7 @@
       "repo": "anthropics/skills",
       "url": "https://github.com/anthropics/skills",
       "category": "productivity",
-      "description": "PDF processing guide for extract/merge/split/OCR/encrypt workflows using pypdf, pdfplumber, reportlab, and qpdf with bundled reference docs.",
+      "description": "Extracts, merges, splits, OCRs, and encrypts PDFs using pypdf, pdfplumber, reportlab, and qpdf with bundled reference docs. Effect: turns ad-hoc PDF chores into reliable, repeatable pipelines.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -115,7 +127,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "用 pypdf、pdfplumber、reportlab、qpdf 完成 PDF 的抽取、合并、拆分、OCR、加密，附带参考文档。效果：把零散的 PDF 处理变成可靠、可重复的流水线。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;REFERENCE.md 和 FORMS.md 作为上下文加载,pip 依赖必须手动安装。",
+        "codex-cli": "放入 AGENTS.md;较大的 REFERENCE.md 可能触及 32 KiB 预算,需有选择地加载。",
+        "open-standard": "纯提示指南可干净迁移;仅打包的参考文档需要调整路径。"
+      }
     },
     {
       "id": "anthropics-xlsx",
@@ -123,7 +141,7 @@
       "repo": "anthropics/skills",
       "url": "https://github.com/anthropics/skills",
       "category": "productivity",
-      "description": "Spreadsheet creation/editing with openpyxl and pandas plus a mandatory LibreOffice recalc step via bundled scripts/recalc.py and financial-modeling conventions.",
+      "description": "Creates and edits spreadsheets with openpyxl and pandas plus a mandatory LibreOffice recalc step and financial-modeling conventions. Effect: ships workbooks whose cached formula values are correct on first open in Excel.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -154,7 +172,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "用 openpyxl 和 pandas 创建、编辑电子表格，强制走 LibreOffice 重算步骤，遵循金融建模规范。效果：交付的工作簿在 Excel 中首次打开时缓存的公式值就是正确的。",
+      "caveats_zh": {
+        "cursor": "必须安装 LibreOffice/soffice;scripts/recalc.py 和 scripts/office/soffice.py 需手动调用而非自动触发。",
+        "codex-cli": "必需的 recalc.py 步骤不会被自动发现,必须在 AGENTS.md 中显式引用,因此发布的工作簿会以 None 缓存的公式值发布。",
+        "open-standard": "指导可迁移;recalc/soffice 辅助脚本需要手动连接资源。"
+      }
     },
     {
       "id": "anthropics-frontend-design",
@@ -162,7 +186,7 @@
       "repo": "anthropics/skills",
       "url": "https://github.com/anthropics/skills",
       "category": "frontend",
-      "description": "Opinionated visual-design direction for UI builds covering palette, typography, layout, and a self-critique pass to avoid templated AI aesthetics.",
+      "description": "Gives opinionated visual-design direction for UI builds — palette, typography, layout — plus a self-critique pass to avoid templated AI aesthetics. Effect: UIs that look intentionally designed instead of generic.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -193,7 +217,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "为 UI 构建提供有主见的视觉设计方向（配色、字体、布局），并做一轮自我批判以避免模板化的 AI 审美。效果：产出的界面像是有意设计的，而非千篇一律。",
+      "caveats_zh": {
+        "cursor": "以 alwaysApply:false 的 .mdc 安装,使用 description 作为触发器;基于截图的自我评审需要手动捕获。",
+        "codex-cli": "将提示主体作为全局指令放入 AGENTS.md;无需任何 frontmatter 即可工作。",
+        "open-standard": "纯提示的设计指导可迁移,无资源依赖。"
+      }
     },
     {
       "id": "anthropics-mcp-builder",
@@ -201,7 +231,7 @@
       "repo": "anthropics/skills",
       "url": "https://github.com/anthropics/skills",
       "category": "backend",
-      "description": "Guide for building high-quality MCP servers in TypeScript or Python, covering design, implementation, review, and evaluation creation.",
+      "description": "Guides building high-quality MCP servers in TypeScript or Python across design, implementation, review, and evaluation. Effect: ships MCP servers that follow consistent structure and pass review on the first try.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -232,7 +262,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "指导用 TypeScript 或 Python 构建高质量 MCP server，覆盖设计、实现、评审、评测。效果：交付的 MCP server 结构一致，首次评审即可通过。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;reference/*.md 指南作为上下文加载,SDK 文档需通过 WebFetch 手动获取。",
+        "codex-cli": "放入 AGENTS.md;reference/ 文档集可能超过 32 KiB 预算,需按阶段有选择地加载。",
+        "open-standard": "流程化的构建指导可迁移;打包的参考文档需要调整路径。"
+      }
     },
     {
       "id": "anthropics-brand-guidelines",
@@ -240,7 +276,7 @@
       "repo": "anthropics/skills",
       "url": "https://github.com/anthropics/skills",
       "category": "marketing",
-      "description": "Applies Anthropic brand colors and Poppins/Lora typography to artifacts via python-pptx RGBColor styling with font fallbacks.",
+      "description": "Applies Anthropic brand colors and Poppins/Lora typography to artifacts via python-pptx with font fallbacks. Effect: generated slides/docs match the brand spec without manual reformatting.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -271,7 +307,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "用 python-pptx 将 Anthropic 品牌色和 Poppins/Lora 字体应用到产物上，带字体回退。效果：生成的幻灯片/文档符合品牌规范，无需手工重排。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;必须预装 Poppins 和 Lora 字体才能正确渲染。",
+        "codex-cli": "放入 AGENTS.md;python-pptx 依赖必须手动安装。",
+        "open-standard": "纯提示的品牌规范可干净迁移;仅字体可用性依赖于环境。"
+      }
     },
     {
       "id": "anthropics-theme-factory",
@@ -279,7 +321,7 @@
       "repo": "anthropics/skills",
       "url": "https://github.com/anthropics/skills",
       "category": "frontend",
-      "description": "Generates coherent design-token themes spanning color, typography, and spacing for UI projects from a brief.",
+      "description": "Generates coherent design-token themes — color, typography, spacing — for UI projects from a brief. Effect: gives a project a consistent, reusable token system in one pass instead of ad-hoc values.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -310,7 +352,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "根据需求为 UI 项目生成一致的设计令牌主题（颜色、字体、间距）。效果：一次性给项目一套一致、可复用的令牌体系，而非零散取值。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;生成的 token 需手动应用到代码库。",
+        "codex-cli": "将提示主体作为全局指令放入 AGENTS.md。",
+        "open-standard": "纯提示的 token 生成指导可迁移,无资源依赖。"
+      }
     },
     {
       "id": "anthropics-algorithmic-art",
@@ -318,7 +366,7 @@
       "repo": "anthropics/skills",
       "url": "https://github.com/anthropics/skills",
       "category": "frontend",
-      "description": "Generative-art guidance producing canvas, SVG, and processing sketches with deliberate compositional and palette choices.",
+      "description": "Produces generative-art sketches on canvas, SVG, and Processing with deliberate compositional and palette choices. Effect: outputs sketches with intentional composition instead of random noise.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -349,7 +397,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "在 canvas、SVG、Processing 上生成生成艺术草图，带有意的构图和配色选择。效果：产出的草图有刻意构图，而非随机噪声。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;草图在预览面板中渲染,但没有自动评审循环。",
+        "codex-cli": "将提示主体作为全局指令放入 AGENTS.md。",
+        "open-standard": "纯提示的艺术指导可迁移,无资源依赖。"
+      }
     },
     {
       "id": "superpowers-dispatching-parallel-agents",
@@ -357,7 +411,7 @@
       "repo": "obra/superpowers",
       "url": "https://github.com/obra/superpowers",
       "category": "refactor",
-      "description": "Delegates two or more independent tasks to isolated parallel subagents, crafting focused prompts and integrating their results.",
+      "description": "Delegates two or more independent tasks to isolated parallel subagents, crafting focused prompts and integrating their results. Effect: finishes independent work concurrently and keeps each task's context clean.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "partial",
@@ -391,7 +445,14 @@
         "agent"
       ],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "把两个或多个独立任务委派给隔离的并行子 agent，精心编写聚焦的提示并整合结果。效果：独立工作并发完成，且每个任务的上下文保持干净。",
+      "caveats_zh": {
+        "cursor": "Cursor 没有并行 subagent 生成,因此各领域任务以内联方式顺序执行,丧失并发性和上下文隔离。",
+        "codex-cli": "Codex 没有 subagent 隔离,因此独立调查会塌缩为共享上下文的单线程内联处理。",
+        "gemini-cli": "一轮内的原生多路分派不可用;subagent 必须通过 settings.json 的 hooks 手动编排。",
+        "open-standard": "subagent 分派是 Claude 专属能力;该 skill 回退为顺序内联执行。"
+      }
     },
     {
       "id": "superpowers-subagent-driven-development",
@@ -399,7 +460,7 @@
       "repo": "obra/superpowers",
       "url": "https://github.com/obra/superpowers",
       "category": "refactor",
-      "description": "Executes implementation plans by dispatching a fresh implementer subagent per task plus per-task and final whole-branch reviews.",
+      "description": "Executes implementation plans by dispatching a fresh implementer subagent per task, plus per-task and final whole-branch reviews. Effect: each task gets a clean context and an independent review, raising code quality at the branch level.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "partial",
@@ -433,7 +494,14 @@
         "agent"
       ],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "按实现计划为每个任务派发全新的实现子 agent，并做逐任务和整分支的评审。效果：每个任务都有干净上下文和独立评审，提升整分支的代码质量。",
+      "caveats_zh": {
+        "cursor": "没有 subagent 生成意味着实现和评审步骤塌缩为一次内联处理,丧失每个任务的独立上下文。",
+        "codex-cli": "没有 subagent 隔离意味着评审步骤在内联运行时没有新的上下文窗口,降低评审独立性。",
+        "gemini-cli": "每任务全新 subagent 分派并非原生支持,必须通过 settings.json 手动编排。",
+        "open-standard": "每任务全新 subagent 模式是 Claude 专属;它会退化为内联顺序执行。"
+      }
     },
     {
       "id": "superpowers-systematic-debugging",
@@ -441,7 +509,7 @@
       "repo": "obra/superpowers",
       "url": "https://github.com/obra/superpowers",
       "category": "debug",
-      "description": "Four-phase root-cause debugging discipline that forbids symptom fixes by requiring investigation before any fix is proposed.",
+      "description": "Four-phase root-cause debugging discipline that forbids symptom fixes by requiring investigation before any fix is proposed. Effect: eliminates patch-on-patch fixes and finds the actual cause.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -472,7 +540,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "四阶段根因调试纪律，要求先调查再提修复方案，禁止只治症状。效果：消除补丁套补丁的修复，找到真正的根因。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;方法论作为按需指导可干净迁移。",
+        "codex-cli": "作为全局指令放入 AGENTS.md;无需 frontmatter。",
+        "open-standard": "纯提示的调试规范可迁移,无资源依赖。"
+      }
     },
     {
       "id": "superpowers-verification-before-completion",
@@ -480,7 +554,7 @@
       "repo": "obra/superpowers",
       "url": "https://github.com/obra/superpowers",
       "category": "code-review",
-      "description": "Enforces evidence-before-claims by requiring fresh verification command output before any success or completion assertion.",
+      "description": "Enforces evidence-before-claims by requiring fresh verification command output before any success or completion assertion. Effect: stops the agent from claiming 'done' without proof.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -511,7 +585,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "强制先有证据再下结论——任何成功或完成断言前必须先跑验证命令并看输出。效果：阻止 agent 没有证据就声称'完成'。",
+      "caveats_zh": {
+        "cursor": "作为 .mdc 指导工作;没有强制执行 hook,因此合规性依赖模型自身。",
+        "codex-cli": "放入 AGENTS.md;该 gate 仅为指令形式,对未经验证的声明没有硬性阻断。",
+        "open-standard": "纯提示的规范可迁移;没有自动化 gating 机制。"
+      }
     },
     {
       "id": "addyosmani-browser-testing-with-devtools",
@@ -519,7 +599,7 @@
       "repo": "addyosmani/agent-skills",
       "url": "https://github.com/addyosmani/agent-skills",
       "category": "debug",
-      "description": "Live browser testing via the chrome-devtools MCP server for DOM inspection, console errors, network analysis, and performance profiling.",
+      "description": "Live browser testing via the chrome-devtools MCP server for DOM inspection, console errors, network analysis, and performance profiling. Effect: reproduces and diagnoses front-end bugs in a real browser session.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "partial",
@@ -550,7 +630,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "通过 chrome-devtools MCP server 做实时浏览器测试，检查 DOM、控制台错误、网络请求、性能。效果：在真实浏览器会话里复现并诊断前端 bug。",
+      "caveats_zh": {
+        "cursor": "chrome-devtools MCP server 必须在 Cursor 的 MCP 面板中单独配置;skill 提示可以运行,但底层工具需要手动设置。",
+        "codex-cli": "MCP 支持有限,因此 DevTools 调用可能需要手动 curl 或脚本编排。",
+        "open-standard": "对 chrome-devtools MCP server 的硬依赖使其作为独立 skill 不可移植。"
+      }
     },
     {
       "id": "addyosmani-ci-cd-and-automation",
@@ -558,7 +644,7 @@
       "repo": "addyosmani/agent-skills",
       "url": "https://github.com/addyosmani/agent-skills",
       "category": "devops",
-      "description": "Sets up CI/CD quality-gate pipelines from lint through e2e with shift-left checks and small-batch deployment strategy.",
+      "description": "Sets up CI/CD quality-gate pipelines from lint through e2e with shift-left checks and small-batch deployment strategy. Effect: gives a repo a working pipeline that gates merges on quality signals.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -589,7 +675,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "搭建从 lint 到 e2e 的 CI/CD 质量门禁流水线，带左移检查和小批量部署策略。效果：给仓库一套能用的流水线，按质量信号门禁合并。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;pipeline YAML 会生成但不会自动提交到 .github/workflows。",
+        "codex-cli": "放入 AGENTS.md;workflow 文件由 agent 手动写入。",
+        "open-standard": "纯提示的 pipeline 指导可迁移,无资源依赖。"
+      }
     },
     {
       "id": "addyosmani-security-and-hardening",
@@ -597,7 +689,7 @@
       "repo": "addyosmani/agent-skills",
       "url": "https://github.com/addyosmani/agent-skills",
       "category": "code-review",
-      "description": "Security-first hardening via STRIDE threat modeling over trust boundaries covering input validation, auth, secrets, and transport.",
+      "description": "Security-first hardening via STRIDE threat modeling over trust boundaries covering input validation, auth, secrets, and transport. Effect: surfaces concrete threats and where to mitigate them, not generic advice.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -628,7 +720,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "用 STRIDE 威胁建模在信任边界上做安全优先的加固，覆盖输入校验、鉴权、密钥、传输。效果：给出具体的威胁和缓解点，而非泛泛建议。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;评审按需运行,而非作为 pre-commit gate 强制执行。",
+        "codex-cli": "放入 AGENTS.md;仅为指令形式,不会自动阻断不安全的写入。",
+        "open-standard": "纯提示的威胁建模指导可迁移,无资源依赖。"
+      }
     },
     {
       "id": "addyosmani-spec-driven-development",
@@ -636,7 +734,7 @@
       "repo": "addyosmani/agent-skills",
       "url": "https://github.com/addyosmani/agent-skills",
       "category": "build",
-      "description": "Gated specify-plan-tasks-implement workflow that writes a reviewed spec before any code, surfacing assumptions and boundaries.",
+      "description": "Gated specify-plan-tasks-implement workflow that writes a reviewed spec before any code, surfacing assumptions and boundaries. Effect: catches wrong assumptions before code is written, reducing rework.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -667,7 +765,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "门禁式的 specify-plan-tasks-implement 工作流，写代码前先产出经评审的规格，暴露假设和边界。效果：在写代码前就抓住错误假设，减少返工。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;对 planning-and-task-breakdown 的跨 skill 引用需要手动链接。",
+        "codex-cli": "放入 AGENTS.md;spec 和 tasks/*.md 文件由 agent 手动写入。",
+        "open-standard": "纯提示的 gated workflow 可迁移,无资源依赖。"
+      }
     },
     {
       "id": "addyosmani-shipping-and-launch",
@@ -675,7 +779,7 @@
       "repo": "addyosmani/agent-skills",
       "url": "https://github.com/addyosmani/agent-skills",
       "category": "deploy",
-      "description": "Pre-launch checklist and staged-rollout or rollback strategy covering code quality, security, performance, and monitoring.",
+      "description": "Pre-launch checklist and staged-rollout or rollback strategy covering code quality, security, performance, and monitoring. Effect: makes launches auditable and reversible instead of all-or-nothing.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -706,7 +810,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "发布前清单 + 分阶段上线/回滚策略，覆盖代码质量、安全、性能、监控。效果：让发布可审计、可回滚，而非一锤子买卖。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;checklist 作为指导运行,而非硬性 deploy gate。",
+        "codex-cli": "放入 AGENTS.md;rollout 和 rollback 命令由 agent 手动执行。",
+        "open-standard": "纯提示的上线指导可迁移,无资源依赖。"
+      }
     },
     {
       "id": "addyosmani-observability-and-instrumentation",
@@ -714,7 +824,7 @@
       "repo": "addyosmani/agent-skills",
       "url": "https://github.com/addyosmani/agent-skills",
       "category": "devops",
-      "description": "Adds logging, metrics, tracing, and alerting telemetry alongside features by defining on-call questions before instrumenting.",
+      "description": "Adds logging, metrics, tracing, and alerting telemetry alongside features by defining on-call questions before instrumenting. Effect: ships features that are already observable, not black boxes in prod.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -745,7 +855,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "在开发功能的同时加日志、指标、链路追踪、告警，先定义值班问题再加埋点。效果：交付的功能天生可观测，而非生产环境的黑盒。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;instrumentation 代码按需生成,而非强制执行。",
+        "codex-cli": "放入 AGENTS.md;telemetry 代码片段由 agent 手动写入。",
+        "open-standard": "纯提示的 instrumentation 指导可迁移,无资源依赖。"
+      }
     },
     {
       "id": "mattpocock-handoff",
@@ -753,7 +869,7 @@
       "repo": "mattpocock/skills",
       "url": "https://github.com/mattpocock/skills",
       "category": "productivity",
-      "description": "Compacts the current conversation into a redacted handoff document with suggested skills for a fresh agent session.",
+      "description": "Compacts the current conversation into a redacted handoff document with suggested skills for a fresh agent session. Effect: lets you continue work in a new context window without losing thread or leaking secrets.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -787,7 +903,13 @@
         "disable-model-invocation"
       ],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "把当前对话压缩成一份脱敏的交接文档，并推荐下个会话用的 skill。效果：在新上下文窗口继续工作时不丢线索、不泄密。",
+      "caveats_zh": {
+        "cursor": "argument-hint 和 disable-model-invocation frontmatter 被忽略;以 .mdc 安装并手动调用。",
+        "codex-cli": "frontmatter 被去除;将主体放入 AGENTS.md 并手动触发 handoff 写入。",
+        "open-standard": "disable-model-invocation 是 Claude 专属的自动触发控制,在其他环境中被忽略;提示主体本身是可移植的。"
+      }
     },
     {
       "id": "mattpocock-wayfinder",
@@ -795,7 +917,7 @@
       "repo": "mattpocock/skills",
       "url": "https://github.com/mattpocock/skills",
       "category": "productivity",
-      "description": "Charts huge efforts as a shared map of decision tickets on the issue tracker, resolving them one at a time until the route is clear.",
+      "description": "Charts huge efforts as a shared map of decision tickets on the issue tracker, resolving them one at a time until the route is clear. Effect: turns an overwhelming project into a queue of single, decidable questions.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -828,7 +950,13 @@
         "disable-model-invocation"
       ],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "把大型项目画成 issue tracker 上的决策工单地图，逐个解决直到路径清晰。效果：把令人无从下手的项目变成一串可单独决策的问题。",
+      "caveats_zh": {
+        "cursor": "disable-model-invocation 被忽略;规划作为 .mdc 指导按需内联运行。",
+        "codex-cli": "frontmatter 被去除;将主体放入 AGENTS.md 并手动触发。",
+        "open-standard": "disable-model-invocation 自动触发控制被忽略;规划提示是可移植的。"
+      }
     },
     {
       "id": "mattpocock-research",
@@ -836,7 +964,7 @@
       "repo": "mattpocock/skills",
       "url": "https://github.com/mattpocock/skills",
       "category": "research",
-      "description": "Spins up a background agent to investigate a question against primary sources and write cited findings to a Markdown file.",
+      "description": "Spins up a background agent to investigate a question against primary sources and write cited findings to a Markdown file. Effect: you keep working while research runs in parallel and lands as a cited doc.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "partial",
@@ -870,7 +998,14 @@
         "agent"
       ],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "起一个后台 agent 针对原始资料调研某个问题，把带引用的结论写成 Markdown。效果：你继续干活，调研在后台并行跑，最终落地成带引用的文档。",
+      "caveats_zh": {
+        "cursor": "没有 background-agent 分派,因此研究以内联方式运行并阻塞主会话,丧失“边读边工作”的并行性。",
+        "codex-cli": "没有 background subagent,因此调查在前台运行并消耗共享的上下文窗口。",
+        "gemini-cli": "background-agent 分派非原生支持,必须通过 settings.json 手动编排。",
+        "open-standard": "background-agent 委派是 Claude 专属能力;它退化为内联前台研究。"
+      }
     },
     {
       "id": "mattpocock-tdd",
@@ -878,7 +1013,7 @@
       "repo": "mattpocock/skills",
       "url": "https://github.com/mattpocock/skills",
       "category": "tdd",
-      "description": "Red-green TDD reference defining seams, anti-patterns, and vertical-slice loop rules that produce tests worth keeping.",
+      "description": "Red-green TDD reference defining seams, anti-patterns, and vertical-slice loop rules that produce tests worth keeping. Effect: yields tests that guide design and survive refactors, not tests that rot.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -909,7 +1044,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "红绿 TDD 参考，定义接缝、反模式、垂直切片循环规则，产出值得保留的测试。效果：得到能引导设计、能扛重构的测试，而非会腐烂的测试。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;配套的 tests.md 和 mocking.md 作为上下文加载。",
+        "codex-cli": "放入 AGENTS.md;配套的 .md 文件必须手动引用。",
+        "open-standard": "纯提示的 TDD 规范可迁移,无资源依赖。"
+      }
     },
     {
       "id": "mattpocock-diagnosing-bugs",
@@ -917,7 +1058,7 @@
       "repo": "mattpocock/skills",
       "url": "https://github.com/mattpocock/skills",
       "category": "debug",
-      "description": "Six-phase hard-bug diagnosis loop that demands a tight red-capable feedback loop before any hypothesis, with bisection and instrumentation.",
+      "description": "Six-phase hard-bug diagnosis loop that demands a tight red-capable feedback loop before any hypothesis, with bisection and instrumentation. Effect: turns flaky, hard-to-repro bugs into reproducible, locatable failures.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -948,7 +1089,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "六阶段疑难 bug 诊断循环，要求先有能复现的红色反馈循环再提假设，配合二分和埋点。效果：把难复现的 bug 变成可复现、可定位的故障。",
+      "caveats_zh": {
+        "cursor": "以 .mdc 安装;scripts/hitl-loop.template.sh 辅助脚本在 human-in-the-loop 场景下需手动调用。",
+        "codex-cli": "放入 AGENTS.md;hitl-loop 模板必须按路径引用,因为 Codex 不会自动发现 skill 资源。",
+        "open-standard": "流程化的诊断指导可迁移;打包的脚本模板按路径引用。"
+      }
     },
     {
       "id": "caveman-compress",
@@ -956,7 +1103,7 @@
       "repo": "JuliusBrussee/caveman",
       "url": "https://github.com/JuliusBrussee/caveman",
       "category": "productivity",
-      "description": "Compresses natural-language memory files into caveman-speak via a bundled Python CLI, cutting roughly 65 percent of input tokens while preserving code and URLs.",
+      "description": "Compresses natural-language memory files into caveman-speak via a bundled Python CLI, cutting roughly 65 percent of input tokens while preserving code and URLs. Effect: fits more project context into a model's budget without losing the parts that matter.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -987,7 +1134,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "用内置 Python CLI 把自然语言记忆文件压缩成'穴居人语'，约省 65% 输入 token，同时保留代码和 URL。效果：在模型预算里塞进更多项目上下文，又不丢关键部分。",
+      "caveats_zh": {
+        "cursor": "scripts/__main__.py 通过 bash 运行但必须手动调用;多 skill 插件索引必须拆分为单独的 .mdc 文件。",
+        "codex-cli": "相邻的 scripts/ CLI 不会被自动发现,必须在 AGENTS.md 中显式引用,因此没有手动连接时压缩不会运行。",
+        "open-standard": "打包的 CLI 可移植,压缩规则可作为提示迁移;仅需调整脚本路径。"
+      }
     },
     {
       "id": "graphify",
@@ -995,7 +1148,7 @@
       "repo": "Graphify-Labs/graphify",
       "url": "https://github.com/Graphify-Labs/graphify",
       "category": "research",
-      "description": "Turns any codebase, docs, and configs into a queryable knowledge graph via local tree-sitter AST parsing with HTML viz, GraphRAG JSON, and an audit report.",
+      "description": "Turns any codebase, docs, and configs into a queryable knowledge graph via local tree-sitter AST parsing, with HTML viz, GraphRAG JSON, and an audit report. Effect: lets the agent answer structural questions about a repo it couldn't from raw files.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -1026,7 +1179,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "用本地 tree-sitter AST 解析把任意代码库、文档、配置变成可查询的知识图谱，输出 HTML 可视化、GraphRAG JSON 和审计报告。效果：让 agent 能回答从原始文件答不了的结构性问题。",
+      "caveats_zh": {
+        "cursor": "graphify CLI 必须 pip 安装并通过 bash 运行;该仓库提供了一个 Cursor 专用的 skill 变体。",
+        "codex-cli": "graphify CLI 单独安装并以 /graphify 命令调用;其路径必须在 AGENTS.md 中声明。",
+        "open-standard": "以 CLI 为后端,无 MCP 或 vector-store 依赖;为 claude、codex、cursor、gemini、copilot 和 trae 提供明确的 per-agent skill 文件。"
+      }
     },
     {
       "id": "academic-pipeline",
@@ -1034,7 +1193,7 @@
       "repo": "Imbad0202/academic-research-skills",
       "url": "https://github.com/Imbad0202/academic-research-skills",
       "category": "research",
-      "description": "Ten-stage orchestrator coordinating deep-research, academic-paper, and reviewer skills with mandatory integrity gates and two-stage peer review.",
+      "description": "Ten-stage orchestrator coordinating deep-research, academic-paper, and reviewer skills with mandatory integrity gates and two-stage peer review. Effect: produces a reviewed, citation-backed academic draft instead of a one-shot essay.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "partial",
@@ -1069,7 +1228,14 @@
         "hooks"
       ],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "十阶段编排器，协调深度研究、学术论文、评审 skill，带强制诚信门禁和两阶段同行评审。效果：产出经评审、有引用支撑的学术草稿，而非一次性文章。",
+      "caveats_zh": {
+        "cursor": "没有 subagent skill-dispatch 且不支持 hooks,因此十个阶段以内联方式顺序执行,integrity gates 变为仅指令形式。",
+        "codex-cli": "metadata.depends_on 分派和 hooks/ 不受支持,因此 pipeline 塌缩为手动逐阶段执行,没有自动化 integrity 强制。",
+        "gemini-cli": "skill-dispatch 编排是手动的,hooks/ integrity gates 必须在 settings.json 中复制。",
+        "open-standard": "编排和 hooks 是 Claude 专属;仅流程化的阶段指导可迁移。"
+      }
     },
     {
       "id": "scientific-biopython",
@@ -1077,7 +1243,7 @@
       "repo": "K-Dense-AI/scientific-agent-skills",
       "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
       "category": "research",
-      "description": "Biopython toolkit skill for sequence manipulation, FASTA/GenBank/PDB parsing, phylogenetics, and programmatic NCBI/PubMed access.",
+      "description": "Biopython toolkit for sequence manipulation, FASTA/GenBank/PDB parsing, phylogenetics, and programmatic NCBI/PubMed access. Effect: lets the agent run real bioinformatics workflows instead of describing them.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -1110,7 +1276,13 @@
         "allowed-tools"
       ],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "Biopython 工具集，做序列操作、FASTA/GenBank/PDB 解析、系统发育、程序化访问 NCBI/PubMed。效果：让 agent 真正跑生信流程，而非只是描述。",
+      "caveats_zh": {
+        "cursor": "allowed-tools frontmatter 被忽略,Cursor 应用自己的工具 gating;Biopython 必须 pip 安装。",
+        "codex-cli": "allowed-tools 在 frontmatter 中不受支持,且 metadata.openclaw envVars 被忽略;32 KiB 预算可能会截断完整的参考文档。",
+        "open-standard": "allowed-tools 是 Claude 专属的工具权限控制,因此 skill 作为提示可迁移,但 tool-gating 未标准化。"
+      }
     },
     {
       "id": "karpathy-claude-md",
@@ -1118,7 +1290,7 @@
       "repo": "multica-ai/andrej-karpathy-skills",
       "url": "https://github.com/multica-ai/andrej-karpathy-skills",
       "category": "productivity",
-      "description": "A single CLAUDE.md encoding Andrej Karpathy's LLM-coding-pitfall observations to steer the agent toward better coding behavior.",
+      "description": "A single CLAUDE.md encoding Andrej Karpathy's LLM-coding-pitfall observations to steer the agent toward better coding behavior. Effect: bakes hard-won coding lessons into always-on context so the agent avoids common traps.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -1149,7 +1321,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-31",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "一份 CLAUDE.md，编码了 Andrej Karpathy 对 LLM 编程陷阱的观察，引导 agent 更好地编码。效果：把来之不易的编程经验变成常驻上下文，让 agent 避开常见坑。",
+      "caveats_zh": {
+        "cursor": "CLAUDE.md 映射到 .cursorrules 并作为常驻上下文应用。",
+        "codex-cli": "CLAUDE.md 映射到 AGENTS.md 全局指令。",
+        "open-standard": "一个无 frontmatter 或资源的纯 Markdown 记忆文件;可作为上下文移植,但不是结构化的 SKILL.md。"
+      }
     },
     {
       "id": "superpowers-tdd",
@@ -1157,7 +1335,7 @@
       "repo": "obra/superpowers",
       "url": "https://github.com/obra/superpowers",
       "category": "tdd",
-      "description": "Vertical-slice red-green-refactor TDD methodology packaged as Spec→Plan→Implement→Review→Ship skills.",
+      "description": "Vertical-slice red-green-refactor TDD methodology packaged as Spec→Plan→Implement→Review→Ship skills. Effect: enforces a full TDD loop per slice so features ship with covering tests by construction.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "partial",
@@ -1191,7 +1369,13 @@
         "context:fork"
       ],
       "verified_at": "2026-07-29",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "垂直切片的红绿重构 TDD 方法论，打包成 Spec→Plan→Implement→Review→Ship 一组 skill。效果：每个切片强制走完整 TDD 循环，功能天生带覆盖测试。",
+      "caveats_zh": {
+        "cursor": "Spec/Plan 阶段依赖 Claude 的 subagent 编排;在 Cursor 中它们以内联方式运行,没有并行 agent,更慢且无隔离。",
+        "codex-cli": "需要手动将 SKILL.md 转换为 AGENTS.md 片段;32 KiB 预算可能会截断完整方法论。",
+        "open-standard": "流程化的指导可干净迁移;Claude 专属的 hooks 和 context:fork 回退为 no-ops。"
+      }
     },
     {
       "id": "mattpocock-grill-me",
@@ -1199,7 +1383,7 @@
       "repo": "mattpocock/skills",
       "url": "https://github.com/mattpocock/skills",
       "category": "productivity",
-      "description": "Agent relentlessly interrogates the user until every decision branch is resolved. Cures 'start before requirements are clear'.",
+      "description": "The agent relentlessly interrogates the user until every decision branch is resolved. Effect: cures 'start before requirements are clear' by forcing ambiguity to surface upfront.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -1229,7 +1413,12 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-29",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "agent 持续追问用户，直到每个决策分支都明确。效果：治好'需求没理清就开始'的毛病，把含糊处逼到台前。",
+      "caveats_zh": {
+        "cursor": "纯提示 skill,无需 frontmatter 扩展;以 alwaysApply:false 的 .mdc 安装,使用 description 作为触发器。",
+        "codex-cli": "将提示主体放入 AGENTS.md;作为全局指令工作。"
+      }
     },
     {
       "id": "mattpocock-code-review",
@@ -1237,7 +1426,7 @@
       "repo": "mattpocock/skills",
       "url": "https://github.com/mattpocock/skills",
       "category": "code-review",
-      "description": "Standard-axis + spec-axis parallel code review. Spawns two review agents and aggregates findings.",
+      "description": "Standard-axis plus spec-axis parallel code review — spawns two review agents and aggregates findings. Effect: catches both spec drift and quality issues in one pass, with independent reviewers.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "partial",
@@ -1272,7 +1461,14 @@
         "hooks"
       ],
       "verified_at": "2026-07-29",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "标准轴 + 规格轴的并行代码评审——派发两个评审 agent 并汇总发现。效果：一轮同时抓住规格偏离和质量问题，且评审相互独立。",
+      "caveats_zh": {
+        "cursor": "没有并行 subagent 生成;评审顺序运行,延迟加倍。",
+        "codex-cli": "没有 subagent 隔离;两个评审维度塌缩为一次处理。",
+        "gemini-cli": "PostToolUse 的 hooks 可以复制聚合步骤,但需要在 settings.json 中手动设置。",
+        "open-standard": "subagent 编排是 Claude 专属;回退为单次评审。"
+      }
     },
     {
       "id": "addyosmani-agent-skills",
@@ -1280,7 +1476,7 @@
       "repo": "addyosmani/agent-skills",
       "url": "https://github.com/addyosmani/agent-skills",
       "category": "productivity",
-      "description": "Senior-engineer quality discipline: pre-commit checks, security review, dependency audits, output validation.",
+      "description": "Senior-engineer quality discipline: pre-commit checks, security review, dependency audits, output validation. Effect: gates work behind a checklist a staff engineer would run, consistently.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -1313,7 +1509,12 @@
         "allowed-tools"
       ],
       "verified_at": "2026-07-29",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "资深工程师级质量纪律：提交前检查、安全评审、依赖审计、输出校验。效果：用主任工程师会跑的清单一致地把好关。",
+      "caveats_zh": {
+        "cursor": "pre-tool hooks 转换为手动确认提示;security review 必须显式调用。",
+        "codex-cli": "基于 hook 的检查变为仅指令形式;没有手动确认时 Codex 不会阻断写入。"
+      }
     },
     {
       "id": "mvanhorn-last30days",
@@ -1321,7 +1522,7 @@
       "repo": "mvanhorn/last30days-skill",
       "url": "https://github.com/mvanhorn/last30days-skill",
       "category": "research",
-      "description": "Competitor monitoring + voice-of-customer research across Reddit, X, YouTube, Hacker News, and the open web.",
+      "description": "Competitor monitoring and voice-of-customer research across Reddit, X, YouTube, Hacker News, and the open web. Effect: turns scattered chatter into a structured 30-day market snapshot.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -1350,7 +1551,11 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-29",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "跨 Reddit、X、YouTube、Hacker News 和开放网络的竞品监控与客户声音调研。效果：把零散讨论变成结构化的 30 天市场快照。",
+      "caveats_zh": {
+        "codex-cli": "打包的 scripts/ 目录必须在 AGENTS.md 中显式引用;Codex 不会像 Claude/Gemini 那样自动发现 skill 资源。"
+      }
     },
     {
       "id": "coreyhaines-marketing",
@@ -1358,7 +1563,7 @@
       "repo": "coreyhaines31/marketingskills",
       "url": "https://github.com/coreyhaines31/marketingskills",
       "category": "marketing",
-      "description": "Marketing skill collection covering ad copy, landing-page optimization, email sequences, and analytics tagging.",
+      "description": "Marketing skill collection covering ad copy, landing-page optimization, email sequences, and analytics tagging. Effect: produces coordinated marketing assets instead of disconnected one-offs.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "compatible",
@@ -1387,7 +1592,11 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-29",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "营销 skill 集合，覆盖广告文案、落地页优化、邮件序列、分析埋点。效果：产出协同的营销素材，而非互不相关的零碎件。",
+      "caveats_zh": {
+        "cursor": "每个 skill 作为单独的 .mdc 文件安装;多 skill 索引必须手动拆分。"
+      }
     },
     {
       "id": "serena-semantic-edit",
@@ -1395,7 +1604,7 @@
       "repo": "oraios/serena",
       "url": "https://github.com/oraios/serena",
       "category": "refactor",
-      "description": "Symbol-level code understanding via Language Server Protocol across 40+ languages. Agent edits functions, not string matches.",
+      "description": "Symbol-level code understanding via the Language Server Protocol across 40+ languages. Effect: the agent edits functions and types, not string matches, so refactors stay correct across a codebase.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "partial",
@@ -1428,7 +1637,13 @@
         "allowed-tools"
       ],
       "verified_at": "2026-07-29",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "通过 LSP 在 40+ 语言上做符号级代码理解。效果：agent 编辑的是函数和类型而非字符串匹配，重构在代码库里保持正确。",
+      "caveats_zh": {
+        "cursor": "Serena 以 MCP server 形式发布,而非 skill;Cursor 用户必须通过 MCP 面板配置并手动调用工具。",
+        "codex-cli": "MCP server 必须在 config.toml 中注册;不支持 skill 风格的调用。",
+        "open-standard": "超出 SKILL.md 范围——Serena 是工具,而非可移植的 skill。"
+      }
     },
     {
       "id": "hyper-marketing-mcp",
@@ -1436,7 +1651,7 @@
       "repo": "hyperfx-ai/marketing-skills",
       "url": "https://github.com/hyperfx-ai/marketing-skills",
       "category": "marketing",
-      "description": "Marketing skills paired with a production MCP server that executes against real ad accounts (Meta, Google, LinkedIn).",
+      "description": "Marketing skills paired with a production MCP server that executes against real ad accounts (Meta, Google, LinkedIn). Effect: the agent can both plan and actually run live campaigns, not just draft them.",
       "compatibility": {
         "claude-code": "native",
         "cursor": "partial",
@@ -1467,7 +1682,13 @@
       },
       "uses_claude_extensions": [],
       "verified_at": "2026-07-29",
-      "verified_by": "matrix-maintainers"
+      "verified_by": "matrix-maintainers",
+      "description_zh": "营销 skill 配合生产级 MCP server，能对真实广告账户（Meta、Google、LinkedIn）执行操作。效果：agent 既能规划也能真正投放线上活动，而非只是起草。",
+      "caveats_zh": {
+        "cursor": "skill 提示可以运行,但执行的 MCP server 必须在 Cursor 的 MCP 设置中单独配置。",
+        "codex-cli": "MCP 支持有限;ad-account 写入可能需要手动 curl 编排。",
+        "open-standard": "对 Hyper MCP server 的硬依赖;作为独立 skill 不可移植。"
+      }
     }
   ]
 }

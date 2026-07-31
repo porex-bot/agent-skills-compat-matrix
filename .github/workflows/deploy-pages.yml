@@ -1,0 +1,160 @@
+name: Deploy Pages
+
+# 部署前端到 GitHub Pages，并通过定时爬虫回写静态 JSON 数据。
+#
+# 工作流程：
+#   1) crawl job —— 每 6 小时（或手动）启动后端、跑爬虫、导出 site-data/*.json
+#      并 commit 回 main（commit message 带 [skip ci]）。
+#   2) deploy job —— 前端或数据变化时构建 frontend/dist 并部署到 Pages。
+#
+# 触发关系说明：crawl 的 commit 使用 GITHUB_TOKEN 推送且带 [skip ci]，
+# 不会再次触发工作流；因此 deploy 通过 needs: crawl 在同一次运行里串联执行，
+# 而非依赖 push 事件重新触发。push 事件（前端/数据变更）则直接跑 deploy。
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "frontend/**"
+      - "site-data/**"
+      - ".github/workflows/deploy-pages.yml"
+
+# 串行化运行，避免两次爬虫并发写库或两次部署并发上线
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    # 仅定时与手动触发时跑爬虫；普通 push 事件跳过本 job
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install backend dependencies
+        run: pip install --quiet -r backend/requirements.txt
+
+      - name: Start backend
+        working-directory: backend
+        run: |
+          uvicorn app.main:app --port 8000 > /tmp/uvicorn.log 2>&1 &
+          sleep 3
+          curl -sf http://localhost:8000/ >/dev/null || { echo "后端启动失败"; cat /tmp/uvicorn.log; exit 1; }
+          echo "后端已启动"
+
+      - name: Configure crawler GitHub token
+        env:
+          # 优先用专用爬虫 token；没有则回退到 Actions 自带的 GITHUB_TOKEN
+          CRAWLER_TOKEN: ${{ secrets.GITHUB_TOKEN_CRAWLER }}
+          DEFAULT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$CRAWLER_TOKEN" ]; then
+            TOKEN="$CRAWLER_TOKEN"
+          else
+            TOKEN="$DEFAULT_TOKEN"
+          fi
+          curl -s -X PUT http://localhost:8000/api/config \
+            -H "Content-Type: application/json" \
+            -d "{\"github_token\": \"$TOKEN\"}"
+          echo "爬虫 token 已配置"
+
+      - name: Trigger crawl and wait for completion
+        run: |
+          # 触发一次爬取
+          RESP=$(curl -s -X POST http://localhost:8000/api/crawl)
+          HISTORY_ID=$(printf '%s' "$RESP" | python3 -c "import sys,json; print(json.load(sys.stdin).get('history_id',''))" 2>/dev/null || echo "")
+          echo "触发爬取 history_id=$HISTORY_ID"
+          # 轮询等待完成：最多 10 分钟，每 30s 查一次
+          DEADLINE=$(( $(date +%s) + 600 ))
+          STATUS="running"
+          while [ "$(date +%s)" -lt "$DEADLINE" ]; do
+            STATUS=$(curl -s "http://localhost:8000/api/crawl/history?page=1&page_size=1" \
+              | python3 -c "import sys,json; d=json.load(sys.stdin); items=d.get('items',[]); print(items[0]['status'] if items else 'none')" 2>/dev/null || echo "error")
+            echo "爬取状态: $STATUS"
+            case "$STATUS" in
+              success|failed|none|error) break ;;
+            esac
+            sleep 30
+          done
+          if [ "$STATUS" != "success" ]; then
+            echo "::warning::爬取未成功完成（状态=$STATUS），仍导出当前数据"
+          fi
+
+      - name: Export static JSON
+        run: |
+          mkdir -p site-data
+          # 用绝对路径作为 target，避免受后端工作目录（backend/）影响
+          curl -s -G "http://localhost:8000/api/export" \
+            --data-urlencode "target=${GITHUB_WORKSPACE}/site-data" \
+            -o /tmp/export-resp.json
+          cat /tmp/export-resp.json; echo
+          # 校验三个文件都已生成且非空
+          test -s site-data/skills.json
+          test -s site-data/agents.json
+          test -s site-data/stats.json
+          ls -la site-data/
+
+      - name: Commit static data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site-data/skills.json site-data/agents.json site-data/stats.json
+          if git diff --cached --quiet; then
+            echo "数据无变化，跳过提交"
+          else
+            git commit -m "chore(data): scheduled crawl update [skip ci]"
+            git push
+          fi
+
+  deploy:
+    # 部署 job：push 到前端/数据时直接跑；定时或手动时在 crawl 成功后跑
+    needs: crawl
+    if: always() && (github.event_name == 'push' || needs.crawl.result == 'success')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Build frontend
+        working-directory: frontend
+        env:
+          # 仓库名非 <user>.github.io 时, Pages 是子路径部署, 必须设 base
+          # 形如 /agent-skills-compat-matrix/; 根仓库(<user>.github.io)则用 /
+          VITE_BASE_URL: ${{ startsWith(github.event.repository.name, 'github.io') && '/' || format('/{0}/', github.event.repository.name) }}
+        run: |
+          npm ci --quiet
+          npm run build
+          echo "VITE_BASE_URL=$VITE_BASE_URL"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

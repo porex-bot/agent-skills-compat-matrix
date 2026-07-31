@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/OWNER/agent-skills-compat-matrix/data/schema.json",
+  "$id": "https://github.com/porex-bot/agent-skills-compat-matrix/data/schema.json",
   "title": "Agent Skills Compatibility Matrix",
   "description": "Schema for skill compatibility records and the agent capability matrix.",
   "type": "object",
@@ -97,8 +97,17 @@
         },
         "caveats": {
           "type": "object",
-          "description": "Per-agent caveats explaining partial / unsupported status",
+          "description": "Per-agent caveats explaining partial / unsupported status (English)",
           "additionalProperties": {"type": "string"}
+        },
+        "caveats_zh": {
+          "type": "object",
+          "description": "Chinese translations of caveats for core agents (claude-code/cursor/codex-cli/gemini-cli/open-standard). Backfill agents' templated caveats are localized at runtime via site/i18n.js.",
+          "additionalProperties": {"type": "string"}
+        },
+        "description_zh": {
+          "type": "string",
+          "description": "Chinese translation of the description (purpose + effect)."
         },
         "uses_claude_extensions": {
           "type": "array",
