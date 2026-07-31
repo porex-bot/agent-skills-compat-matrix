@@ -79,28 +79,3 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 ::-webkit-scrollbar-thumb { background: var(--color-rule); border-radius: 5px; border: 2px solid var(--color-bg-elev); }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-text-faint); }
 
-/* markdown 渲染 (使用教程) */
-.prose-tutorial { color: var(--color-text); line-height: 1.75; }
-.prose-tutorial h1, .prose-tutorial h2, .prose-tutorial h3 {
-  font-family: var(--font-sans); color: var(--color-text); margin: 1.6em 0 0.6em; line-height: 1.25; font-weight: 700;
-}
-.prose-tutorial h1 { font-size: 1.6rem; }
-.prose-tutorial h2 { font-size: 1.3rem; }
-.prose-tutorial h3 { font-size: 1.1rem; }
-.prose-tutorial p { margin: 0.8em 0; color: var(--color-text-dim); }
-.prose-tutorial code {
-  font-family: var(--font-mono); font-size: 0.85em; background: var(--color-bg-elev-2);
-  padding: 0.15em 0.4em; border-radius: 4px; color: var(--color-accent-2);
-}
-.prose-tutorial pre {
-  background: var(--color-bg-elev); border: 1px solid var(--color-border);
-  padding: 16px; border-radius: 8px; overflow-x: auto; margin: 1em 0;
-}
-.prose-tutorial pre code { background: none; padding: 0; color: var(--color-text); }
-.prose-tutorial ul, .prose-tutorial ol { margin: 0.8em 0; padding-left: 1.5em; color: var(--color-text-dim); }
-.prose-tutorial li { margin: 0.4em 0; }
-.prose-tutorial a { color: var(--color-accent); }
-.prose-tutorial blockquote {
-  border-left: 3px solid var(--color-accent); margin: 1em 0; padding-left: 1em;
-  color: var(--color-text-dim); font-style: normal;
-}

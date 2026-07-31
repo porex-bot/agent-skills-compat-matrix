@@ -1,7 +1,6 @@
-// Skill 详情页 — 返回链接 + 分类 kicker + 标题 + 描述 + meta + Claude 扩展 chips + 各 agent 兼容表 + 教程
+// Skill 详情页 — 返回链接 + 分类 kicker + 标题 + 描述 + meta + Claude 扩展 chips + 各 agent 兼容表
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
 import { useI18n } from '../lib/lang.jsx';
 import { fetchSkill, fetchAgents } from '../lib/api.js';
 import StatusDot from '../components/StatusDot.jsx';
@@ -141,20 +140,6 @@ export default function SkillDetailPage() {
             </tbody>
           </table>
         </div>
-      </section>
-
-      {/* 使用教程 */}
-      <section className="mt-10">
-        <h2 className="font-[var(--font-sans)] font-bold text-2xl mb-4 border-b border-[var(--color-rule)] pb-2">
-          {t('usageTutorial')}
-        </h2>
-        {skill.usage_tutorial ? (
-          <div className="prose-tutorial">
-            <ReactMarkdown>{skill.usage_tutorial}</ReactMarkdown>
-          </div>
-        ) : (
-          <p className="text-[var(--color-text-dim)]">{t('usageTutorialEmpty')}</p>
-        )}
       </section>
     </div>
   );
