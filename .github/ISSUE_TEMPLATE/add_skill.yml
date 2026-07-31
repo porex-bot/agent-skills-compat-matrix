@@ -1,0 +1,40 @@
+---
+name: Add or update a skill
+about: Request a new skill be added to the matrix, or correct an existing skill's compatibility cells
+title: "[skill] <skill name>"
+labels: skill-data
+---
+
+## Which skill?
+
+- **Name:**
+- **Repo:** owner/name
+- **URL:** https://github.com/...
+- **Category:** (code-review / tdd / refactor / debug / build / deploy / research / marketing / productivity / frontend / backend / devops / other)
+
+## Compatibility claim
+
+Fill in what you verified. Leave a cell blank if unverified.
+
+| Agent | Level | Caveat |
+|---|---|---|
+| claude-code | | |
+| cursor | | |
+| codex-cli | | |
+| gemini-cli | | |
+| open-standard | | |
+
+## How did you verify?
+
+- [ ] Installed the skill in the target agent via its documented path
+- [ ] Triggered it (slash command / description / glob)
+- [ ] Exercised a representative task
+- [ ] Recorded observed behavior and any silent fallbacks
+
+## Claude-specific extensions used
+
+(e.g. hooks, context:fork, agent, allowed-tools, model) — leave empty if none.
+
+## Notes
+
+Any extra context, screenshots, or links.

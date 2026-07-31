@@ -1,0 +1,45 @@
+---
+name: Add or correct an agent
+about: Request a new agent be tracked, or correct an existing agent's capability matrix
+title: "[agent] <agent name>"
+labels: agent-data
+---
+
+## Which agent?
+
+- **Name:**
+- **Vendor:**
+- **Homepage:** https://...
+- **Rules file:**
+- **Skills file:** (does it support SKILL.md natively?)
+
+## Install paths
+
+- **Project:**
+- **User:**
+
+## Frontmatter
+
+- **Required:**
+- **Optional:**
+
+## Feature matrix
+
+| Feature | Level |
+|---|---|
+| hooks | |
+| subagent | |
+| context_fork | |
+| progressive_disclosure | |
+| pre_approved_tools | |
+| slash_command | |
+| glob_scoping | |
+| model_override | |
+
+## Sources
+
+Links to official documentation backing each claim.
+
+## Notes
+
+Key portability pain points worth recording in the `notes` field.

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent Skills Compatibility Matrix</title>
+  <meta name="description" content="Will this AI agent skill work in your coding agent? A verified, machine-checkable matrix of skill × agent compatibility across Claude Code, Cursor, Codex CLI, Gemini CLI, Windsurf, Cline, Aider, Copilot, Zed, Amp, Jules, Continue." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧩</text></svg>" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand" @click.prevent="view='matrix'">
+        <span class="brand-mark">🧩</span>
+        <span class="brand-text">Agent Skills <strong>Compat Matrix</strong></span>
+      </a>
+      <nav class="nav">
+        <a href="#" :class="{active: view==='matrix'}" @click.prevent="view='matrix'">Skills</a>
+        <a href="#" :class="{active: view==='agents'}" @click.prevent="view='agents'">Agents</a>
+        <a href="https://github.com/OWNER/agent-skills-compat-matrix" class="nav-gh">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" x-data="matrixApp()" x-init="load()" x-cloak>
+
+    <!-- HERO -->
+    <section class="hero" x-show="view==='matrix' || view==='agents'">
+      <h1>Will this skill work in <em>your</em> agent?</h1>
+      <p class="lede">
+        Every AI coding agent claims to support the open Agent Skills standard. In practice
+        hooks, subagents, context forks and tool allowlists silently vanish. This matrix records,
+        per skill and per agent, <strong>what actually works where</strong> — and <strong>what
+        degrades how</strong>.
+      </p>
+      <div class="stat-row" x-show="loaded">
+        <div class="stat"><span class="stat-num" x-text="skills.length"></span><span class="stat-label">skills</span></div>
+        <div class="stat"><span class="stat-num" x-text="agents.length"></span><span class="stat-label">agents</span></div>
+        <div class="stat"><span class="stat-num" x-text="portableCount"></span><span class="stat-label">fully portable</span></div>
+        <div class="stat"><span class="stat-num" x-text="riskyCount"></span><span class="stat-label">use Claude extensions</span></div>
+      </div>
+    </section>
+
+    <!-- LOADING -->
+    <div class="loading" x-show="!loaded">
+      <div class="spinner"></div>
+      <p>Loading the matrix…</p>
+    </div>
+
+    <!-- SKILLS VIEW -->
+    <section x-show="loaded && view==='matrix'">
+      <!-- Controls -->
+      <div class="controls">
+        <div class="search-wrap">
+          <input type="search" class="search" placeholder="Search skills by name, repo, description…"
+                 x-model="query" @input="resetPage()" />
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Agent</label>
+          <select x-model="agentFilter" @change="resetPage()">
+            <option value="">All agents</option>
+            <template x-for="a in agents" :key="a.id">
+              <option :value="a.id" x-text="a.name"></option>
+            </template>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Support level</label>
+          <select x-model="levelFilter" @change="resetPage()">
+            <option value="">Any level</option>
+            <option value="native">🟢 native</option>
+            <option value="compatible">🟢 compatible</option>
+            <option value="partial">🟡 partial</option>
+            <option value="unsupported">🔴 unsupported</option>
+            <option value="unknown">⚪ unknown</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Category</label>
+          <select x-model="categoryFilter" @change="resetPage()">
+            <option value="">All categories</option>
+            <template x-for="c in categories" :key="c">
+              <option :value="c" x-text="c"></option>
+            </template>
+          </select>
+        </div>
+      </div>
+
+      <p class="result-count" x-text="`${filteredSkills.length} skill${filteredSkills.length===1?'':'s'} match`"></p>
+
+      <!-- Skills table -->
+      <div class="table-wrap" x-show="filteredSkills.length">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th class="sticky-col skill-col">Skill</th>
+              <template x-for="a in agents" :key="a.id">
+                <th class="agent-col">
+                  <span class="agent-name" x-text="a.name"></span>
+                  <span class="agent-vendor" x-text="a.vendor"></span>
+                </th>
+              </template>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="s in pagedSkills" :key="s.id">
+              <tr class="skill-row" @click="openSkill(s.id)">
+                <td class="sticky-col skill-col">
+                  <div class="skill-name" x-text="s.name"></div>
+                  <div class="skill-meta">
+                    <span class="cat-tag" x-text="s.category"></span>
+                    <a :href="s.url || `https://github.com/${s.repo}`" @click.stop target="_blank" class="repo-link" x-text="s.repo"></a>
+                  </div>
+                </td>
+                <template x-for="a in agents" :key="a.id">
+                  <td class="cell" :class="cellClass(s, a.id)"
+                      :title="cellTitle(s, a.id)">
+                    <span x-text="cellEmoji(s, a.id)"></span>
+                  </td>
+                </template>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="empty" x-show="!filteredSkills.length">
+        <p>No skills match these filters.</p>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" x-show="filteredSkills.length > pageSize">
+        <button @click="prevPage()" :disabled="page===1">‹ Prev</button>
+        <span x-text="`${page} / ${totalPages}`"></span>
+        <button @click="nextPage()" :disabled="page===totalPages">Next ›</button>
+      </div>
+
+      <p class="legend">
+        🟢 native / compatible · 🟡 partial · 🔴 unsupported · ⚪ unknown —
+        click any row for per-cell caveats.
+      </p>
+    </section>
+
+    <!-- AGENTS VIEW -->
+    <section x-show="loaded && view==='agents'">
+      <div class="feature-table-wrap">
+        <h2>Agent capability matrix</h2>
+        <p class="section-lede">Which primitives each agent actually implements. This drives every cell in the skill matrix.</p>
+        <table class="feature-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <template x-for="a in agents" :key="a.id">
+                <th x-text="a.name"></th>
+              </template>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="row in featureRows" :key="row.key">
+              <tr>
+                <td class="feature-name" x-text="row.label"></td>
+                <template x-for="a in agents" :key="a.id">
+                  <td class="cell" :class="featClass(a, row.key)" :title="a.notes">
+                    <span x-text="featEmoji(a, row.key)"></span>
+                  </td>
+                </template>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="agent-cards">
+        <template x-for="a in agents" :key="a.id">
+          <article class="agent-card" @click="openAgent(a.id)">
+            <header>
+              <h3 x-text="a.name"></h3>
+              <span class="agent-vendor" x-text="a.vendor"></span>
+            </header>
+            <dl class="agent-facts">
+              <div><dt>Rules file</dt><dd x-text="a.rules_file"></dd></div>
+              <div><dt>Skill file</dt><dd x-text="a.skills_file"></dd></div>
+              <div><dt>Install (project)</dt><dd x-text="a.install_path.project"></dd></div>
+              <div><dt>Install (user)</dt><dd x-text="a.install_path.user"></dd></div>
+            </dl>
+            <p class="agent-notes" x-text="a.notes"></p>
+          </article>
+        </template>
+      </div>
+    </section>
+
+    <!-- SKILL DETAIL MODAL -->
+    <div class="modal-backdrop" x-show="selectedSkill" x-cloak @click.self="selectedSkill=null">
+      <div class="modal" x-show="selectedSkill">
+        <template x-if="selectedSkill">
+          <div>
+            <button class="modal-close" @click="selectedSkill=null">✕</button>
+            <h2 x-text="selectedSkill.name"></h2>
+            <p class="modal-desc" x-text="selectedSkill.description"></p>
+            <div class="modal-meta">
+              <span class="cat-tag" x-text="selectedSkill.category"></span>
+              <a :href="selectedSkill.url || `https://github.com/${selectedSkill.repo}`" target="_blank" class="repo-link" x-text="selectedSkill.repo"></a>
+              <span class="verified">verified <span x-text="selectedSkill.verified_at"></span></span>
+            </div>
+            <template x-if="selectedSkill.uses_claude_extensions && selectedSkill.uses_claude_extensions.length">
+              <div class="extensions">
+                <span class="ext-label">Claude extensions used:</span>
+                <template x-for="e in selectedSkill.uses_claude_extensions" :key="e">
+                  <code class="ext-chip" x-text="e"></code>
+                </template>
+              </div>
+            </template>
+            <h3>Compatibility per agent</h3>
+            <table class="detail-table">
+              <thead>
+                <tr><th>Agent</th><th>Support</th><th>Caveat</th></tr>
+              </thead>
+              <tbody>
+                <template x-for="a in agents" :key="a.id">
+                  <tr>
+                    <td x-text="a.name"></td>
+                    <td class="cell" :class="cellClass(selectedSkill, a.id)">
+                      <span x-text="cellEmoji(selectedSkill, a.id)"></span>
+                      <span class="level-text" x-text="cellLevel(selectedSkill, a.id)"></span>
+                    </td>
+                    <td class="caveat-cell" x-text="selectedSkill.caveats && selectedSkill.caveats[a.id] ? selectedSkill.caveats[a.id] : '—'"></td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <!-- AGENT DETAIL MODAL -->
+    <div class="modal-backdrop" x-show="selectedAgent" x-cloak @click.self="selectedAgent=null">
+      <div class="modal" x-show="selectedAgent">
+        <template x-if="selectedAgent">
+          <div>
+            <button class="modal-close" @click="selectedAgent=null">✕</button>
+            <h2 x-text="selectedAgent.name"></h2>
+            <p class="modal-vendor" x-text="selectedAgent.vendor"></p>
+            <a :href="selectedAgent.homepage" target="_blank" class="repo-link" x-text="selectedAgent.homepage"></a>
+            <dl class="agent-facts">
+              <div><dt>Rules file</dt><dd x-text="selectedAgent.rules_file"></dd></div>
+              <div><dt>Skill file</dt><dd x-text="selectedAgent.skills_file"></dd></div>
+              <div><dt>Install (project)</dt><dd x-text="selectedAgent.install_path.project"></dd></div>
+              <div><dt>Install (user)</dt><dd x-text="selectedAgent.install_path.user"></dd></div>
+              <div><dt>Frontmatter required</dt><dd x-text="(selectedAgent.frontmatter_required||[]).join(', ') || 'none'"></dd></div>
+              <div><dt>Frontmatter optional</dt><dd x-text="(selectedAgent.frontmatter_optional||[]).join(', ') || 'none'"></dd></div>
+            </dl>
+            <h3>Features</h3>
+            <div class="feature-grid">
+              <template x-for="row in featureRows" :key="row.key">
+                <div class="feature-item" :class="featClass(selectedAgent, row.key)">
+                  <span class="feat-emoji" x-text="featEmoji(selectedAgent, row.key)"></span>
+                  <span x-text="row.label"></span>
+                </div>
+              </template>
+            </div>
+            <h3>Notes</h3>
+            <p class="agent-notes" x-text="selectedAgent.notes"></p>
+          </div>
+        </template>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Agent Skills Compatibility Matrix — data is machine-validated and auto-generated from <code>data/*.json</code>. Contribute on <a href="https://github.com/OWNER/agent-skills-compat-matrix">GitHub</a>.</p>
+      <p class="fineprint">MIT licensed. Replace <code>OWNER</code> with your GitHub username/org after forking.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script>
+    // Data path resolution: try a few candidate locations so the site works
+    // whether served from repo root, a /site/ subpath, or GitHub Pages with
+    // the data directory copied alongside index.html.
+    const DATA_CANDIDATES = [
+      './data',            // site deployed as root, data copied next to index.html
+      '../data',           // site served from /site/ with data at repo root
+      './data',            // fallback (same as first)
+    ];
+
+    function matrixApp() {
+      return {
+        view: 'matrix',
+        loaded: false,
+        agents: [],
+        skills: [],
+        query: '',
+        agentFilter: '',
+        levelFilter: '',
+        categoryFilter: '',
+        page: 1,
+        pageSize: 25,
+        selectedSkill: null,
+        selectedAgent: null,
+        featureRows: [
+          { key: 'hooks', label: 'Hooks (PreToolUse / PostToolUse)' },
+          { key: 'subagent', label: 'Subagent spawning' },
+          { key: 'context_fork', label: 'Context fork' },
+          { key: 'progressive_disclosure', label: 'Progressive disclosure' },
+          { key: 'pre_approved_tools', label: 'Pre-approved tools (allowed-tools)' },
+          { key: 'slash_command', label: 'Slash command (/skill-name)' },
+          { key: 'glob_scoping', label: 'Glob-scoped activation' },
+          { key: 'model_override', label: 'Per-skill model override' },
+        ],
+
+        async _fetchData() {
+          for (const base of DATA_CANDIDATES) {
+            try {
+              const [aRes, sRes] = await Promise.all([
+                fetch(base + '/agents.json'),
+                fetch(base + '/skills.json'),
+              ]);
+              if (aRes.ok && sRes.ok) {
+                return { agents: (await aRes.json()).agents, skills: (await sRes.json()).skills };
+              }
+            } catch (e) { /* try next candidate */ }
+          }
+          throw new Error('Could not load agents.json / skills.json from any candidate path');
+        },
+
+        async load() {
+          try {
+            const data = await this._fetchData();
+            this.agents = data.agents;
+            this.skills = data.skills;
+            this.loaded = true;
+          } catch (e) {
+            console.error('Failed to load matrix data', e);
+          }
+        },
+
+        get categories() {
+          return [...new Set(this.skills.map(s => s.category))].sort();
+        },
+        get filteredSkills() {
+          const q = this.query.trim().toLowerCase();
+          return this.skills.filter(s => {
+            if (q) {
+              const hay = (s.name + ' ' + s.repo + ' ' + (s.description||'') + ' ' + s.category).toLowerCase();
+              if (!hay.includes(q)) return false;
+            }
+            if (this.categoryFilter && s.category !== this.categoryFilter) return false;
+            if (this.agentFilter) {
+              const level = (s.compatibility || {})[this.agentFilter] || 'unknown';
+              if (this.levelFilter && level !== this.levelFilter) return false;
+              if (!this.levelFilter && level === 'unsupported') {
+                // when an agent is selected without a level filter, still show all
+              }
+            } else if (this.levelFilter) {
+              const vals = Object.values(s.compatibility || {});
+              if (!vals.includes(this.levelFilter)) return false;
+            }
+            return true;
+          });
+        },
+        get totalPages() {
+          return Math.max(1, Math.ceil(this.filteredSkills.length / this.pageSize));
+        },
+        get pagedSkills() {
+          const start = (this.page - 1) * this.pageSize;
+          return this.filteredSkills.slice(start, start + this.pageSize);
+        },
+        get portableCount() {
+          const primary = ['claude-code','cursor','codex-cli','gemini-cli','open-standard'];
+          return this.skills.filter(s => {
+            const levels = primary.map(a => (s.compatibility||{})[a] || 'unknown');
+            return levels.every(l => l === 'native' || l === 'compatible');
+          }).length;
+        },
+        get riskyCount() {
+          return this.skills.filter(s => (s.uses_claude_extensions||[]).length).length;
+        },
+
+        resetPage() { this.page = 1; },
+        prevPage() { if (this.page > 1) this.page--; },
+        nextPage() { if (this.page < this.totalPages) this.page++; },
+
+        cellLevel(s, aid) { return (s.compatibility || {})[aid] || 'unknown'; },
+        cellEmoji(s, aid) {
+          return { native:'🟢', compatible:'🟢', partial:'🟡', unsupported:'🔴', unknown:'⚪' }[this.cellLevel(s, aid)];
+        },
+        cellClass(s, aid) { return 'lvl-' + this.cellLevel(s, aid); },
+        cellTitle(s, aid) {
+          const lvl = this.cellLevel(s, aid);
+          const caveat = s.caveats && s.caveats[aid];
+          return caveat ? `${lvl}: ${caveat}` : lvl;
+        },
+        featLevel(a, key) { return (a.features || {})[key] || 'unknown'; },
+        featEmoji(a, key) {
+          return { native:'🟢', compatible:'🟢', partial:'🟡', unsupported:'🔴', unknown:'⚪' }[this.featLevel(a, key)];
+        },
+        featClass(a, key) { return 'lvl-' + this.featLevel(a, key); },
+
+        openSkill(id) {
+          this.selectedSkill = this.skills.find(s => s.id === id) || null;
+        },
+        openAgent(id) {
+          this.selectedAgent = this.agents.find(a => a.id === id) || null;
+        },
+      };
+    }
+  </script>
+</body>
+</html>

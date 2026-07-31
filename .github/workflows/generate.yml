@@ -1,0 +1,60 @@
+name: Regenerate README
+
+# Rebuilds README.md from data/*.json on every push to main that touches data,
+# and commits any diff back. Keeps the README tables in sync with the JSON
+# without manual edits. PRs run the generator in check-only mode.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "scripts/generate_readme.py"
+      - ".github/workflows/generate.yml"
+  pull_request:
+    paths:
+      - "data/**"
+      - "scripts/generate_readme.py"
+      - ".github/workflows/generate.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # On push to main we need write access to commit the regenerated README.
+          token: ${{ github.event_name == 'push' && secrets.GITHUB_TOKEN || '' }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate README
+        run: python scripts/generate_readme.py
+
+      - name: Check for diff (PRs)
+        if: github.event_name == 'pull_request'
+        run: |
+          if ! git diff --quiet README.md; then
+            echo "::error::README.md is out of date. Run 'python scripts/generate_readme.py' and commit the result."
+            git diff --stat README.md
+            exit 1
+          fi
+
+      - name: Commit regenerated README (main)
+        if: github.event_name == 'push'
+        run: |
+          if git diff --quiet README.md; then
+            echo "README.md is up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: regenerate README from data [skip ci]"
+          git push

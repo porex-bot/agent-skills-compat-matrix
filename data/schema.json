@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/OWNER/agent-skills-compat-matrix/data/schema.json",
+  "title": "Agent Skills Compatibility Matrix",
+  "description": "Schema for skill compatibility records and the agent capability matrix.",
+  "type": "object",
+  "required": ["agents", "skills"],
+  "properties": {
+    "agents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/definitions/AgentEntry"}
+    },
+    "skills": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/definitions/SkillEntry"}
+    }
+  },
+  "definitions": {
+    "SupportLevel": {
+      "type": "string",
+      "enum": ["native", "compatible", "partial", "unsupported", "unknown"],
+      "description": "native = first-class support; compatible = runs via open standard SKILL.md; partial = works with caveats; unsupported = cannot run; unknown = not yet verified."
+    },
+    "AgentEntry": {
+      "type": "object",
+      "required": ["id", "name", "vendor", "rules_file", "skills_file", "install_path", "frontmatter_required", "features"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "description": "Lowercase kebab-case identifier, unique across agents."
+        },
+        "name": {"type": "string"},
+        "vendor": {"type": "string"},
+        "homepage": {"type": "string", "format": "uri"},
+        "rules_file": {"type": "string", "description": "Project-level rules file, e.g. CLAUDE.md, AGENTS.md"},
+        "skills_file": {"type": "string", "description": "Skill entry file, typically SKILL.md"},
+        "install_path": {
+          "type": "object",
+          "required": ["project", "user"],
+          "properties": {
+            "project": {"type": "string", "description": "Path relative to repo root, e.g. .claude/skills/"},
+            "user": {"type": "string", "description": "Path in home dir, e.g. ~/.claude/skills/. Use 'n/a' if not applicable."}
+          }
+        },
+        "frontmatter_required": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "frontmatter_optional": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "features": {
+          "type": "object",
+          "required": ["hooks", "subagent", "context_fork", "progressive_disclosure", "pre_approved_tools", "slash_command", "glob_scoping", "model_override"],
+          "propertyNames": {"enum": ["hooks", "subagent", "context_fork", "progressive_disclosure", "pre_approved_tools", "slash_command", "glob_scoping", "model_override"]},
+          "additionalProperties": false,
+          "properties": {
+            "hooks": {"$ref": "#/definitions/SupportLevel"},
+            "subagent": {"$ref": "#/definitions/SupportLevel"},
+            "context_fork": {"$ref": "#/definitions/SupportLevel"},
+            "progressive_disclosure": {"$ref": "#/definitions/SupportLevel"},
+            "pre_approved_tools": {"$ref": "#/definitions/SupportLevel"},
+            "slash_command": {"$ref": "#/definitions/SupportLevel"},
+            "glob_scoping": {"$ref": "#/definitions/SupportLevel"},
+            "model_override": {"$ref": "#/definitions/SupportLevel"}
+          }
+        },
+        "notes": {"type": "string"}
+      }
+    },
+    "SkillEntry": {
+      "type": "object",
+      "required": ["id", "name", "repo", "compatibility", "verified_at"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "description": "Lowercase kebab-case slug, unique across skills."
+        },
+        "name": {"type": "string", "description": "Display name"},
+        "repo": {"type": "string", "description": "GitHub repo in owner/name format"},
+        "url": {"type": "string", "format": "uri"},
+        "category": {
+          "type": "string",
+          "enum": ["code-review", "tdd", "refactor", "debug", "build", "deploy", "research", "marketing", "productivity", "frontend", "backend", "devops", "other"]
+        },
+        "description": {"type": "string"},
+        "compatibility": {
+          "type": "object",
+          "description": "Per-agent support level. Keys must match agent ids in agents.json. At minimum the open-standard key is required.",
+          "minProperties": 1,
+          "additionalProperties": {"$ref": "#/definitions/SupportLevel"}
+        },
+        "caveats": {
+          "type": "object",
+          "description": "Per-agent caveats explaining partial / unsupported status",
+          "additionalProperties": {"type": "string"}
+        },
+        "uses_claude_extensions": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Claude-specific frontmatter fields used, e.g. hooks, context:fork, agent"
+        },
+        "verified_at": {"type": "string", "format": "date"},
+        "verified_by": {"type": "string"}
+      }
+    }
+  }
+}

@@ -1,0 +1,338 @@
+{
+  "agents": [
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "vendor": "Anthropic",
+      "homepage": "https://code.claude.com/",
+      "rules_file": "CLAUDE.md",
+      "skills_file": "SKILL.md",
+      "install_path": {
+        "project": ".claude/skills/<skill-name>/SKILL.md",
+        "user": "~/.claude/skills/<skill-name>/SKILL.md"
+      },
+      "frontmatter_required": ["name", "description"],
+      "frontmatter_optional": [
+        "argument-hint",
+        "allowed-tools",
+        "model",
+        "context",
+        "agent",
+        "user-invocable",
+        "disable-model-invocation",
+        "hooks"
+      ],
+      "features": {
+        "hooks": "native",
+        "subagent": "native",
+        "context_fork": "native",
+        "progressive_disclosure": "native",
+        "pre_approved_tools": "native",
+        "slash_command": "native",
+        "glob_scoping": "unsupported",
+        "model_override": "native"
+      },
+      "notes": "Superset of the open standard. Most portable skills work here; Claude-specific extensions (hooks, context:fork, agent) only run here. Custom commands under .claude/commands/ are merged into skills."
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "vendor": "Anysphere",
+      "homepage": "https://www.cursor.com/",
+      "rules_file": ".cursor/rules/*.mdc (legacy .cursorrules at repo root)",
+      "skills_file": ".mdc rule files (SKILL.md also accepted)",
+      "install_path": {
+        "project": ".cursor/rules/<name>.mdc",
+        "user": "~/.cursor/rules/<name>.mdc"
+      },
+      "frontmatter_required": ["description"],
+      "frontmatter_optional": ["globs", "alwaysApply"],
+      "features": {
+        "hooks": "unsupported",
+        "subagent": "partial",
+        "context_fork": "unsupported",
+        "progressive_disclosure": "partial",
+        "pre_approved_tools": "unsupported",
+        "slash_command": "unsupported",
+        "glob_scoping": "native",
+        "model_override": "unsupported"
+      },
+      "notes": "Activation model differs: rules use alwaysApply + globs instead of name/description triggering. SKILL.md files run but lose Claude-specific fields. No hooks, no per-skill tool allowlist."
+    },
+    {
+      "id": "codex-cli",
+      "name": "Codex CLI",
+      "vendor": "OpenAI",
+      "homepage": "https://developers.openai.com/codex/cli",
+      "rules_file": "AGENTS.md",
+      "skills_file": "AGENTS.md fragments (SKILL.md supported via open standard)",
+      "install_path": {
+        "project": "AGENTS.md at repo root or any subdir",
+        "user": "~/.codex/AGENTS.md"
+      },
+      "frontmatter_required": [],
+      "frontmatter_optional": ["description", "tags (proposed v1.1)"],
+      "features": {
+        "hooks": "unsupported",
+        "subagent": "unsupported",
+        "context_fork": "unsupported",
+        "progressive_disclosure": "partial",
+        "pre_approved_tools": "unsupported",
+        "slash_command": "unsupported",
+        "glob_scoping": "unsupported",
+        "model_override": "unsupported"
+      },
+      "notes": "Pure plain Markdown, no YAML frontmatter yet. 32 KiB combined instruction budget (project_doc_max_bytes) — large skill libraries may be truncated. AGENTS.override.md replaces (not merges) the same-level file."
+    },
+    {
+      "id": "gemini-cli",
+      "name": "Gemini CLI",
+      "vendor": "Google",
+      "homepage": "https://geminicli.com/",
+      "rules_file": "GEMINI.md",
+      "skills_file": "SKILL.md",
+      "install_path": {
+        "project": ".gemini/skills/<skill-name>/SKILL.md (or .agents/skills/ alias)",
+        "user": "~/.gemini/skills/<skill-name>/SKILL.md"
+      },
+      "frontmatter_required": ["name", "description"],
+      "frontmatter_optional": ["license", "compatibility", "metadata", "allowed-tools"],
+      "features": {
+        "hooks": "native",
+        "subagent": "partial",
+        "context_fork": "unsupported",
+        "progressive_disclosure": "native",
+        "pre_approved_tools": "partial",
+        "slash_command": "native",
+        "glob_scoping": "unsupported",
+        "model_override": "unsupported"
+      },
+      "notes": "Implements the open standard plus hooks (SessionStart/BeforeTool/AfterTool/etc.) in settings.json. Skills managed via /skills list|enable|disable|reload and the gemini skills install|link CLI. Three-tier discovery: workspace > user > extension."
+    },
+    {
+      "id": "open-standard",
+      "name": "Agent Skills (open standard)",
+      "vendor": "Anthropic / community (agentskills.io)",
+      "homepage": "https://agentskills.io/",
+      "rules_file": "n/a",
+      "skills_file": "SKILL.md",
+      "install_path": {
+        "project": "<agent-specific>/skills/<skill-name>/SKILL.md",
+        "user": "~/<agent-config>/skills/<skill-name>/SKILL.md"
+      },
+      "frontmatter_required": ["name", "description"],
+      "frontmatter_optional": ["license", "compatibility", "metadata", "allowed-tools"],
+      "features": {
+        "hooks": "unsupported",
+        "subagent": "unsupported",
+        "context_fork": "unsupported",
+        "progressive_disclosure": "native",
+        "pre_approved_tools": "partial",
+        "slash_command": "native",
+        "glob_scoping": "unsupported",
+        "model_override": "unsupported"
+      },
+      "notes": "The portable baseline. Skills written to this subset run in Claude Code, Gemini CLI, Codex CLI (as AGENTS.md fragments), and Cursor (as .mdc with manual conversion). allowed-tools is experimental."
+    },
+    {
+      "id": "windsurf",
+      "name": "Windsurf",
+      "vendor": "Codeium (Windsurf, Inc.)",
+      "homepage": "https://windsurf.com/",
+      "rules_file": ".windsurfrules (legacy, repo root) → .windsurf/rules/*.md (modern); also reads AGENTS.md",
+      "skills_file": "No native SKILL.md; rules served via .windsurf/rules/*.md (SKILL.md not recognized)",
+      "install_path": {
+        "project": ".windsurf/rules/<name>.md (legacy .windsurfrules at repo root)",
+        "user": "~/.codeium/windsurf/rules/ (global rules also managed via editor Global Rules / Memories)"
+      },
+      "frontmatter_required": ["trigger"],
+      "frontmatter_optional": ["globs", "description"],
+      "features": {
+        "hooks": "unsupported",
+        "subagent": "unsupported",
+        "context_fork": "unsupported",
+        "progressive_disclosure": "partial",
+        "pre_approved_tools": "unsupported",
+        "slash_command": "unsupported",
+        "glob_scoping": "native",
+        "model_override": "unsupported"
+      },
+      "notes": "Activation model is trigger/glob-driven (like Cursor), not description-driven. The frontmatter trigger field accepts always/manual/glob/model_decision; globs is required when trigger=glob, description is used by model_decision and manual. No PreToolUse/PostToolUse hooks, no per-rule subagent spawning, no per-rule tool allowlist, no per-rule model override (Cascade model is chosen globally). SKILL.md is not natively recognized; open-standard skills must be rewritten as .windsurf/rules/*.md files."
+    },
+    {
+      "id": "cline",
+      "name": "Cline",
+      "vendor": "Cline (formerly Claude Dev)",
+      "homepage": "https://cline.bot/",
+      "rules_file": ".clinerules (single file) or .clinerules/ (directory of .md files)",
+      "skills_file": "No native SKILL.md; project rules via .clinerules (SKILL.md not recognized)",
+      "install_path": {
+        "project": ".clinerules (file) or .clinerules/<name>.md (directory)",
+        "user": "n/a (global custom instructions and auto-approve live in VS Code settings, not a filesystem path)"
+      },
+      "frontmatter_required": [],
+      "frontmatter_optional": [],
+      "features": {
+        "hooks": "unsupported",
+        "subagent": "unsupported",
+        "context_fork": "unsupported",
+        "progressive_disclosure": "partial",
+        "pre_approved_tools": "partial",
+        "slash_command": "unsupported",
+        "glob_scoping": "unsupported",
+        "model_override": "unsupported"
+      },
+      "notes": "VS Code extension (formerly Claude Dev). Rules are plain Markdown/.clinerules with no YAML frontmatter; the whole file is loaded as always-on context (no glob/auto-trigger, no description-driven activation). No skills system, no native SKILL.md. Strong Auto-Approve settings panel (toggle per tool family: file edits, commands, MCP, browser) — closest analog to pre-approved tools, but global/workspace setting, not per-skill allowed-tools frontmatter. Model chosen per session in UI. Skills must be flattened into .clinerules; hook/agent extensions cannot be expressed."
+    },
+    {
+      "id": "aider",
+      "name": "Aider",
+      "vendor": "Paul Gauthier (open source)",
+      "homepage": "https://aider.chat/",
+      "rules_file": ".aider.conf.yml (config) + convention files added via read: (commonly CONVENTIONS.md)",
+      "skills_file": "No native SKILL.md; conventions read into context via --read / read: setting",
+      "install_path": {
+        "project": ".aider.conf.yml at repo root (with read: CONVENTIONS.md entries)",
+        "user": "~/.aider.conf.yml (with read: entries for global conventions)"
+      },
+      "frontmatter_required": [],
+      "frontmatter_optional": [],
+      "features": {
+        "hooks": "unsupported",
+        "subagent": "unsupported",
+        "context_fork": "unsupported",
+        "progressive_disclosure": "partial",
+        "pre_approved_tools": "unsupported",
+        "slash_command": "unsupported",
+        "glob_scoping": "unsupported",
+        "model_override": "unsupported"
+      },
+      "notes": "CLI pair-programmer, not an agentic harness. Rules are convention files (e.g. CONVENTIONS.md) read into every session via the read: key in .aider.conf.yml or --read flag; plain Markdown, no YAML frontmatter, no per-skill directory. No PreToolUse/PostToolUse lifecycle hooks; runs lint/test commands after edits (auto-lint, --test/--lint) — different mechanism. No subagents, no context fork, no per-skill tool allowlist (auto-run via global --yes/--yes-always), no user-defined slash commands, no glob scoping, no per-skill model override (model/weak-model global via --model). Porting means flattening to CONVENTIONS.md; hook/agent/tool-allowlist features cannot be expressed."
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "vendor": "GitHub (Microsoft)",
+      "homepage": "https://github.com/features/copilot",
+      "rules_file": ".github/copilot-instructions.md (always-on); Copilot coding agent also reads AGENTS.md",
+      "skills_file": "No native SKILL.md; analogs are .github/prompts/<name>.prompt.md (slash-invoked) and .github/instructions/<name>.instructions.md (glob-scoped)",
+      "install_path": {
+        "project": ".github/copilot-instructions.md, .github/prompts/<name>.prompt.md, .github/instructions/<name>.instructions.md",
+        "user": "n/a (user custom instructions in VS Code / GitHub settings; prompt and instruction files are workspace-scoped)"
+      },
+      "frontmatter_required": [],
+      "frontmatter_optional": ["description", "mode", "tools", "model", "applyTo"],
+      "features": {
+        "hooks": "unsupported",
+        "subagent": "unsupported",
+        "context_fork": "unsupported",
+        "progressive_disclosure": "partial",
+        "pre_approved_tools": "partial",
+        "slash_command": "native",
+        "glob_scoping": "native",
+        "model_override": "partial"
+      },
+      "notes": "Closest analog to skills splits into two file types. Prompt files (.github/prompts/*.prompt.md) are slash-invoked via /prompt-name in Chat and accept frontmatter: description, mode (chat/agent/edit), tools (per-prompt tool allowlist), model (per-prompt override, constrained to Copilot catalog). Instruction files (.github/instructions/*.instructions.md) auto-apply based on applyTo glob. .github/copilot-instructions.md is always-on. Cloud Copilot coding agent additionally reads AGENTS.md. No native SKILL.md, no hooks, no subagents, no context fork. pre_approved_tools partial because the prompt-file tools field is a real per-prompt allowlist but uses Copilot-specific tool identifiers. model_override partial because the model field exists but is limited to Copilot-offered models."
+    },
+    {
+      "id": "zed",
+      "name": "Zed",
+      "vendor": "Zed Industries",
+      "homepage": "https://zed.dev/",
+      "rules_file": "AGENTS.md (read by the Assistant); .zed/settings.json for project settings",
+      "skills_file": "No native SKILL.md; AGENTS.md is the only rules mechanism",
+      "install_path": {
+        "project": "AGENTS.md at repo root",
+        "user": "n/a (no documented user-level AGENTS.md path; global Assistant settings in ~/.config/zed/settings.json)"
+      },
+      "frontmatter_required": [],
+      "frontmatter_optional": [],
+      "features": {
+        "hooks": "unsupported",
+        "subagent": "unsupported",
+        "context_fork": "unsupported",
+        "progressive_disclosure": "partial",
+        "pre_approved_tools": "unsupported",
+        "slash_command": "unsupported",
+        "glob_scoping": "unsupported",
+        "model_override": "unsupported"
+      },
+      "notes": "Zed's AI is an inline-edit / Assistant panel feature. Project context via AGENTS.md (read by the Assistant) plus .zed/settings.json; no dedicated rules filesystem, no SKILL.md support, no YAML frontmatter. Model selection is global via Assistant Profiles (each binds a provider+model), not per-rule. Built-in assistant slash commands (/file, /tab, /project) insert context but cannot invoke user-defined skills. No hooks, no subagent spawning, no context fork, no per-skill tool allowlist, no glob-triggered rules. MCP-style Context Servers exist for retrieval but are not a skills system. Porting means flattening a skill body into AGENTS.md; all advanced extensions are dropped."
+    },
+    {
+      "id": "amp",
+      "name": "Amp",
+      "vendor": "Sourcegraph",
+      "homepage": "https://ampcode.com/",
+      "rules_file": "AGENTS.md (repo root + subdirectories, walked and concatenated like Codex)",
+      "skills_file": "No native SKILL.md; AGENTS.md is the only rules mechanism",
+      "install_path": {
+        "project": "AGENTS.md at repo root or any subdirectory",
+        "user": "~/.config/amp/AGENTS.md (global; Amp also exposes global instructions via app settings)"
+      },
+      "frontmatter_required": [],
+      "frontmatter_optional": [],
+      "features": {
+        "hooks": "unsupported",
+        "subagent": "unsupported",
+        "context_fork": "unsupported",
+        "progressive_disclosure": "partial",
+        "pre_approved_tools": "partial",
+        "slash_command": "unsupported",
+        "glob_scoping": "unsupported",
+        "model_override": "unsupported"
+      },
+      "notes": "Strong AGENTS.md adopter: rules are plain-Markdown AGENTS.md files (project root + subdirs, merged root→cwd) with no YAML frontmatter and no native SKILL.md. Runtime is richer than Codex CLI — built-in Sourcegraph code-search tools, MCP support, async/background cloud agents, and an approval system — but none of this is wired to per-skill frontmatter. pre_approved_tools partial: Amp has command/tool approval settings (auto-approve vs. ask) but no per-AGENTS.md allowed-tools allowlist. No hooks, no per-skill subagent delegation (background agents are async execution, not skill-scoped), no context fork, no slash-command skill invocation, no glob scoping (directory-scoped only), no per-skill model override."
+    },
+    {
+      "id": "jules",
+      "name": "Jules",
+      "vendor": "Google",
+      "homepage": "https://jules.google/",
+      "rules_file": "AGENTS.md (repo root)",
+      "skills_file": "No native SKILL.md; AGENTS.md is the only rules mechanism",
+      "install_path": {
+        "project": "AGENTS.md at repo root",
+        "user": "n/a (Jules operates on GitHub repos; no user-level rules filesystem path)"
+      },
+      "frontmatter_required": [],
+      "frontmatter_optional": [],
+      "features": {
+        "hooks": "unsupported",
+        "subagent": "unsupported",
+        "context_fork": "unsupported",
+        "progressive_disclosure": "partial",
+        "pre_approved_tools": "unsupported",
+        "slash_command": "unsupported",
+        "glob_scoping": "unsupported",
+        "model_override": "unsupported"
+      },
+      "notes": "Google's async, GitHub-connected coding agent: picks up a task (issue/PR), runs in an isolated cloud VM, opens a pull request. Project instructions from AGENTS.md at repo root (plain Markdown, no YAML frontmatter, no native SKILL.md). No user-level rules path (repo-centric). No hooks, no per-skill subagents (one agent per task, multi-step), no context fork, no per-skill tool allowlist (tool permissions fixed by sandbox VM), no slash-command skill invocation (tasks created from GitHub issue / web UI), no glob scoping, no per-skill model override (runs on Gemini models). Portability similar to Codex CLI (flatten SKILL.md into AGENTS.md) but Jules is async/PR-oriented rather than interactive."
+    },
+    {
+      "id": "continue",
+      "name": "Continue",
+      "vendor": "Continue Dev, Inc. (open source)",
+      "homepage": "https://www.continue.dev/",
+      "rules_file": ".continue/config.yaml (project; legacy .continuerc.json) and ~/.continue/config.yaml (user)",
+      "skills_file": "No native SKILL.md; analog is custom slash-command / prompt files under ~/.continue/prompts/ (or .continue/prompts/)",
+      "install_path": {
+        "project": ".continue/config.yaml (or .continuerc.json); .continue/prompts/<name>.prompt",
+        "user": "~/.continue/config.yaml; ~/.continue/prompts/<name>.prompt"
+      },
+      "frontmatter_required": [],
+      "frontmatter_optional": ["description", "model", "temperature", "context"],
+      "features": {
+        "hooks": "unsupported",
+        "subagent": "unsupported",
+        "context_fork": "unsupported",
+        "progressive_disclosure": "partial",
+        "pre_approved_tools": "unsupported",
+        "slash_command": "native",
+        "glob_scoping": "unsupported",
+        "model_override": "partial"
+      },
+      "notes": "Open-source AI coding extension. Rules/configuration live in config.yaml (~/.continue/config.yaml global, .continue/config.yaml or .continuerc.json project) as YAML, not Markdown frontmatter. Skills analog is custom slash commands defined under customCommands/slashCommands (name, description, prompt, optional context providers) in config.yaml, or as separate prompt files in ~/.continue/prompts/ — invoked via /name in chat. No native SKILL.md, no YAML frontmatter on rules. model_override partial: Continue supports many local/cloud models and allows per-slash-command model binding in some prompt-file formats, but it is not the open-standard model field. No hooks, no subagent spawning, no context fork, no per-skill tool allowlist (tool usage governed by global config + approvals), no glob-triggered rules (context pulled via @-mention context providers)."
+    }
+  ]
+}
