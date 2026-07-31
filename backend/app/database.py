@@ -70,10 +70,17 @@ def init_db() -> None:
                 frontmatter_required TEXT,
                 frontmatter_optional TEXT,
                 features TEXT,
-                notes TEXT
+                notes TEXT,
+                notes_zh TEXT
             )
             """
         )
+        # 旧库迁移：若 agents 表已存在但缺少 notes_zh 列，则补上
+        try:
+            cur.execute("ALTER TABLE agents ADD COLUMN notes_zh TEXT")
+        except sqlite3.OperationalError:
+            # 列已存在时 sqlite 会抛 OperationalError，忽略即可
+            pass
         # crawl_config 表：单行爬虫配置（id 固定为 1）
         cur.execute(
             """

@@ -21,6 +21,7 @@ def _row_to_agent(row) -> AgentOut:
         frontmatter_optional=loads(row["frontmatter_optional"], []) or [],
         features=loads(row["features"], {}) or {},
         notes=row["notes"],
+        notes_zh=row["notes_zh"],
     )
 
 

@@ -57,6 +57,7 @@ class AgentOut(BaseModel):
     frontmatter_optional: List[str] = Field(default_factory=list)
     features: Dict[str, Any] = Field(default_factory=dict)
     notes: Optional[str] = None
+    notes_zh: Optional[str] = None
 
 
 class CrawlConfigOut(BaseModel):

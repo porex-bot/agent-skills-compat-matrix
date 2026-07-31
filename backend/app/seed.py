@@ -30,15 +30,15 @@ def seed() -> None:
                 """
                 INSERT INTO agents (id, name, vendor, homepage, rules_file, skills_file,
                                     install_path, frontmatter_required, frontmatter_optional,
-                                    features, notes)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                                    features, notes, notes_zh)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(id) DO UPDATE SET
                     name=excluded.name, vendor=excluded.vendor, homepage=excluded.homepage,
                     rules_file=excluded.rules_file, skills_file=excluded.skills_file,
                     install_path=excluded.install_path,
                     frontmatter_required=excluded.frontmatter_required,
                     frontmatter_optional=excluded.frontmatter_optional,
-                    features=excluded.features, notes=excluded.notes
+                    features=excluded.features, notes=excluded.notes, notes_zh=excluded.notes_zh
                 """,
                 (
                     agent.get("id"),
@@ -52,6 +52,7 @@ def seed() -> None:
                     dumps(agent.get("frontmatter_optional", [])),
                     dumps(agent.get("features", {})),
                     agent.get("notes"),
+                    agent.get("notes_zh"),
                 ),
             )
 

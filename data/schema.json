@@ -69,7 +69,11 @@
             "model_override": {"$ref": "#/definitions/SupportLevel"}
           }
         },
-        "notes": {"type": "string"}
+        "notes": {"type": "string"},
+        "notes_zh": {
+          "type": "string",
+          "description": "Chinese translation of notes, shown in zh locale on AgentDetailPage and AgentsPage."
+        }
       }
     },
     "SkillEntry": {
