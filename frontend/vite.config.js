@@ -27,9 +27,27 @@ function copySiteData() {
   }
 }
 
+// GitHub Pages 子路径部署的 SPA fallback:
+// 刷新 /skill/xxx 这种深链接时, Pages 找不到对应静态文件会返回硬 404,
+// 前端 JS 根本没机会跑。复制一份 index.html 为 404.html,
+// Pages 找不到文件时会优先返回 404.html, 再由前端路由接管渲染正确页面。
+function spa404Fallback() {
+  return {
+    name: 'spa-404-fallback',
+    closeBundle() {
+      const indexHtml = resolve(process.cwd(), 'dist', 'index.html')
+      const notFoundHtml = resolve(process.cwd(), 'dist', '404.html')
+      if (existsSync(indexHtml)) {
+        cpSync(indexHtml, notFoundHtml)
+        console.log(`[spa-404-fallback] ${indexHtml} → ${notFoundHtml}`)
+      }
+    },
+  }
+}
+
 export default defineConfig({
   base,
-  plugins: [react(), tailwindcss(), copySiteData()],
+  plugins: [react(), tailwindcss(), copySiteData(), spa404Fallback()],
   server: {
     port: 5173,
     // 开发期把 /api 代理到 FastAPI 后端 (8000)
