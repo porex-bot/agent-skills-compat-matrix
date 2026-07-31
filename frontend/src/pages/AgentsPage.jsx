@@ -18,7 +18,7 @@ const FEATURES = [
 ];
 
 export default function AgentsPage() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [agents, setAgents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -118,7 +118,7 @@ export default function AgentsPage() {
                   <span className="font-[var(--font-mono)] text-[10px] uppercase tracking-wider text-[var(--color-text-faint)]">{a.vendor}</span>
                 </div>
                 {a.notes && (
-                  <p className="text-xs text-[var(--color-text-dim)] line-clamp-2 leading-[1.5]">{a.notes}</p>
+                  <p className="text-xs text-[var(--color-text-dim)] line-clamp-2 leading-[1.5]">{lang === 'zh' && a.notes_zh ? a.notes_zh : a.notes}</p>
                 )}
                 <div className="mt-3 pt-3 border-t border-[var(--color-border-soft)] font-[var(--font-mono)] text-[10px] uppercase tracking-wider text-[var(--color-accent)]">
                   {t('tapForDetails')}

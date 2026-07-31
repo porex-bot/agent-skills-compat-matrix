@@ -72,6 +72,7 @@ const en = {
 
   backToMatrix: '‹ Back to matrix',
   backToAgents: '‹ Back to agents',
+  facts: 'Facts',
 
   // 爬虫后台
   adminTitle: 'Crawler Console',
@@ -193,6 +194,7 @@ const zh = {
 
   backToMatrix: '‹ 返回矩阵',
   backToAgents: '‹ 返回 Agents',
+  facts: '基础信息',
 
   adminTitle: '爬虫控制台',
   adminLede: '配置并运行 GitHub skill 爬虫。设定星标下限,选择自动或手动,让它把 SKILL.md 文件汇总进矩阵。',

@@ -28,7 +28,7 @@ function Fact({ label, value, mono }) {
 
 export default function AgentDetailPage() {
   const { id } = useParams();
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [agent, setAgent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -88,7 +88,7 @@ export default function AgentDetailPage() {
 
       {agent.notes && (
         <p className="mt-6 text-[17px] leading-[1.6] text-[var(--color-text-dim)] max-w-[62ch]">
-          {agent.notes}
+          {lang === 'zh' && agent.notes_zh ? agent.notes_zh : agent.notes}
         </p>
       )}
 
@@ -120,7 +120,7 @@ export default function AgentDetailPage() {
       {/* Facts */}
       <section className="mt-10">
         <h2 className="font-[var(--font-sans)] font-bold text-2xl mb-4 border-b border-[var(--color-rule)] pb-2">
-          Facts
+          {t('facts')}
         </h2>
         <dl className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
           <Fact label={t('rulesFile')} value={agent.rules_file} mono />
