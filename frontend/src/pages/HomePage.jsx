@@ -12,8 +12,9 @@ import Loading from '../components/Loading.jsx';
 
 const LEVELS = ['native', 'compatible', 'partial', 'unsupported', 'unknown'];
 const CATEGORIES = [
-  'code_review', 'tdd', 'refactor', 'debug', 'build', 'deploy',
-  'research', 'marketing', 'productivity', 'frontend', 'backend', 'devops', 'other',
+  'code_quality', 'testing', 'debugging', 'devops', 'frontend_ui',
+  'data_docs', 'text_content', 'research_analysis', 'agent_workflow',
+  'integration', 'other',
 ];
 const PAGE_SIZE = 25;
 
