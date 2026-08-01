@@ -29,8 +29,10 @@ concurrency:
 
 jobs:
   crawl:
-    # 仅定时与手动触发时跑爬虫；普通 push 事件跳过本 job
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    # 定时/手动/push 到 main 时都跑爬虫。
+    # push 事件由 on.push.paths 限定(仅 frontend/site-data/workflow 变更才触发),
+    # 不会因无关改动频繁触发; 且 push 时跑一次确保数据最新。
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: write
