@@ -59,7 +59,13 @@ export async function fetchSkills(params = {}) {
     } else if (level) {
       items = items.filter((s) => Object.values(s.compatibility || {}).includes(level));
     }
-    if (category) items = items.filter((s) => s.category === category);
+    if (category) items = items.filter((s) => {
+      // 多标签匹配: categories 数组任一包含, 或单值 category 等于
+      const cats = Array.isArray(s.categories) && s.categories.length > 0
+        ? s.categories
+        : (s.category ? [s.category] : []);
+      return cats.includes(category);
+    });
     const total = items.length;
     const start = (page - 1) * page_size;
     return { items: items.slice(start, start + page_size), total, page, page_size };

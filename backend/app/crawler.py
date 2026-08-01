@@ -117,9 +117,9 @@ _CATEGORY_RULES = [
 
 
 def _infer_category(name: str, description: str, original_category: str = "") -> str:
-    """基于 name + description + 原始 category 推断用途分类。
+    """基于 name + description + 原始 category 推断主用途分类(单值, 向后兼容)。
 
-    多源关键词匹配, 命中第一个规则即返回; 都不命中则 other。
+    返回命中的第一个分类; 都不命中则 other。
     """
     text = f"{name or ''} {description or ''} {original_category or ''}".lower()
     for cat_key, keywords in _CATEGORY_RULES:
@@ -127,6 +127,25 @@ def _infer_category(name: str, description: str, original_category: str = "") ->
             if kw in text:
                 return cat_key
     return "other"
+
+
+def _infer_categories(name: str, description: str, original_category: str = "") -> List[str]:
+    """推断全部命中的用途分类(多值, 用于多标签)。
+
+    遍历所有规则, 收集所有命中的分类, 保证至少返回 ['other']。
+    顺序与 _CATEGORY_RULES 一致, 首个即主分类。
+    """
+    text = f"{name or ''} {description or ''} {original_category or ''}".lower()
+    hits: List[str] = []
+    for cat_key, keywords in _CATEGORY_RULES:
+        for kw in keywords:
+            if kw in text:
+                if cat_key not in hits:
+                    hits.append(cat_key)
+                break
+    if not hits:
+        hits = ["other"]
+    return hits
 
 
 def _agent_ids() -> List[str]:
@@ -412,16 +431,17 @@ def _refresh_seeds(token: str, min_stars: int) -> None:
             dropped += 1
             continue
 
-        # 重推断分类
-        new_cat = _infer_category(
+        # 重推断分类(多标签)
+        new_cats = _infer_categories(
             seed.get("name", ""),
             seed.get("description", ""),
             seed.get("category", ""),
         )
+        primary_cat = new_cats[0]
         with get_cursor() as cur:
             cur.execute(
-                "UPDATE skills SET stars=?, category=? WHERE id=?",
-                (stars, new_cat, seed["id"]),
+                "UPDATE skills SET stars=?, category=?, categories=? WHERE id=?",
+                (stars, primary_cat, dumps(new_cats), seed["id"]),
             )
         refreshed += 1
 
@@ -490,8 +510,9 @@ def execute_crawl(history_id: Optional[int] = None) -> int:
             # 翻译 description 为中文（失败返回空串，前端兜底显示英文）
             description_zh = _translate_to_zh(description)
 
-            # 推断用途分类 (覆盖 frontmatter 里太碎或缺失的 category)
-            category = _infer_category(name, description, fm.get("category", ""))
+            # 推断用途分类(多标签, 覆盖 frontmatter 里太碎或缺失的 category)
+            cats = _infer_categories(name, description, fm.get("category", ""))
+            category = cats[0]  # 主分类, 向后兼容 category 字段
 
             # 兼容性默认：open-standard=compatible，其余 unknown
             compatibility = _default_compatibility()
@@ -506,6 +527,7 @@ def execute_crawl(history_id: Optional[int] = None) -> int:
                     "repo": full_name,
                     "url": f"https://github.com/{full_name}",
                     "category": category,
+                    "categories": cats,
                     "description": description,
                     "description_zh": description_zh,
                     "usage_tutorial": tutorial,
@@ -549,11 +571,11 @@ def _upsert_skill(skill: Dict[str, Any]) -> bool:
             return False
         cur.execute(
             """
-            INSERT INTO skills (id, name, repo, url, category, description, description_zh,
+            INSERT INTO skills (id, name, repo, url, category, categories, description, description_zh,
                                 usage_tutorial, uses_claude_extensions, verified_at,
                                 verified_by, stars, source, crawled_at, compatibility,
                                 caveats, caveats_zh)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 skill["id"],
@@ -561,6 +583,7 @@ def _upsert_skill(skill: Dict[str, Any]) -> bool:
                 skill.get("repo"),
                 skill.get("url"),
                 skill.get("category"),
+                dumps(skill.get("categories", [skill.get("category", "other")])),
                 skill.get("description"),
                 skill.get("description_zh", ""),
                 skill.get("usage_tutorial", ""),

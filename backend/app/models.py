@@ -18,6 +18,7 @@ class SkillOut(BaseModel):
     repo: Optional[str] = None
     url: Optional[str] = None
     category: Optional[str] = None
+    categories: List[str] = Field(default_factory=list)
     description: Optional[str] = None
     description_zh: Optional[str] = None
     usage_tutorial: Optional[str] = None

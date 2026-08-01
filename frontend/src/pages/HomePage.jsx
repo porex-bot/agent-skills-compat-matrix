@@ -210,7 +210,7 @@ export default function HomePage() {
                   >
                     <div className="flex items-start justify-between gap-3 mb-2">
                       <span className="font-[var(--font-sans)] font-semibold text-lg text-[var(--color-text)] leading-tight">{sk.name}</span>
-                      <CategoryTag category={sk.category} />
+                      <CategoryTag categories={sk.categories} category={sk.category} />
                     </div>
                     {description && (
                       <p className="text-sm text-[var(--color-text-dim)] leading-[1.5] line-clamp-2 mb-3">{description}</p>

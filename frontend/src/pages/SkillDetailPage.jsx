@@ -52,9 +52,9 @@ export default function SkillDetailPage() {
         {t('backToMatrix')}
       </Link>
 
-      <div className="flex items-center gap-3 mb-3">
+      <div className="flex items-center gap-3 mb-3 flex-wrap">
         <span className="block w-6 h-px bg-[var(--color-accent-2)]" />
-        <CategoryTag category={skill.category} />
+        <CategoryTag categories={skill.categories} category={skill.category} />
       </div>
 
       <h1 className="font-[var(--font-sans)] font-bold text-[32px] md:text-[40px] tracking-[-0.025em] text-[var(--color-text)] leading-[1.1]">

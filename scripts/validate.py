@@ -124,17 +124,24 @@ def validate_business_rules(bundle: dict, errors: list[str]) -> None:
                 )
 
         # category must be one of the allowed set (schema also enforces this, but
-        # this gives a clearer error message).
+        # this gives a clearer error message). categories 数组同理校验。
         category = s.get("category")
+        categories = s.get("categories", [])
         allowed_categories = {
-            "code-review", "tdd", "refactor", "debug", "build", "deploy",
-            "research", "marketing", "productivity", "frontend", "backend",
-            "devops", "other",
+            "code_quality", "testing", "debugging", "devops", "frontend_ui",
+            "data_docs", "text_content", "research_analysis", "agent_workflow",
+            "integration", "other",
         }
         if category and category not in allowed_categories:
             errors.append(
                 f"[skills:{sid}] invalid category: {category}"
             )
+        if isinstance(categories, list):
+            for c in categories:
+                if c not in allowed_categories:
+                    errors.append(
+                        f"[skills:{sid}] invalid categories item: {c}"
+                    )
 
 
 def main() -> int:

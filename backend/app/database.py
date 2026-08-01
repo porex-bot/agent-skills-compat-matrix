@@ -41,6 +41,7 @@ def init_db() -> None:
                 repo TEXT,
                 url TEXT,
                 category TEXT,
+                categories TEXT,
                 description TEXT,
                 description_zh TEXT,
                 usage_tutorial TEXT,
@@ -56,6 +57,12 @@ def init_db() -> None:
             )
             """
         )
+        # 旧库迁移：若 skills 表已存在但缺少 categories 列，则补上
+        try:
+            cur.execute("ALTER TABLE skills ADD COLUMN categories TEXT")
+        except sqlite3.OperationalError:
+            # 列已存在时 sqlite 会抛 OperationalError，忽略即可
+            pass
         # agents 表：agent 能力矩阵
         cur.execute(
             """

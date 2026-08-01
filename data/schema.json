@@ -90,7 +90,16 @@
         "url": {"type": "string", "format": "uri"},
         "category": {
           "type": "string",
-          "enum": ["code-review", "tdd", "refactor", "debug", "build", "deploy", "research", "marketing", "productivity", "frontend", "backend", "devops", "other"]
+          "description": "Primary category (single). Kept for backward compat; new code should use categories.",
+          "enum": ["code_quality", "testing", "debugging", "devops", "frontend_ui", "data_docs", "text_content", "research_analysis", "agent_workflow", "integration", "other"]
+        },
+        "categories": {
+          "type": "array",
+          "description": "Multi-label categories (use-case based). A skill can belong to multiple.",
+          "items": {
+            "type": "string",
+            "enum": ["code_quality", "testing", "debugging", "devops", "frontend_ui", "data_docs", "text_content", "research_analysis", "agent_workflow", "integration", "other"]
+          }
         },
         "description": {"type": "string"},
         "compatibility": {

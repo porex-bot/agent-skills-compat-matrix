@@ -63,20 +63,22 @@ def seed() -> None:
             return
 
         for skill in skills_data.get("skills", []):
+            cat = skill.get("category") or "other"
             cur.execute(
                 """
-                INSERT INTO skills (id, name, repo, url, category, description, description_zh,
+                INSERT INTO skills (id, name, repo, url, category, categories, description, description_zh,
                                     usage_tutorial, uses_claude_extensions, verified_at,
                                     verified_by, stars, source, crawled_at, compatibility,
                                     caveats, caveats_zh)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     skill.get("id"),
                     skill.get("name"),
                     skill.get("repo"),
                     skill.get("url"),
-                    skill.get("category"),
+                    cat,
+                    dumps(skill.get("categories", [cat])),
                     skill.get("description"),
                     skill.get("description_zh"),
                     "",  # 种子 skill 的 usage_tutorial 暂留空字符串
