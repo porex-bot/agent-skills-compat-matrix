@@ -19,6 +19,8 @@ PER_PAGE = 100
 TIMEOUT = 20.0
 # usage_tutorial 最大字符数
 TUTORIAL_MAX_CHARS = 2000
+# MyMemory 翻译 API 单次请求最大字符数
+TRANSLATE_MAX_CHARS = 480
 
 # 并发爬取锁，避免多次爬取同时写库
 _crawl_lock = threading.Lock()
@@ -212,6 +214,56 @@ def _fetch_raw(owner: str, repo: str, branch: str, path: str, token: str) -> str
     return ""
 
 
+def _translate_to_zh(text: str) -> str:
+    """把英文 description 翻译成中文，失败/无变化返回空串。
+
+    优先用 Google Translate 非官方 endpoint（无需 key、相对稳定），
+    失败回退 MyMemory 免费翻译 API。两者都免费但按 IP 限流，
+    对爬虫低频场景够用。失败时返回空串，前端会兜底显示英文 description。
+    """
+    if not text or not text.strip():
+        return ""
+    src = text.strip()
+    # 单次请求截断，避免超长文本被拒
+    src = src[:TRANSLATE_MAX_CHARS]
+
+    # 1) Google Translate 非官方 endpoint
+    try:
+        resp = httpx.get(
+            "https://translate.googleapis.com/translate_a/single",
+            params={"client": "gtx", "sl": "en", "tl": "zh-CN", "dt": "t", "q": src},
+            timeout=15.0,
+        )
+        if resp.status_code == 200:
+            data = resp.json()
+            # 返回结构 [[["译文","原文",...],...], ...]，拼接每段译文
+            parts = data[0] if data and isinstance(data[0], list) else []
+            translated = "".join(p[0] for p in parts if isinstance(p, list) and p and p[0])
+            if translated and translated.strip().upper() != src.upper():
+                return translated.strip()
+    except (httpx.HTTPError, ValueError, IndexError):
+        pass
+
+    # 2) MyMemory 兜底
+    try:
+        resp = httpx.get(
+            "https://api.mymemory.translated.net/get",
+            params={"q": src, "langpair": "en|zh-CN"},
+            timeout=15.0,
+        )
+        if resp.status_code == 200:
+            data = resp.json()
+            translated = (data.get("responseData") or {}).get("translatedText", "")
+            if translated and translated.strip().upper() != src.upper():
+                up = translated.upper()
+                if "MYMEMORY WARNING" not in up and "PLEASE SELECT" not in up:
+                    return translated.strip()
+    except (httpx.HTTPError, ValueError):
+        pass
+
+    return ""
+
+
 def _start_history() -> int:
     """创建一条 status='running' 的爬取历史，返回其 id。"""
     with get_cursor() as cur:
@@ -246,10 +298,21 @@ def execute_crawl(history_id: Optional[int] = None) -> int:
     """
     cfg = _load_config()
     token = cfg.get("github_token") or config.env_github_token()
-    min_stars = cfg.get("min_stars", 10) or 10
+    min_stars = cfg.get("min_stars", 500) or 500
 
     if history_id is None:
         history_id = _start_history()
+
+    # 爬取前清理：删除 source='crawled' 且 stars 低于当前门槛的旧记录。
+    # seed 种子数据不受影响；CI 每次重建库无旧数据，此步主要服务于自部署后端。
+    with get_cursor() as cur:
+        cur.execute(
+            "DELETE FROM skills WHERE source='crawled' AND (stars IS NULL OR stars < ?)",
+            (min_stars,),
+        )
+        purged = cur.rowcount
+    if purged:
+        print(f"[crawl] 清理 {purged} 条低于 {min_stars} star 的旧 crawled 记录")
 
     found = 0
     new_count = 0
@@ -282,6 +345,9 @@ def execute_crawl(history_id: Optional[int] = None) -> int:
             name = fm.get("name") or repo
             description = fm.get("description") or (repo_data or {}).get("description", "") or ""
 
+            # 翻译 description 为中文（失败返回空串，前端兜底显示英文）
+            description_zh = _translate_to_zh(description)
+
             # 兼容性默认：open-standard=compatible，其余 unknown
             compatibility = _default_compatibility()
             uses_ext = fm.get("uses_claude_extensions") or []
@@ -296,7 +362,7 @@ def execute_crawl(history_id: Optional[int] = None) -> int:
                     "url": f"https://github.com/{full_name}",
                     "category": fm.get("category") or "other",
                     "description": description,
-                    "description_zh": "",
+                    "description_zh": description_zh,
                     "usage_tutorial": tutorial,
                     "uses_claude_extensions": uses_ext,
                     "verified_at": "",

@@ -86,7 +86,7 @@ def init_db() -> None:
             """
             CREATE TABLE IF NOT EXISTS crawl_config (
                 id INTEGER PRIMARY KEY DEFAULT 1,
-                min_stars INTEGER DEFAULT 10,
+                min_stars INTEGER DEFAULT 500,
                 interval_hours REAL DEFAULT 24,
                 auto_mode INTEGER DEFAULT 0,
                 keywords TEXT DEFAULT 'SKILL.md',
@@ -113,7 +113,7 @@ def init_db() -> None:
         cur.execute(
             """
             INSERT OR IGNORE INTO crawl_config (id, min_stars, interval_hours, auto_mode, keywords, github_token, updated_at)
-            VALUES (1, 10, 24, 0, 'SKILL.md', NULL, NULL)
+            VALUES (1, 500, 24, 0, 'SKILL.md', NULL, NULL)
             """
         )
 
