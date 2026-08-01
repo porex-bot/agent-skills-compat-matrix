@@ -13,7 +13,7 @@
     "verified_by": "crawler",
     "stars": 30032,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:34:12.919133+00:00",
+    "crawled_at": "2026-08-01T00:54:00.428876+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -46,7 +46,7 @@
     "verified_by": "crawler",
     "stars": 3235,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:23.407540+00:00",
+    "crawled_at": "2026-08-01T00:53:22.367738+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -79,7 +79,7 @@
     "verified_by": "crawler",
     "stars": 2260,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:34:15.103564+00:00",
+    "crawled_at": "2026-08-01T00:54:02.118834+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -112,7 +112,7 @@
     "verified_by": "crawler",
     "stars": 2108,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:35:23.650172+00:00",
+    "crawled_at": "2026-08-01T00:54:59.680958+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -145,7 +145,7 @@
     "verified_by": "crawler",
     "stars": 1792,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:33.485685+00:00",
+    "crawled_at": "2026-08-01T00:53:25.743796+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -178,7 +178,7 @@
     "verified_by": "crawler",
     "stars": 1675,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:30.796593+00:00",
+    "crawled_at": "2026-08-01T00:53:23.915648+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -211,7 +211,7 @@
     "verified_by": "crawler",
     "stars": 1369,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:48.392345+00:00",
+    "crawled_at": "2026-08-01T00:53:38.052601+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -244,7 +244,7 @@
     "verified_by": "crawler",
     "stars": 1321,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:36.105399+00:00",
+    "crawled_at": "2026-08-01T00:53:27.586307+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -277,7 +277,7 @@
     "verified_by": "crawler",
     "stars": 1243,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:34:23.312517+00:00",
+    "crawled_at": "2026-08-01T00:54:06.420837+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -310,7 +310,7 @@
     "verified_by": "crawler",
     "stars": 1130,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:44.583291+00:00",
+    "crawled_at": "2026-08-01T00:53:35.194931+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -343,7 +343,7 @@
     "verified_by": "crawler",
     "stars": 1064,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:35:36.019667+00:00",
+    "crawled_at": "2026-08-01T00:55:14.413604+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -376,7 +376,7 @@
     "verified_by": "crawler",
     "stars": 1011,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:37.872710+00:00",
+    "crawled_at": "2026-08-01T00:53:28.659217+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -409,7 +409,7 @@
     "verified_by": "crawler",
     "stars": 812,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:35:37.244350+00:00",
+    "crawled_at": "2026-08-01T00:55:15.087807+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -442,7 +442,7 @@
     "verified_by": "crawler",
     "stars": 808,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:34.506761+00:00",
+    "crawled_at": "2026-08-01T00:53:26.476195+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -475,7 +475,7 @@
     "verified_by": "crawler",
     "stars": 753,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:46.810566+00:00",
+    "crawled_at": "2026-08-01T00:53:36.616621+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -508,7 +508,7 @@
     "verified_by": "crawler",
     "stars": 689,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:29.441449+00:00",
+    "crawled_at": "2026-08-01T00:53:23.183431+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -534,14 +534,14 @@
     "url": "https://github.com/gmickel/flow-next",
     "category": "other",
     "description": "Interview user in-depth about a spec, task, or spec file to extract complete implementation details. Use when user wants to flesh out a spec, refine requirements, or clarify a feature before building. Triggers on /flow-next:interview with Flow IDs (fn-1-add-oauth, fn-1-add-oauth.2, or legacy fn-1, fn-1.2, fn-1-xxx, fn-1-xxx.2) or file paths.",
-    "description_zh": "深入访谈用户关于规范、任务或规范文件的信息，以提取完整的实施细节。当用户希望在构建之前充实规格、细化要求或澄清功能时使用。/flow-next触发：访问Flow ID （ fn-1-add-oauth、fn-1-add-oauth.2或旧版fn-1、fn-1.2、fn-1-xxx、fn-1-xxx.2 ）或文件路径。",
+    "description_zh": "深入采访用户有关规范、任务或规范文件的信息，以提取完整的实现细节。当用户想要在构建之前充实规范、细化需求或澄清功能时使用。在 /flow-next:interview 上触发流 ID（fn-1-add-oauth、fn-1-add-oauth.2 或旧版 fn-1、fn-1.2、fn-1-xxx、fn-1-xxx.2）或文件路径。",
     "usage_tutorial": "# Flow interview\n\nConduct an extremely thorough interview about a task/spec and write refined details back.\n\n**IMPORTANT**: This plugin uses `.flow/` for ALL task tracking. Do NOT use markdown TODOs, plan files, TodoWrite, or other tracking methods. All task state must be read and written via `flowctl`.\n\n## Preamble\n\n**CRITICAL: flowctl is BUNDLED — NOT installed globally.** `which flowctl` will fail (expected). Define once; subsequent blocks use `$FLOWCTL`:\n\n```bash\nFLOWCTL=\"${DROID_PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT}}/scripts/flowctl\"\n[ -x \"$FLOWCTL\" ] || FLOWCTL=\".flow/bin/flowctl\"\n```\n\n## Pre-check: Local setup version\n\nIf `.flow/meta.json` exists and has `setup_version`, compare to plugin version:\n```bash\nSETUP_VER=$(jq -r '.setup_version // empty' .flow/meta.json 2>/dev/null)\nPLUGIN_JSON=\"${DROID_PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT}}/.claude-plugin/plugin.json\"\nPLUGIN_VER=$(jq -r '.version' \"$PLUGIN_JSON\" 2>/dev/null || echo \"unknown\")\nif [[ -n \"$SETUP_VER\" && \"$PLUGIN_VER\" != \"unknown\" ]]; then\n  [[ \"$SETUP_VER\" = \"$PLUGIN_VER\" ]] || echo \"Plugin updated to v${PLUGIN_VER}. Run /flow-next:setup to refresh local scripts (current: v${SETUP_VER}).\"\nfi\n```\nContinue regardless (non-blocking).\n\n**Role**: technical interviewer, spec refiner\n**Goal**: extract complete implementation details through deep questioning (40+ questions typical)\n\n## Input\n\nFull request: $ARGUMENTS\n\nAccepts:\n- **Flow spec ID** `fn-N-slug` (e.g., `fn-1-add-oauth`) or legacy `fn-N`/`fn-N-xxx`: Fetch with `flowctl show`, write back with `flowctl spec set-plan`\n- **Flow task ID** `fn-N-slug.M` (e.g., `fn-1-add-oauth.2`) or legacy `fn-N.M`/`fn-N-xxx.M`: Fetch with `flowctl show`, write back with `flowctl task set-description/set-acceptance`\n- **File path** (e.g., `docs/spec.md`): Read file, interview, rewrite file\n- **Empty**: Prompt for target\n\nExamples:\n- `/flow-next:interview fn-1-add-oauth`\n- `/flow-next:interview fn-1-add-oauth.3`\n- `/flow-next:interview fn-1` (legacy formats fn-1, fn-1-xxx stil",
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
     "stars": 670,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:34:32.873481+00:00",
+    "crawled_at": "2026-08-01T00:54:13.701528+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -574,7 +574,7 @@
     "verified_by": "crawler",
     "stars": 669,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:34:00.243717+00:00",
+    "crawled_at": "2026-08-01T00:53:49.291526+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -607,7 +607,7 @@
     "verified_by": "crawler",
     "stars": 632,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:39.195772+00:00",
+    "crawled_at": "2026-08-01T00:53:29.662196+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -640,7 +640,7 @@
     "verified_by": "crawler",
     "stars": 618,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:34:49.722751+00:00",
+    "crawled_at": "2026-08-01T00:54:25.660909+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -673,7 +673,7 @@
     "verified_by": "crawler",
     "stars": 543,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:41.862198+00:00",
+    "crawled_at": "2026-08-01T00:53:32.392865+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -706,7 +706,7 @@
     "verified_by": "crawler",
     "stars": 530,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:35:41.154612+00:00",
+    "crawled_at": "2026-08-01T00:55:16.997323+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -739,7 +739,7 @@
     "verified_by": "crawler",
     "stars": 502,
     "source": "crawled",
-    "crawled_at": "2026-08-01T00:33:52.968097+00:00",
+    "crawled_at": "2026-08-01T00:53:41.985918+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
