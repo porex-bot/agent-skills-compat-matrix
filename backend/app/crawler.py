@@ -78,8 +78,8 @@ _CATEGORY_RULES = [
     ]),
     # 前端与 UI: 设计、品牌、主题、可访问性、UI
     ("frontend_ui", [
-        "frontend", "ui", "design", "brand", "theme", "accessibility",
-        "wcag", "visual", "typography", "color", "canvas", "svg",
+        "frontend", "ui design", "ui build", "brand", "theme", "accessibility",
+        "wcag", "visual-design", "typography", "color", "canvas", "svg",
         "generative art", "algorithmic art", "ppt", "slide",
     ]),
     # 数据与文档: PDF、Excel、表格、文档处理
@@ -104,12 +104,14 @@ _CATEGORY_RULES = [
         "estate", "settlement", "graphify", "knowledge graph",
         "karpathy",
     ]),
-    # Agent 工作流: 子 agent、并行、handoff、上下文管理
+    # Agent 工作流: 子 agent、并行、handoff、上下文管理、改造 agent 行为
     ("agent_workflow", [
         "subagent", "sub-agent", "parallel", "dispatch", "handoff",
         "context", "workflow", "superpower", "agent", "skill-creator",
         "skill creator", "orchestrat", "task", "observer", "wayfinder",
         "map of decision", "create-yourself", "create-ex", "数字人格",
+        "interrogat", "grill", "relentlessly", "decision branch",
+        "requirements", "ambiguity",
     ]),
 ]
 
