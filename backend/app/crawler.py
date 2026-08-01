@@ -41,6 +41,92 @@ def _kebab(s: str) -> str:
     return s.strip("-")
 
 
+# ---- 分类推断 ----
+# 基于 skill name + description + category 关键词, 推断用途分类。
+# 分类 key 与前端 i18n.js cat_* 对应:
+#   code_quality / testing / debugging / devops / frontend_ui
+#   data_docs / text_content / research_analysis / agent_workflow
+#   integration / other
+# 多个关键词命中时按优先级取第一个, 都不命中则 other。
+_CATEGORY_RULES = [
+    # 集成与 MCP: MCP server、工具构建、LSP (放最前, 避免被 code_quality 的 quality 抢)
+    ("integration", [
+        "mcp", "mcp-builder", "mcp server", "tool", "lsp", "language server",
+        "serena", "semantic edit", "integration", "api",
+    ]),
+    # DevOps 与自动化: CI/CD、部署、可观测性、发布 (放前, 避免 ci/cd 的 quality 被抢)
+    ("devops", [
+        "ci/cd", "ci-cd", "cicd", "deploy", "deployment", "pipeline",
+        "observability", "telemetry", "instrumentation", "shipping",
+        "launch", "rollout", "automation", "devops", "ci/cd quality-gate",
+    ]),
+    # 测试: TDD、e2e、playwright、浏览器测试、验证
+    ("testing", [
+        "tdd", "test", "testing", "playwright", "e2e", "verify",
+        "verification", "red-green", "webapp testing", "browser test",
+    ]),
+    # 调试: bug 诊断、根因、系统化调试
+    ("debugging", [
+        "debug", "debugging", "bug", "diagnos", "root cause", "trace",
+        "systematic",
+    ]),
+    # 代码质量: 评审、重构、安全加固、规范、债务
+    ("code_quality", [
+        "code review", "code-review", "refactor", "tech debt",
+        "security", "hardening", "lint", "spec-driven",
+        "production pattern", "discipline", "pre-commit",
+    ]),
+    # 前端与 UI: 设计、品牌、主题、可访问性、UI
+    ("frontend_ui", [
+        "frontend", "ui", "design", "brand", "theme", "accessibility",
+        "wcag", "visual", "typography", "color", "canvas", "svg",
+        "generative art", "algorithmic art", "ppt", "slide",
+    ]),
+    # 数据与文档: PDF、Excel、表格、文档处理
+    ("data_docs", [
+        "pdf", "xlsx", "spreadsheet", "excel", "document", "doc",
+        "biopython", "fasta", "sequence", "quantum", "pennylane",
+        "torch", "harmonic", "cloudbase", "auth",
+    ]),
+    # 文本与内容: 总结、转换、压缩、营销文案、内容生成
+    ("text_content", [
+        "summary", "summari", "compress", "caveman", "marketing",
+        "copy", "landing page", "ad copy", "content", "text",
+        "clipify", "video", "funniest", "prompt", "recommend",
+        "nano banana", "image", "soul", "style", "identity",
+    ]),
+    # 研究与分析: 研究、调研、监控、分析、估值
+    ("research_analysis", [
+        "research", "analysis", "analyz", "monitor", "competitor",
+        "voice-of-customer", "academic", "deep-research", "investigat",
+        "valuation", "bayesian", "predict", "world cup", "bazi",
+        "紫微", "八字", "命理", "interview", "seo", "audit",
+        "estate", "settlement", "graphify", "knowledge graph",
+        "karpathy",
+    ]),
+    # Agent 工作流: 子 agent、并行、handoff、上下文管理
+    ("agent_workflow", [
+        "subagent", "sub-agent", "parallel", "dispatch", "handoff",
+        "context", "workflow", "superpower", "agent", "skill-creator",
+        "skill creator", "orchestrat", "task", "observer", "wayfinder",
+        "map of decision", "create-yourself", "create-ex", "数字人格",
+    ]),
+]
+
+
+def _infer_category(name: str, description: str, original_category: str = "") -> str:
+    """基于 name + description + 原始 category 推断用途分类。
+
+    多源关键词匹配, 命中第一个规则即返回; 都不命中则 other。
+    """
+    text = f"{name or ''} {description or ''} {original_category or ''}".lower()
+    for cat_key, keywords in _CATEGORY_RULES:
+        for kw in keywords:
+            if kw in text:
+                return cat_key
+    return "other"
+
+
 def _agent_ids() -> List[str]:
     """从数据库读取全部 agent id 列表。"""
     with get_cursor() as cur:
@@ -291,6 +377,55 @@ def _load_config() -> Dict[str, Any]:
         return dict(row) if row else {}
 
 
+def _refresh_seeds(token: str, min_stars: int) -> None:
+    """维护 seed skill: 补真实 star 数、重推断分类、按门槛过滤。
+
+    seed 数据原本写死 stars=0 且分类沿用 data/skills.json 的碎分类,
+    这里逐条查 GitHub API 拿真实 star, 重新推断用途分类,
+    并删除低于 min_stars 门槛的 seed (让高星大厂 skill 浮上来)。
+    """
+    with get_cursor() as cur:
+        cur.execute(
+            "SELECT id, name, repo, description, description_zh, category FROM skills WHERE source='seed'"
+        )
+        seeds = [dict(row) for row in cur.fetchall()]
+
+    if not seeds:
+        return
+
+    refreshed = 0
+    dropped = 0
+    for seed in seeds:
+        repo = seed.get("repo") or ""
+        if not repo or "/" not in repo:
+            continue
+        owner, repo_name = repo.split("/", 1)
+        repo_data = _get_repo(owner, repo_name, token)
+        stars = repo_data.get("stargazers_count", 0) if repo_data else 0
+
+        # 低于门槛的 seed 直接删除
+        if stars < min_stars:
+            with get_cursor() as cur:
+                cur.execute("DELETE FROM skills WHERE id=?", (seed["id"],))
+            dropped += 1
+            continue
+
+        # 重推断分类
+        new_cat = _infer_category(
+            seed.get("name", ""),
+            seed.get("description", ""),
+            seed.get("category", ""),
+        )
+        with get_cursor() as cur:
+            cur.execute(
+                "UPDATE skills SET stars=?, category=? WHERE id=?",
+                (stars, new_cat, seed["id"]),
+            )
+        refreshed += 1
+
+    print(f"[crawl] seed 维护: 补 star+分类 {refreshed} 条, 清理低星 {dropped} 条")
+
+
 def execute_crawl(history_id: Optional[int] = None) -> int:
     """执行一次完整爬取流程，返回历史 id。
 
@@ -313,6 +448,11 @@ def execute_crawl(history_id: Optional[int] = None) -> int:
         purged = cur.rowcount
     if purged:
         print(f"[crawl] 清理 {purged} 条低于 {min_stars} star 的旧 crawled 记录")
+
+    # ---- seed skill 维护: 补真实 star 数 + 重推断分类 + 按 min_stars 过滤 ----
+    # seed 数据原本写死 stars=0 且分类太碎, 这里用 repo 字段查 GitHub API 拿真实 star,
+    # 重新推断用途分类, 并清掉低于门槛的(让大厂高星 skill 浮上来)。
+    _refresh_seeds(token, min_stars)
 
     found = 0
     new_count = 0
@@ -348,6 +488,9 @@ def execute_crawl(history_id: Optional[int] = None) -> int:
             # 翻译 description 为中文（失败返回空串，前端兜底显示英文）
             description_zh = _translate_to_zh(description)
 
+            # 推断用途分类 (覆盖 frontmatter 里太碎或缺失的 category)
+            category = _infer_category(name, description, fm.get("category", ""))
+
             # 兼容性默认：open-standard=compatible，其余 unknown
             compatibility = _default_compatibility()
             uses_ext = fm.get("uses_claude_extensions") or []
@@ -360,7 +503,7 @@ def execute_crawl(history_id: Optional[int] = None) -> int:
                     "name": name,
                     "repo": full_name,
                     "url": f"https://github.com/{full_name}",
-                    "category": fm.get("category") or "other",
+                    "category": category,
                     "description": description,
                     "description_zh": description_zh,
                     "usage_tutorial": tutorial,
