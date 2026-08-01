@@ -1,57 +1,5 @@
 [
   {
-    "id": "superpowers-tdd",
-    "name": "superpowers (TDD flow)",
-    "repo": "obra/superpowers",
-    "url": "https://github.com/obra/superpowers",
-    "category": "testing",
-    "description": "Vertical-slice red-green-refactor TDD methodology packaged as Spec→Plan→Implement→Review→Ship skills. Effect: enforces a full TDD loop per slice so features ship with covering tests by construction.",
-    "description_zh": "垂直切片的红绿重构 TDD 方法论，打包成 Spec→Plan→Implement→Review→Ship 一组 skill。效果：每个切片强制走完整 TDD 循环，功能天生带覆盖测试。",
-    "usage_tutorial": "",
-    "uses_claude_extensions": [
-      "agent",
-      "context:fork"
-    ],
-    "verified_at": "2026-07-29",
-    "verified_by": "matrix-maintainers",
-    "stars": 264468,
-    "source": "seed",
-    "crawled_at": null,
-    "compatibility": {
-      "claude-code": "native",
-      "cursor": "partial",
-      "codex-cli": "partial",
-      "gemini-cli": "native",
-      "open-standard": "compatible",
-      "windsurf": "partial",
-      "cline": "partial",
-      "aider": "partial",
-      "github-copilot": "partial",
-      "zed": "partial",
-      "amp": "partial",
-      "jules": "partial",
-      "continue": "partial"
-    },
-    "caveats": {
-      "cursor": "Spec/Plan stages rely on Claude's subagent orchestration; in Cursor they run inline without parallel agents, slower and no isolation.",
-      "codex-cli": "Requires manual conversion of SKILL.md into AGENTS.md fragments; 32 KiB budget may truncate the full methodology.",
-      "open-standard": "Procedural guidance ports cleanly; Claude-specific hooks and context:fork fall back to no-ops.",
-      "windsurf": "Rewrite as a rules file; hooks/agent/context-fork are dropped.",
-      "cline": "Rewrite as a rules file; hooks/agent/context-fork are dropped.",
-      "aider": "Flatten to CONVENTIONS.md read via read:; hooks/agent/context-fork cannot be expressed.",
-      "github-copilot": "Convert to a prompt file for slash invocation; hooks/agent/context-fork are dropped.",
-      "zed": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
-      "amp": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
-      "jules": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
-      "continue": "Convert to a prompt file for slash invocation; hooks/agent/context-fork are dropped."
-    },
-    "caveats_zh": {
-      "cursor": "Spec/Plan 阶段依赖 Claude 的 subagent 编排;在 Cursor 中它们以内联方式运行,没有并行 agent,更慢且无隔离。",
-      "codex-cli": "需要手动将 SKILL.md 转换为 AGENTS.md 片段;32 KiB 预算可能会截断完整方法论。",
-      "open-standard": "流程化的指导可干净迁移;Claude 专属的 hooks 和 context:fork 回退为 no-ops。"
-    }
-  },
-  {
     "id": "superpowers-dispatching-parallel-agents",
     "name": "dispatching-parallel-agents",
     "repo": "obra/superpowers",
@@ -65,7 +13,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 264467,
+    "stars": 264471,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -118,7 +66,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 264467,
+    "stars": 264471,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -169,7 +117,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 264467,
+    "stars": 264471,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -207,6 +155,58 @@
     }
   },
   {
+    "id": "superpowers-tdd",
+    "name": "superpowers (TDD flow)",
+    "repo": "obra/superpowers",
+    "url": "https://github.com/obra/superpowers",
+    "category": "testing",
+    "description": "Vertical-slice red-green-refactor TDD methodology packaged as Spec→Plan→Implement→Review→Ship skills. Effect: enforces a full TDD loop per slice so features ship with covering tests by construction.",
+    "description_zh": "垂直切片的红绿重构 TDD 方法论，打包成 Spec→Plan→Implement→Review→Ship 一组 skill。效果：每个切片强制走完整 TDD 循环，功能天生带覆盖测试。",
+    "usage_tutorial": "",
+    "uses_claude_extensions": [
+      "agent",
+      "context:fork"
+    ],
+    "verified_at": "2026-07-29",
+    "verified_by": "matrix-maintainers",
+    "stars": 264471,
+    "source": "seed",
+    "crawled_at": null,
+    "compatibility": {
+      "claude-code": "native",
+      "cursor": "partial",
+      "codex-cli": "partial",
+      "gemini-cli": "native",
+      "open-standard": "compatible",
+      "windsurf": "partial",
+      "cline": "partial",
+      "aider": "partial",
+      "github-copilot": "partial",
+      "zed": "partial",
+      "amp": "partial",
+      "jules": "partial",
+      "continue": "partial"
+    },
+    "caveats": {
+      "cursor": "Spec/Plan stages rely on Claude's subagent orchestration; in Cursor they run inline without parallel agents, slower and no isolation.",
+      "codex-cli": "Requires manual conversion of SKILL.md into AGENTS.md fragments; 32 KiB budget may truncate the full methodology.",
+      "open-standard": "Procedural guidance ports cleanly; Claude-specific hooks and context:fork fall back to no-ops.",
+      "windsurf": "Rewrite as a rules file; hooks/agent/context-fork are dropped.",
+      "cline": "Rewrite as a rules file; hooks/agent/context-fork are dropped.",
+      "aider": "Flatten to CONVENTIONS.md read via read:; hooks/agent/context-fork cannot be expressed.",
+      "github-copilot": "Convert to a prompt file for slash invocation; hooks/agent/context-fork are dropped.",
+      "zed": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
+      "amp": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
+      "jules": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
+      "continue": "Convert to a prompt file for slash invocation; hooks/agent/context-fork are dropped."
+    },
+    "caveats_zh": {
+      "cursor": "Spec/Plan 阶段依赖 Claude 的 subagent 编排;在 Cursor 中它们以内联方式运行,没有并行 agent,更慢且无隔离。",
+      "codex-cli": "需要手动将 SKILL.md 转换为 AGENTS.md 片段;32 KiB 预算可能会截断完整方法论。",
+      "open-standard": "流程化的指导可干净迁移;Claude 专属的 hooks 和 context:fork 回退为 no-ops。"
+    }
+  },
+  {
     "id": "superpowers-verification-before-completion",
     "name": "verification-before-completion",
     "repo": "obra/superpowers",
@@ -218,7 +218,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 264467,
+    "stars": 264471,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -267,7 +267,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 198235,
+    "stars": 198236,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -319,7 +319,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 197862,
+    "stars": 197873,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -370,7 +370,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 197862,
+    "stars": 197873,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -419,7 +419,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 197862,
+    "stars": 197873,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -469,7 +469,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 197862,
+    "stars": 197873,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -520,7 +520,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 197862,
+    "stars": 197873,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -571,7 +571,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 197862,
+    "stars": 197873,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -622,7 +622,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 197862,
+    "stars": 197873,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -671,7 +671,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 165479,
+    "stars": 165481,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -720,7 +720,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 165479,
+    "stars": 165481,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -769,7 +769,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 165479,
+    "stars": 165481,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -818,7 +818,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 165479,
+    "stars": 165481,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -867,7 +867,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 165479,
+    "stars": 165481,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -916,7 +916,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 165479,
+    "stars": 165481,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -965,7 +965,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 165479,
+    "stars": 165481,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1014,7 +1014,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 165479,
+    "stars": 165481,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1063,7 +1063,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 165479,
+    "stars": 165481,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1112,7 +1112,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 99756,
+    "stars": 99760,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1554,7 +1554,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 56239,
+    "stars": 56242,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1599,7 +1599,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 42553,
+    "stars": 42555,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1700,7 +1700,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 32278,
+    "stars": 32277,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1751,7 +1751,7 @@
     "verified_by": "crawler",
     "stars": 30032,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:49.491327+00:00",
+    "crawled_at": "2026-08-01T01:42:58.866143+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -1835,7 +1835,7 @@
     "verified_by": "crawler",
     "stars": 3235,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:18.610839+00:00",
+    "crawled_at": "2026-08-01T01:42:25.097203+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -1868,7 +1868,7 @@
     "verified_by": "crawler",
     "stars": 2260,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:51.078698+00:00",
+    "crawled_at": "2026-08-01T01:43:00.607703+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -1894,14 +1894,14 @@
     "url": "https://github.com/LeoYeAI/openclaw-master-skills",
     "category": "other",
     "description": "🧠 Curated collection of 1209+ best OpenClaw skills — weekly updated by MyClaw.ai",
-    "description_zh": "🧠 精选 1209 多项最佳 OpenClaw 技能 — 由 MyClaw.ai 每周更新",
+    "description_zh": "🧠 精选 1209 多项最佳 OpenClaw 技能 - 由 MyClaw.ai 每周更新",
     "usage_tutorial": "# Check Skill Update\n\nAutomated skill update checker for ClawFriend.\n\n## Quick Commands\n\n```bash\ncd ~/.openclaw/workspace/skills/clawfriend\n\n# Check for updates\nnode scripts/update-checker.js check\n\n# Apply updates (downloads files + updates config)\nnode scripts/update-checker.js apply\n\n# Merge new heartbeat tasks\nnode scripts/update-checker.js merge\n```\n\n**What it does:**\n- ✅ Checks current version vs latest\n- ✅ Downloads new SKILL.md and HEARTBEAT.md\n- ✅ Updates SKILL_VERSION in config\n- ✅ Merges new heartbeat tasks (preserves customizations)\n- ✅ Warns about breaking changes\n\n## Update Process\n\n### Automated (Recommended)\n\n```bash\nnode scripts/update-checker.js apply\n```\n\nThis downloads files, updates config, and merges new heartbeat tasks automatically.\n\n### Manual (if needed)\n\n```bash\n# Download files\ncurl \"https://api.clawfriend.ai/api/skills/skill.md\" \\\n  -H \"x-api-key: $CLAW_FRIEND_API_KEY\" \\\n  -o ~/.openclaw/workspace/skills/clawfriend/SKILL.md\n\n# Update version in config\n# Edit ~/.openclaw/openclaw.json: SKILL_VERSION = \"new_version\"\n\n# Merge new heartbeat tasks\nnode scripts/update-checker.js merge\n```\n\n## API Reference\n\n**Endpoint:** `GET /v1/skill-version?current={version}`  \n**Header:** `x-api-key: clawfriend_xxx...`\n\n**Response when update available:**\n```json\n{\n  \"update_required\": true,\n  \"latest_version\": \"1.1.0\",\n  \"current_version\": \"1.0.0\",\n  \"changelog\": \"Added new features\",\n  \"breaking_changes\": false\n}\n```\n\n**Error codes:**\n- `401` - Invalid API key or inactive agent\n- `404` - Wrong endpoint or API_DOMAIN\n- `429` - Rate limited, retry later\n\n## Integration\n\nAdd to HEARTBEAT.md (automated during setup):\n```markdown\n[ ] Check ClawFriend skill version (Every 15 minutes)\n    cd ~/.openclaw/workspace/skills/clawfriend && node scripts/update-checker.js check\n```\n\n## Notes\n\n- **Heartbeat merge:** Only new tasks are added, your customizations are preserved\n- **Breaking changes:** Scripts warn you when major updates require manual action\n- **Auto-check",
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
     "stars": 2108,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:31:36.098228+00:00",
+    "crawled_at": "2026-08-01T01:43:52.857406+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -1934,7 +1934,7 @@
     "verified_by": "crawler",
     "stars": 1792,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:21.750617+00:00",
+    "crawled_at": "2026-08-01T01:42:28.307186+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -1967,7 +1967,7 @@
     "verified_by": "crawler",
     "stars": 1675,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:20.294639+00:00",
+    "crawled_at": "2026-08-01T01:42:26.620214+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2000,7 +2000,7 @@
     "verified_by": "crawler",
     "stars": 1369,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:33.440779+00:00",
+    "crawled_at": "2026-08-01T01:42:38.701659+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2033,7 +2033,7 @@
     "verified_by": "crawler",
     "stars": 1321,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:23.468558+00:00",
+    "crawled_at": "2026-08-01T01:42:30.074678+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2066,7 +2066,7 @@
     "verified_by": "crawler",
     "stars": 1243,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:55.215721+00:00",
+    "crawled_at": "2026-08-01T01:43:05.099352+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2099,7 +2099,7 @@
     "verified_by": "crawler",
     "stars": 1130,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:31.001583+00:00",
+    "crawled_at": "2026-08-01T01:42:36.197587+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2132,7 +2132,7 @@
     "verified_by": "crawler",
     "stars": 1064,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:31:44.902155+00:00",
+    "crawled_at": "2026-08-01T01:44:03.636176+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2165,7 +2165,7 @@
     "verified_by": "crawler",
     "stars": 1011,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:24.505148+00:00",
+    "crawled_at": "2026-08-01T01:42:31.032101+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2198,7 +2198,7 @@
     "verified_by": "crawler",
     "stars": 812,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:31:45.446486+00:00",
+    "crawled_at": "2026-08-01T01:44:04.368994+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2231,7 +2231,7 @@
     "verified_by": "crawler",
     "stars": 808,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:22.470128+00:00",
+    "crawled_at": "2026-08-01T01:42:29.042493+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2264,7 +2264,7 @@
     "verified_by": "crawler",
     "stars": 753,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:32.268430+00:00",
+    "crawled_at": "2026-08-01T01:42:37.361693+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2297,7 +2297,7 @@
     "verified_by": "crawler",
     "stars": 689,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:19.400459+00:00",
+    "crawled_at": "2026-08-01T01:42:25.818590+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2330,7 +2330,7 @@
     "verified_by": "crawler",
     "stars": 670,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:31:00.149370+00:00",
+    "crawled_at": "2026-08-01T01:43:10.527872+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2363,7 +2363,7 @@
     "verified_by": "crawler",
     "stars": 669,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:41.087850+00:00",
+    "crawled_at": "2026-08-01T01:42:48.230353+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2396,7 +2396,7 @@
     "verified_by": "crawler",
     "stars": 632,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:25.561524+00:00",
+    "crawled_at": "2026-08-01T01:42:31.951477+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2429,7 +2429,7 @@
     "verified_by": "crawler",
     "stars": 618,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:31:11.283977+00:00",
+    "crawled_at": "2026-08-01T01:43:21.492231+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2462,7 +2462,7 @@
     "verified_by": "crawler",
     "stars": 543,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:28.923526+00:00",
+    "crawled_at": "2026-08-01T01:42:34.012948+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2495,7 +2495,7 @@
     "verified_by": "crawler",
     "stars": 530,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:31:47.517174+00:00",
+    "crawled_at": "2026-08-01T01:44:06.149854+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2528,7 +2528,7 @@
     "verified_by": "crawler",
     "stars": 502,
     "source": "crawled",
-    "crawled_at": "2026-08-01T01:30:36.281215+00:00",
+    "crawled_at": "2026-08-01T01:42:42.054714+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
