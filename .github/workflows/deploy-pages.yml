@@ -107,6 +107,13 @@ jobs:
           test -s site-data/stats.json
           ls -la site-data/
 
+      - name: Upload site-data artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-data
+          path: site-data/
+          retention-days: 1
+
       - name: Commit static data
         run: |
           git config user.name "github-actions[bot]"
@@ -133,6 +140,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      # crawl job 可能在 deploy checkout 之后才 push 新数据到 main,
+      # 导致 deploy 用到旧 site-data。这里下载 crawl 上传的 artifact 覆盖,
+      # 确保构建用的是 crawl 最新导出的数据(竞态修复)。
+      - name: Download site-data artifact
+        if: needs.crawl.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: site-data
+          path: site-data/
 
       - name: Set up Node
         uses: actions/setup-node@v4
