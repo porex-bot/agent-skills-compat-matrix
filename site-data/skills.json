@@ -18,7 +18,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 266350,
+    "stars": 266448,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -76,7 +76,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 266350,
+    "stars": 266448,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -132,7 +132,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 266350,
+    "stars": 266448,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -170,60 +170,6 @@
     }
   },
   {
-    "id": "superpowers-verification-before-completion",
-    "name": "verification-before-completion",
-    "repo": "obra/superpowers",
-    "url": "https://github.com/obra/superpowers",
-    "category": "testing",
-    "categories": [
-      "testing",
-      "code_quality",
-      "agent_workflow"
-    ],
-    "description": "Enforces evidence-before-claims by requiring fresh verification command output before any success or completion assertion. Effect: stops the agent from claiming 'done' without proof.",
-    "description_zh": "强制先有证据再下结论——任何成功或完成断言前必须先跑验证命令并看输出。效果：阻止 agent 没有证据就声称'完成'。",
-    "usage_tutorial": "",
-    "uses_claude_extensions": [],
-    "verified_at": "2026-07-31",
-    "verified_by": "matrix-maintainers",
-    "stars": 266350,
-    "source": "seed",
-    "crawled_at": null,
-    "compatibility": {
-      "claude-code": "native",
-      "cursor": "compatible",
-      "codex-cli": "compatible",
-      "gemini-cli": "native",
-      "open-standard": "compatible",
-      "windsurf": "partial",
-      "cline": "partial",
-      "aider": "compatible",
-      "github-copilot": "compatible",
-      "zed": "compatible",
-      "amp": "compatible",
-      "jules": "compatible",
-      "continue": "compatible"
-    },
-    "caveats": {
-      "cursor": "Works as .mdc guidance; there is no enforcement hook, so compliance relies on the model.",
-      "codex-cli": "Drop into AGENTS.md; the gate is instruction-only with no hard block on unverified claims.",
-      "open-standard": "Pure-prompt discipline ports; no automated gating mechanism.",
-      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
-      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
-      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "continue": "Convert the skill to a prompt/slash-command file for invocation."
-    },
-    "caveats_zh": {
-      "cursor": "作为 .mdc 指导工作;没有强制执行 hook,因此合规性依赖模型自身。",
-      "codex-cli": "放入 AGENTS.md;该 gate 仅为指令形式,对未经验证的声明没有硬性阻断。",
-      "open-standard": "纯提示的规范可迁移;没有自动化 gating 机制。"
-    }
-  },
-  {
     "id": "superpowers-tdd",
     "name": "superpowers (TDD flow)",
     "repo": "obra/superpowers",
@@ -243,7 +189,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 266349,
+    "stars": 266448,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -281,6 +227,60 @@
     }
   },
   {
+    "id": "superpowers-verification-before-completion",
+    "name": "verification-before-completion",
+    "repo": "obra/superpowers",
+    "url": "https://github.com/obra/superpowers",
+    "category": "testing",
+    "categories": [
+      "testing",
+      "code_quality",
+      "agent_workflow"
+    ],
+    "description": "Enforces evidence-before-claims by requiring fresh verification command output before any success or completion assertion. Effect: stops the agent from claiming 'done' without proof.",
+    "description_zh": "强制先有证据再下结论——任何成功或完成断言前必须先跑验证命令并看输出。效果：阻止 agent 没有证据就声称'完成'。",
+    "usage_tutorial": "",
+    "uses_claude_extensions": [],
+    "verified_at": "2026-07-31",
+    "verified_by": "matrix-maintainers",
+    "stars": 266448,
+    "source": "seed",
+    "crawled_at": null,
+    "compatibility": {
+      "claude-code": "native",
+      "cursor": "compatible",
+      "codex-cli": "compatible",
+      "gemini-cli": "native",
+      "open-standard": "compatible",
+      "windsurf": "partial",
+      "cline": "partial",
+      "aider": "compatible",
+      "github-copilot": "compatible",
+      "zed": "compatible",
+      "amp": "compatible",
+      "jules": "compatible",
+      "continue": "compatible"
+    },
+    "caveats": {
+      "cursor": "Works as .mdc guidance; there is no enforcement hook, so compliance relies on the model.",
+      "codex-cli": "Drop into AGENTS.md; the gate is instruction-only with no hard block on unverified claims.",
+      "open-standard": "Pure-prompt discipline ports; no automated gating mechanism.",
+      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
+      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
+      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "continue": "Convert the skill to a prompt/slash-command file for invocation."
+    },
+    "caveats_zh": {
+      "cursor": "作为 .mdc 指导工作;没有强制执行 hook,因此合规性依赖模型自身。",
+      "codex-cli": "放入 AGENTS.md;该 gate 仅为指令形式,对未经验证的声明没有硬性阻断。",
+      "open-standard": "纯提示的规范可迁移;没有自动化 gating 机制。"
+    }
+  },
+  {
     "id": "mattpocock-code-review",
     "name": "code-review (dual-axis)",
     "repo": "mattpocock/skills",
@@ -299,7 +299,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 203013,
+    "stars": 203209,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -354,7 +354,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 203013,
+    "stars": 203209,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -406,7 +406,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 203013,
+    "stars": 203209,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -461,7 +461,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 203013,
+    "stars": 203209,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -517,7 +517,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 203013,
+    "stars": 203209,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -572,7 +572,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 203013,
+    "stars": 203209,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -626,7 +626,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 203013,
+    "stars": 203209,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -680,7 +680,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 199475,
+    "stars": 199526,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -732,7 +732,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 166227,
+    "stars": 166248,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -786,7 +786,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 166227,
+    "stars": 166248,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -838,7 +838,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 166227,
+    "stars": 166248,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -891,7 +891,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 166227,
+    "stars": 166248,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -944,7 +944,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 166227,
+    "stars": 166248,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -996,7 +996,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 166227,
+    "stars": 166248,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1048,7 +1048,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 166227,
+    "stars": 166248,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1101,7 +1101,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 166227,
+    "stars": 166248,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1153,7 +1153,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 166227,
+    "stars": 166248,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1207,7 +1207,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 102397,
+    "stars": 102484,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1260,7 +1260,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 95765,
+    "stars": 95792,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1317,7 +1317,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 81625,
+    "stars": 81642,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1370,7 +1370,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 81625,
+    "stars": 81642,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1424,7 +1424,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 81625,
+    "stars": 81642,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1476,7 +1476,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 81625,
+    "stars": 81642,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1529,7 +1529,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 81625,
+    "stars": 81642,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1583,7 +1583,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 81625,
+    "stars": 81642,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1636,7 +1636,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 81625,
+    "stars": 81642,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1688,7 +1688,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 57236,
+    "stars": 57251,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1737,7 +1737,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 42998,
+    "stars": 43014,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1790,7 +1790,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 40877,
+    "stars": 40887,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1849,7 +1849,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 32628,
+    "stars": 32635,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1902,9 +1902,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 30106,
+    "stars": 30108,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:20:42.551922+00:00",
+    "crawled_at": "2026-08-04T23:32:40.466670+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -1942,7 +1942,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 27540,
+    "stars": 27551,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1995,82 +1995,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 16811,
+    "stars": 16812,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:22:51.851809+00:00",
-    "compatibility": {
-      "aider": "unknown",
-      "amp": "unknown",
-      "claude-code": "unknown",
-      "cline": "unknown",
-      "codex-cli": "unknown",
-      "continue": "unknown",
-      "cursor": "unknown",
-      "gemini-cli": "unknown",
-      "github-copilot": "unknown",
-      "jules": "unknown",
-      "open-standard": "compatible",
-      "windsurf": "unknown",
-      "zed": "unknown"
-    },
-    "caveats": {},
-    "caveats_zh": {}
-  },
-  {
-    "id": "efcore",
-    "name": "make-skill",
-    "repo": "dotnet/efcore",
-    "url": "https://github.com/dotnet/efcore",
-    "category": "agent_workflow",
-    "categories": [
-      "agent_workflow"
-    ],
-    "description": "Create new Agent Skills for GitHub Copilot. Use when asked to create, scaffold, or add a skill. Generates SKILL.md with frontmatter, directory structure, and optional resources.",
-    "description_zh": "为 GitHub Copilot 创建新的代理技能。当要求创建、搭建或添加技能时使用。生成带有 frontmatter、目录结构和可选资源的 SKILL.md。",
-    "usage_tutorial": "# Create Skill\n\nThis skill helps you scaffold new agent skills that conform to the Agent Skills specification. Agent Skills are a lightweight, open format for extending AI agent capabilities with specialized knowledge and workflows.\n\n## When Not to Use\n\n- Creating custom agents (use the agents/ directory pattern)\n- Adding language-specific, framework-specific, or module-specific coding guidelines (use file-based instructions instead)\n\n### Key Principles\n\n- **Frontmatter is critical**: `name` and `description` determine when the skill triggers—be clear and comprehensive\n- **Concise is key**: Only include what agents don't already know; context window is shared\n- **Useful instructions**: Only include information that's stable, not easily searchable and can be used for any task within the skill's scope\n- **No duplication**: Information lives in SKILL.md OR reference files, not both\n\n## Workflow\n\n### Step 1: Investigate the Topic\n\nBuild deep understanding of the relevant topics using the repository content, existing documentation, and any linked external resources.\n\nAfter investigating, verify:\n- [ ] Can explain what the skill does in one paragraph\n- [ ] Can list 3-5 specific scenarios where the skill is applicable\n- [ ] Can identify common pitfalls or misconceptions about the topic\n- [ ] Can outline a step-by-step skill workflow with clear validation steps\n- [ ] Have search queries for deeper topics\n- [ ] Can determine if the skill should be user-invocable or background knowledge only\n\nIf there are any ambiguities, gaps in understanding, or multiple valid approaches, ask the user for clarification before proceeding to skill creation.\nAlso, evaluate whether the task might be better handled by a custom agent, agentic workflow, an existing skill or multiple narrower skills, and discuss this with the user if relevant.\n\n### Step 2: Create the skill directory\n\n```\n.agents/skills/<skill-name>/\n├── SKILL.md          # Required: instructions + metadata\n```\n\n### Step 3: Generate",
-    "uses_claude_extensions": [],
-    "verified_at": "",
-    "verified_by": "crawler",
-    "stars": 14762,
-    "source": "crawled",
-    "crawled_at": "2026-08-04T19:22:26.508704+00:00",
-    "compatibility": {
-      "aider": "unknown",
-      "amp": "unknown",
-      "claude-code": "unknown",
-      "cline": "unknown",
-      "codex-cli": "unknown",
-      "continue": "unknown",
-      "cursor": "unknown",
-      "gemini-cli": "unknown",
-      "github-copilot": "unknown",
-      "jules": "unknown",
-      "open-standard": "compatible",
-      "windsurf": "unknown",
-      "zed": "unknown"
-    },
-    "caveats": {},
-    "caveats_zh": {}
-  },
-  {
-    "id": "potpie",
-    "name": "potpie",
-    "repo": "potpie-ai/potpie",
-    "url": "https://github.com/potpie-ai/potpie",
-    "category": "text_content",
-    "categories": [
-      "text_content",
-      "agent_workflow"
-    ],
-    "description": "Context Graph for AI Native SDLC",
-    "description_zh": "AI Native SDLC 的上下文图",
-    "usage_tutorial": "# Skills & Harness-Led Intelligence\n\n> Status: reflects code on `main` @ `8dd175bc`, last reviewed 2026-06-29.\n\nPotpie does not own the reasoning that turns a repo, PR, ticket, or bug into\ndurable memory. That intelligence lives in the **user's coding harness** (Claude\nCode, Codex, Cursor, OpenCode), running on the user's own model subscription, and\nis taught to the harness through **Potpie skills**. Potpie validates, lowers,\ncommits, audits, and ranks; it does not infer rich facts from prose or scan a\nrepository for you. This is the product's central anti-goal made concrete: *no\nPotpie-owned LLM/reconciliation agent as the canonical source of graph\nintelligence.*\n\nA skill is **pure instruction text** — a `SKILL.md` of markdown (no executable\ncode) that a harness loads into its context. Skills teach an agent *how to use the\n`potpie` CLI*; they are never graph facts, and they add no new tools. The\n`potpie-graph` skill states it plainly: \"You are the intelligence that reads it\nbefore acting and writes durable learnings after... It does **not** scan a\nrepository or infer rich facts from prose for you.\"\n\n> **Two skill surfaces — never conflate them.** (1) The **user-installed bundle\n> skills** that drive the `potpie graph …` CLI workbench, managed by\n> `DefaultSkillManager`. (2) The **server-side reconciliation skills** loaded by\n> the ingestion-server's deep agent (`pydantic_deep_agent.py`), with a different\n> tool surface and install path, off by default. Everything from here to\n> [§Server-side reconciliation skills](#server-side-reconciliation-skills-a-separate-surface)\n> is surface (1); surface (2) is documented at the end and in\n> [ingestion-nudge.md](./ingestion-nudge.md).\n\n---\n\n## 1. The skill catalog & packaging\n\nThe single source of truth for skill content **and** metadata is the bundled set\nof `SKILL.md` files under\n`potpie/cli/templates/agent_bundle/.agents/skills/*/SKILL.md`.\n\n`adapters/outbound/skills/bundle_catalog.py` scans those templates at runtime\n(`lr",
-    "uses_claude_extensions": [],
-    "verified_at": "",
-    "verified_by": "crawler",
-    "stars": 5525,
-    "source": "crawled",
-    "crawled_at": "2026-08-04T19:23:31.196875+00:00",
+    "crawled_at": "2026-08-04T23:34:15.834883+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2106,7 +2033,7 @@
     "verified_by": "crawler",
     "stars": 3251,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:19:49.343038+00:00",
+    "crawled_at": "2026-08-04T23:31:55.151353+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2143,7 +2070,7 @@
     "verified_by": "crawler",
     "stars": 2399,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:23:37.071228+00:00",
+    "crawled_at": "2026-08-04T23:34:46.938051+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2179,7 +2106,7 @@
     "verified_by": "crawler",
     "stars": 2260,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:22:27.767980+00:00",
+    "crawled_at": "2026-08-04T23:34:07.178909+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2208,14 +2135,14 @@
       "other"
     ],
     "description": "🧠 Curated collection of 1209+ best OpenClaw skills — weekly updated by MyClaw.ai",
-    "description_zh": "🧠 精选 1209 多项最佳 OpenClaw 技能 - 由 MyClaw.ai 每周更新",
+    "description_zh": "🧠 精选 1209 多项最佳 OpenClaw 技能 — 由 MyClaw.ai 每周更新",
     "usage_tutorial": "# Check Skill Update\n\nAutomated skill update checker for ClawFriend.\n\n## Quick Commands\n\n```bash\ncd ~/.openclaw/workspace/skills/clawfriend\n\n# Check for updates\nnode scripts/update-checker.js check\n\n# Apply updates (downloads files + updates config)\nnode scripts/update-checker.js apply\n\n# Merge new heartbeat tasks\nnode scripts/update-checker.js merge\n```\n\n**What it does:**\n- ✅ Checks current version vs latest\n- ✅ Downloads new SKILL.md and HEARTBEAT.md\n- ✅ Updates SKILL_VERSION in config\n- ✅ Merges new heartbeat tasks (preserves customizations)\n- ✅ Warns about breaking changes\n\n## Update Process\n\n### Automated (Recommended)\n\n```bash\nnode scripts/update-checker.js apply\n```\n\nThis downloads files, updates config, and merges new heartbeat tasks automatically.\n\n### Manual (if needed)\n\n```bash\n# Download files\ncurl \"https://api.clawfriend.ai/api/skills/skill.md\" \\\n  -H \"x-api-key: $CLAW_FRIEND_API_KEY\" \\\n  -o ~/.openclaw/workspace/skills/clawfriend/SKILL.md\n\n# Update version in config\n# Edit ~/.openclaw/openclaw.json: SKILL_VERSION = \"new_version\"\n\n# Merge new heartbeat tasks\nnode scripts/update-checker.js merge\n```\n\n## API Reference\n\n**Endpoint:** `GET /v1/skill-version?current={version}`  \n**Header:** `x-api-key: clawfriend_xxx...`\n\n**Response when update available:**\n```json\n{\n  \"update_required\": true,\n  \"latest_version\": \"1.1.0\",\n  \"current_version\": \"1.0.0\",\n  \"changelog\": \"Added new features\",\n  \"breaking_changes\": false\n}\n```\n\n**Error codes:**\n- `401` - Invalid API key or inactive agent\n- `404` - Wrong endpoint or API_DOMAIN\n- `429` - Rate limited, retry later\n\n## Integration\n\nAdd to HEARTBEAT.md (automated during setup):\n```markdown\n[ ] Check ClawFriend skill version (Every 15 minutes)\n    cd ~/.openclaw/workspace/skills/clawfriend && node scripts/update-checker.js check\n```\n\n## Notes\n\n- **Heartbeat merge:** Only new tasks are added, your customizations are preserved\n- **Breaking changes:** Scripts warn you when major updates require manual action\n- **Auto-check",
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
     "stars": 2109,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:22:13.567427+00:00",
+    "crawled_at": "2026-08-04T23:33:52.866483+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2251,7 +2178,7 @@
     "verified_by": "crawler",
     "stars": 1811,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:19:54.704721+00:00",
+    "crawled_at": "2026-08-04T23:31:59.116540+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2291,7 +2218,7 @@
     "verified_by": "crawler",
     "stars": 1677,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:19:51.942115+00:00",
+    "crawled_at": "2026-08-04T23:31:56.993381+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2328,9 +2255,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 1374,
+    "stars": 1389,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:19:57.808821+00:00",
+    "crawled_at": "2026-08-04T23:32:01.534796+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2367,7 +2294,7 @@
     "verified_by": "crawler",
     "stars": 1372,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:20:12.803270+00:00",
+    "crawled_at": "2026-08-04T23:32:13.001778+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2402,9 +2329,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 1255,
+    "stars": 1256,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:22:47.767487+00:00",
+    "crawled_at": "2026-08-04T23:32:49.318324+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2447,7 +2374,7 @@
     "verified_by": "crawler",
     "stars": 1066,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:20:49.137382+00:00",
+    "crawled_at": "2026-08-04T23:32:44.501329+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2483,7 +2410,7 @@
     "verified_by": "crawler",
     "stars": 1013,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:19:59.597317+00:00",
+    "crawled_at": "2026-08-04T23:32:03.178340+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2519,7 +2446,7 @@
     "verified_by": "crawler",
     "stars": 820,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:22:35.928358+00:00",
+    "crawled_at": "2026-08-04T23:34:10.118848+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2553,45 +2480,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 816,
+    "stars": 817,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:19:55.960521+00:00",
-    "compatibility": {
-      "aider": "unknown",
-      "amp": "unknown",
-      "claude-code": "unknown",
-      "cline": "unknown",
-      "codex-cli": "unknown",
-      "continue": "unknown",
-      "cursor": "unknown",
-      "gemini-cli": "unknown",
-      "github-copilot": "unknown",
-      "jules": "unknown",
-      "open-standard": "compatible",
-      "windsurf": "unknown",
-      "zed": "unknown"
-    },
-    "caveats": {},
-    "caveats_zh": {}
-  },
-  {
-    "id": "sf-skills",
-    "name": "dx-org-trial-expiration-check",
-    "repo": "forcedotcom/sf-skills",
-    "url": "https://github.com/forcedotcom/sf-skills",
-    "category": "data_docs",
-    "categories": [
-      "data_docs"
-    ],
-    "description": "Check when Salesforce orgs expire (or already expired) and what to do about it, for one org, the default org, or across all authenticated orgs, using the Salesforce CLI (sf). Use when the user asks about org or trial expiration, \"when does my trial expire\", \"is my trial org still active\", \"how many days are left\", \"which orgs are expiring soon\", wants to filter orgs expiring within N days, needs machine-readable (JSON/CSV) output for cron or alerting, wants to back up an at-risk org before it lapses, or asks how to extend or renew an expiring trial or Developer Edition org. Covers trial editions, Developer Edition orgs (anything with a TrialExpirationDate), and scratch orgs (via sf org list). DO NOT TRIGGER for sandbox refresh timing, for creating, deleting, or switching the active org, or for non-Salesforce trials such as AWS, Netflix, or other vendors — this skill reads expiration and prints guidance, it does not modify orgs.",
-    "description_zh": "使用 Salesforce CLI (sf) 检查 Salesforce 组织何时过期（或已经过期）以及如何处理（对于一个组织、默认组织或所有经过身份验证的组织）。当用户询问组织或试用期到期、“我的试用期何时到期”、“我的试用组织是否仍然有效”、“还剩多少天”、“哪些组织即将到期”、想要过滤在 N 天内到期的组织、需要用于 cron 或警报的机器可读 (JSON/CSV) 输出、想要备份 at-r 时使用",
-    "usage_tutorial": "# Org Expiration Check\n\nDetermine when a Salesforce org expires, how many days remain, and whether it\nhas already expired — for one org, the default org, or every authenticated org.\nResults are **prioritized** (already-expired and soonest-expiring first) with a\none-line summary. The skill can also emit machine-readable output for alerting,\nprint **backup** commands for an at-risk org, and explain how to **renew** an\nexpiring trial or Developer Edition org.\n\n## When to use\n\nTrigger on requests like:\n\n- \"When does my trial org expire?\" / \"Is it still active or has it expired?\"\n- \"How many days are left on my trial?\"\n- \"Which of my orgs are expiring soon?\" / \"expiring within 30 days?\"\n- \"Alert me / set up a cron job for expiring orgs\" (use `--json` + `--fail-if-expiring`).\n- \"Back up my org before it expires\" (use `--preserve`).\n- \"How do I extend / renew my trial (or Developer Edition) org?\" (use `--renew`).\n\nThis skill covers **trial editions, Developer Edition orgs** (anything with a\n`TrialExpirationDate`), and **scratch orgs** (via the `expirationDate` from\n`sf org list`).\n\n## When NOT to use\n\nDo **not** trigger this skill for:\n\n- **Sandbox refresh timing** — that is not an expiration date.\n- **Creating, deleting, or switching orgs** — this skill only *reads*\n  expiration and *prints* guidance; it never creates, deletes, refreshes, or\n  changes the active/default org. (To switch the default org, use\n  `dx-org-switch`.)\n- **Non-Salesforce trials** — e.g. AWS free tier, Netflix, or any other\n  vendor's trial. This skill is Salesforce-only.\n\n## How expiration is determined\n\n- **Trial / Developer Edition orgs:** the authoritative source is the org's\n  `Organization.TrialExpirationDate` field, read via SOQL (`sf data query`).\n  This field is `null` for paid/production orgs, which therefore report **no\n  trial expiration** — that is expected, not an error.\n- **Scratch orgs:** the `expirationDate` reported by `sf org list` (no SOQL\n  query is issued for scratch orgs).\n\n##",
-    "uses_claude_extensions": [],
-    "verified_at": "",
-    "verified_by": "crawler",
-    "stars": 786,
-    "source": "crawled",
-    "crawled_at": "2026-08-04T19:22:38.775414+00:00",
+    "crawled_at": "2026-08-04T23:32:00.049799+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2627,7 +2518,7 @@
     "verified_by": "crawler",
     "stars": 766,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:20:09.886855+00:00",
+    "crawled_at": "2026-08-04T23:32:11.259374+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2663,7 +2554,7 @@
     "verified_by": "crawler",
     "stars": 691,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:19:50.455614+00:00",
+    "crawled_at": "2026-08-04T23:31:56.080913+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2701,7 +2592,7 @@
     "verified_by": "crawler",
     "stars": 671,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:21:04.572004+00:00",
+    "crawled_at": "2026-08-04T23:32:54.249530+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2737,7 +2628,7 @@
     "verified_by": "crawler",
     "stars": 669,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:20:27.698227+00:00",
+    "crawled_at": "2026-08-04T23:32:25.895801+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2773,7 +2664,7 @@
     "verified_by": "crawler",
     "stars": 634,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:20:01.757291+00:00",
+    "crawled_at": "2026-08-04T23:32:04.647783+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2809,7 +2700,7 @@
     "verified_by": "crawler",
     "stars": 620,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:21:24.684498+00:00",
+    "crawled_at": "2026-08-04T23:33:09.846415+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2846,7 +2737,7 @@
     "verified_by": "crawler",
     "stars": 544,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:20:05.335813+00:00",
+    "crawled_at": "2026-08-04T23:32:07.778643+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2884,7 +2775,7 @@
     "verified_by": "crawler",
     "stars": 534,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:23:25.673742+00:00",
+    "crawled_at": "2026-08-04T23:34:23.488815+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2920,7 +2811,7 @@
     "verified_by": "crawler",
     "stars": 508,
     "source": "crawled",
-    "crawled_at": "2026-08-04T19:20:18.326446+00:00",
+    "crawled_at": "2026-08-04T23:32:17.222365+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
