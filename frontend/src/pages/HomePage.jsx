@@ -170,30 +170,43 @@ export default function HomePage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.items.map((sk) => (
-                    <tr
-                      key={sk.id}
-                      onClick={() => navigate(`/skill/${encodeURIComponent(sk.id)}`)}
-                      className="group cursor-pointer border-b border-[var(--color-border-soft)] hover:bg-[var(--color-bg-elev)] last:border-b-0"
-                    >
-                      <td className="sticky left-0 z-10 bg-[var(--color-bg)] group-hover:bg-[var(--color-bg-elev)] px-4 py-3 align-middle">
-                        <div className="flex flex-col gap-0.5">
-                          <span className="text-[var(--color-text)] text-sm leading-tight">{sk.name}</span>
-                          <span className="font-[var(--font-mono)] text-[10px] text-[var(--color-text-faint)] truncate max-w-[260px]">{sk.repo}</span>
-                        </div>
-                      </td>
-                      {agents.map((a) => {
-                        const lvl = sk.compatibility?.[a.id] || 'unknown';
-                        return (
-                          <td key={a.id} className="text-center px-3 py-3">
-                            <span className="inline-flex justify-center" title={`${sk.name} × ${a.name}: ${t('level_' + lvl)}`}>
-                              <StatusDot level={lvl} />
-                            </span>
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  ))}
+                  {data.items.map((sk) => {
+                    const description = lang === 'zh' && sk.description_zh ? sk.description_zh : sk.description;
+                    return (
+                      <tr
+                        key={sk.id}
+                        onClick={() => navigate(`/skill/${encodeURIComponent(sk.id)}`)}
+                        className="group cursor-pointer border-b border-[var(--color-border-soft)] hover:bg-[var(--color-bg-elev)] last:border-b-0"
+                      >
+                        <td className="sticky left-0 z-10 bg-[var(--color-bg)] group-hover:bg-[var(--color-bg-elev)] px-4 py-4 align-top">
+                          <div className="flex flex-col gap-2 min-w-[280px] max-w-[360px]">
+                            <div className="flex items-center gap-2">
+                              <span className="text-[var(--color-text)] text-sm font-semibold leading-tight">{sk.name}</span>
+                              <CategoryTag categories={sk.categories} category={sk.category} />
+                            </div>
+                            {description && (
+                              <p className="text-xs text-[var(--color-text-dim)] leading-[1.5] line-clamp-2">{description}</p>
+                            )}
+                            <div className="flex items-center gap-3 text-[10px] font-[var(--font-mono)] text-[var(--color-text-faint)]">
+                              <span className="truncate max-w-[180px]">{sk.repo}</span>
+                              {sk.stars != null && sk.stars > 0 && <span>★ {sk.stars}</span>}
+                              <span className="text-[var(--color-accent)] group-hover:underline">{t('tapForDetails')}</span>
+                            </div>
+                          </div>
+                        </td>
+                        {agents.map((a) => {
+                          const lvl = sk.compatibility?.[a.id] || 'unknown';
+                          return (
+                            <td key={a.id} className="text-center px-3 py-4 align-middle">
+                              <span className="inline-flex justify-center" title={`${sk.name} × ${a.name}: ${t('level_' + lvl)}`}>
+                                <StatusDot level={lvl} />
+                              </span>
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
