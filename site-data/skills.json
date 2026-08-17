@@ -1,62 +1,5 @@
 [
   {
-    "id": "superpowers-tdd",
-    "name": "superpowers (TDD flow)",
-    "repo": "obra/superpowers",
-    "url": "https://github.com/obra/superpowers",
-    "category": "testing",
-    "categories": [
-      "testing",
-      "code_quality",
-      "agent_workflow"
-    ],
-    "description": "Vertical-slice red-green-refactor TDD methodology packaged as Spec→Plan→Implement→Review→Ship skills. Effect: enforces a full TDD loop per slice so features ship with covering tests by construction.",
-    "description_zh": "垂直切片的红绿重构 TDD 方法论，打包成 Spec→Plan→Implement→Review→Ship 一组 skill。效果：每个切片强制走完整 TDD 循环，功能天生带覆盖测试。",
-    "usage_tutorial": "",
-    "uses_claude_extensions": [
-      "agent",
-      "context:fork"
-    ],
-    "verified_at": "2026-07-29",
-    "verified_by": "matrix-maintainers",
-    "stars": 272907,
-    "source": "seed",
-    "crawled_at": null,
-    "compatibility": {
-      "claude-code": "native",
-      "cursor": "partial",
-      "codex-cli": "partial",
-      "gemini-cli": "native",
-      "open-standard": "compatible",
-      "windsurf": "partial",
-      "cline": "partial",
-      "aider": "partial",
-      "github-copilot": "partial",
-      "zed": "partial",
-      "amp": "partial",
-      "jules": "partial",
-      "continue": "partial"
-    },
-    "caveats": {
-      "cursor": "Spec/Plan stages rely on Claude's subagent orchestration; in Cursor they run inline without parallel agents, slower and no isolation.",
-      "codex-cli": "Requires manual conversion of SKILL.md into AGENTS.md fragments; 32 KiB budget may truncate the full methodology.",
-      "open-standard": "Procedural guidance ports cleanly; Claude-specific hooks and context:fork fall back to no-ops.",
-      "windsurf": "Rewrite as a rules file; hooks/agent/context-fork are dropped.",
-      "cline": "Rewrite as a rules file; hooks/agent/context-fork are dropped.",
-      "aider": "Flatten to CONVENTIONS.md read via read:; hooks/agent/context-fork cannot be expressed.",
-      "github-copilot": "Convert to a prompt file for slash invocation; hooks/agent/context-fork are dropped.",
-      "zed": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
-      "amp": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
-      "jules": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
-      "continue": "Convert to a prompt file for slash invocation; hooks/agent/context-fork are dropped."
-    },
-    "caveats_zh": {
-      "cursor": "Spec/Plan 阶段依赖 Claude 的 subagent 编排;在 Cursor 中它们以内联方式运行,没有并行 agent,更慢且无隔离。",
-      "codex-cli": "需要手动将 SKILL.md 转换为 AGENTS.md 片段;32 KiB 预算可能会截断完整方法论。",
-      "open-standard": "流程化的指导可干净迁移;Claude 专属的 hooks 和 context:fork 回退为 no-ops。"
-    }
-  },
-  {
     "id": "superpowers-dispatching-parallel-agents",
     "name": "dispatching-parallel-agents",
     "repo": "obra/superpowers",
@@ -75,7 +18,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 272906,
+    "stars": 273028,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -133,7 +76,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 272906,
+    "stars": 273028,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -189,7 +132,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 272906,
+    "stars": 273028,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -227,6 +170,63 @@
     }
   },
   {
+    "id": "superpowers-tdd",
+    "name": "superpowers (TDD flow)",
+    "repo": "obra/superpowers",
+    "url": "https://github.com/obra/superpowers",
+    "category": "testing",
+    "categories": [
+      "testing",
+      "code_quality",
+      "agent_workflow"
+    ],
+    "description": "Vertical-slice red-green-refactor TDD methodology packaged as Spec→Plan→Implement→Review→Ship skills. Effect: enforces a full TDD loop per slice so features ship with covering tests by construction.",
+    "description_zh": "垂直切片的红绿重构 TDD 方法论，打包成 Spec→Plan→Implement→Review→Ship 一组 skill。效果：每个切片强制走完整 TDD 循环，功能天生带覆盖测试。",
+    "usage_tutorial": "",
+    "uses_claude_extensions": [
+      "agent",
+      "context:fork"
+    ],
+    "verified_at": "2026-07-29",
+    "verified_by": "matrix-maintainers",
+    "stars": 273028,
+    "source": "seed",
+    "crawled_at": null,
+    "compatibility": {
+      "claude-code": "native",
+      "cursor": "partial",
+      "codex-cli": "partial",
+      "gemini-cli": "native",
+      "open-standard": "compatible",
+      "windsurf": "partial",
+      "cline": "partial",
+      "aider": "partial",
+      "github-copilot": "partial",
+      "zed": "partial",
+      "amp": "partial",
+      "jules": "partial",
+      "continue": "partial"
+    },
+    "caveats": {
+      "cursor": "Spec/Plan stages rely on Claude's subagent orchestration; in Cursor they run inline without parallel agents, slower and no isolation.",
+      "codex-cli": "Requires manual conversion of SKILL.md into AGENTS.md fragments; 32 KiB budget may truncate the full methodology.",
+      "open-standard": "Procedural guidance ports cleanly; Claude-specific hooks and context:fork fall back to no-ops.",
+      "windsurf": "Rewrite as a rules file; hooks/agent/context-fork are dropped.",
+      "cline": "Rewrite as a rules file; hooks/agent/context-fork are dropped.",
+      "aider": "Flatten to CONVENTIONS.md read via read:; hooks/agent/context-fork cannot be expressed.",
+      "github-copilot": "Convert to a prompt file for slash invocation; hooks/agent/context-fork are dropped.",
+      "zed": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
+      "amp": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
+      "jules": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
+      "continue": "Convert to a prompt file for slash invocation; hooks/agent/context-fork are dropped."
+    },
+    "caveats_zh": {
+      "cursor": "Spec/Plan 阶段依赖 Claude 的 subagent 编排;在 Cursor 中它们以内联方式运行,没有并行 agent,更慢且无隔离。",
+      "codex-cli": "需要手动将 SKILL.md 转换为 AGENTS.md 片段;32 KiB 预算可能会截断完整方法论。",
+      "open-standard": "流程化的指导可干净迁移;Claude 专属的 hooks 和 context:fork 回退为 no-ops。"
+    }
+  },
+  {
     "id": "superpowers-verification-before-completion",
     "name": "verification-before-completion",
     "repo": "obra/superpowers",
@@ -243,7 +243,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 272906,
+    "stars": 273028,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -299,7 +299,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 219568,
+    "stars": 219912,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -354,7 +354,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 219568,
+    "stars": 219912,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -406,7 +406,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 219568,
+    "stars": 219912,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -461,7 +461,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 219568,
+    "stars": 219912,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -517,7 +517,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 219568,
+    "stars": 219912,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -572,7 +572,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 219568,
+    "stars": 219912,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -626,7 +626,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 219568,
+    "stars": 219912,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -680,7 +680,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 203165,
+    "stars": 203275,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -732,7 +732,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 169813,
+    "stars": 169871,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -786,7 +786,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 169813,
+    "stars": 169871,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -838,7 +838,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 169813,
+    "stars": 169871,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -891,7 +891,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 169813,
+    "stars": 169871,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -944,7 +944,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 169813,
+    "stars": 169871,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -996,7 +996,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 169813,
+    "stars": 169871,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1048,7 +1048,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 169813,
+    "stars": 169871,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1101,7 +1101,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 169813,
+    "stars": 169871,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1153,7 +1153,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 169813,
+    "stars": 169871,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1207,7 +1207,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 107211,
+    "stars": 107341,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1260,7 +1260,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 98574,
+    "stars": 98657,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1317,7 +1317,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 87833,
+    "stars": 87932,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1370,7 +1370,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 87833,
+    "stars": 87932,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1424,7 +1424,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 87833,
+    "stars": 87932,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1476,7 +1476,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 87833,
+    "stars": 87932,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1529,7 +1529,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 87833,
+    "stars": 87932,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1583,7 +1583,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 87833,
+    "stars": 87932,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1636,7 +1636,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 87833,
+    "stars": 87932,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1688,7 +1688,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 58423,
+    "stars": 58436,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1737,7 +1737,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 44548,
+    "stars": 44582,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1790,7 +1790,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 42737,
+    "stars": 42776,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1849,7 +1849,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 33679,
+    "stars": 33718,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1905,7 +1905,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 28120,
+    "stars": 28130,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
