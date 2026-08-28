@@ -18,7 +18,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 278541,
+    "stars": 278679,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -76,7 +76,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 278541,
+    "stars": 278679,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -132,7 +132,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 278541,
+    "stars": 278679,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -189,7 +189,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 278541,
+    "stars": 278679,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -243,7 +243,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 278541,
+    "stars": 278679,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -299,7 +299,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 238835,
+    "stars": 239155,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -339,6 +339,56 @@
     }
   },
   {
+    "id": "mattpocock-grill-me",
+    "name": "grill-me",
+    "repo": "mattpocock/skills",
+    "url": "https://github.com/mattpocock/skills",
+    "category": "agent_workflow",
+    "categories": [
+      "agent_workflow"
+    ],
+    "description": "The agent relentlessly interrogates the user until every decision branch is resolved. Effect: cures 'start before requirements are clear' by forcing ambiguity to surface upfront.",
+    "description_zh": "agent 持续追问用户，直到每个决策分支都明确。效果：治好'需求没理清就开始'的毛病，把含糊处逼到台前。",
+    "usage_tutorial": "",
+    "uses_claude_extensions": [],
+    "verified_at": "2026-07-29",
+    "verified_by": "matrix-maintainers",
+    "stars": 239155,
+    "source": "seed",
+    "crawled_at": null,
+    "compatibility": {
+      "claude-code": "native",
+      "cursor": "compatible",
+      "codex-cli": "compatible",
+      "gemini-cli": "native",
+      "open-standard": "native",
+      "windsurf": "partial",
+      "cline": "partial",
+      "aider": "compatible",
+      "github-copilot": "compatible",
+      "zed": "compatible",
+      "amp": "compatible",
+      "jules": "compatible",
+      "continue": "compatible"
+    },
+    "caveats": {
+      "cursor": "Pure-prompt skill, no frontmatter extensions needed; install as alwaysApply:false .mdc with description used as the trigger.",
+      "codex-cli": "Drop the prompt body into AGENTS.md; works as global instruction.",
+      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
+      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
+      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "continue": "Convert the skill to a prompt/slash-command file for invocation."
+    },
+    "caveats_zh": {
+      "cursor": "纯提示 skill,无需 frontmatter 扩展;以 alwaysApply:false 的 .mdc 安装,使用 description 作为触发器。",
+      "codex-cli": "将提示主体放入 AGENTS.md;作为全局指令工作。"
+    }
+  },
+  {
     "id": "mattpocock-diagnosing-bugs",
     "name": "diagnosing-bugs",
     "repo": "mattpocock/skills",
@@ -354,7 +404,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 238835,
+    "stars": 239154,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -392,56 +442,6 @@
     }
   },
   {
-    "id": "mattpocock-grill-me",
-    "name": "grill-me",
-    "repo": "mattpocock/skills",
-    "url": "https://github.com/mattpocock/skills",
-    "category": "agent_workflow",
-    "categories": [
-      "agent_workflow"
-    ],
-    "description": "The agent relentlessly interrogates the user until every decision branch is resolved. Effect: cures 'start before requirements are clear' by forcing ambiguity to surface upfront.",
-    "description_zh": "agent 持续追问用户，直到每个决策分支都明确。效果：治好'需求没理清就开始'的毛病，把含糊处逼到台前。",
-    "usage_tutorial": "",
-    "uses_claude_extensions": [],
-    "verified_at": "2026-07-29",
-    "verified_by": "matrix-maintainers",
-    "stars": 238835,
-    "source": "seed",
-    "crawled_at": null,
-    "compatibility": {
-      "claude-code": "native",
-      "cursor": "compatible",
-      "codex-cli": "compatible",
-      "gemini-cli": "native",
-      "open-standard": "native",
-      "windsurf": "partial",
-      "cline": "partial",
-      "aider": "compatible",
-      "github-copilot": "compatible",
-      "zed": "compatible",
-      "amp": "compatible",
-      "jules": "compatible",
-      "continue": "compatible"
-    },
-    "caveats": {
-      "cursor": "Pure-prompt skill, no frontmatter extensions needed; install as alwaysApply:false .mdc with description used as the trigger.",
-      "codex-cli": "Drop the prompt body into AGENTS.md; works as global instruction.",
-      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
-      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
-      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "continue": "Convert the skill to a prompt/slash-command file for invocation."
-    },
-    "caveats_zh": {
-      "cursor": "纯提示 skill,无需 frontmatter 扩展;以 alwaysApply:false 的 .mdc 安装,使用 description 作为触发器。",
-      "codex-cli": "将提示主体放入 AGENTS.md;作为全局指令工作。"
-    }
-  },
-  {
     "id": "mattpocock-handoff",
     "name": "handoff",
     "repo": "mattpocock/skills",
@@ -461,7 +461,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 238835,
+    "stars": 239154,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -517,7 +517,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 238835,
+    "stars": 239154,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -572,7 +572,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 238835,
+    "stars": 239154,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -626,7 +626,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 238835,
+    "stars": 239154,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -680,7 +680,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 207993,
+    "stars": 208107,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -732,7 +732,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 172029,
+    "stars": 172088,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -786,7 +786,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 172029,
+    "stars": 172088,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -838,7 +838,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 172029,
+    "stars": 172088,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -891,7 +891,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 172029,
+    "stars": 172088,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -944,7 +944,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 172029,
+    "stars": 172088,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -996,7 +996,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 172029,
+    "stars": 172088,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1048,7 +1048,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 172029,
+    "stars": 172088,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1101,7 +1101,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 172029,
+    "stars": 172088,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1153,7 +1153,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 172029,
+    "stars": 172088,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1207,9 +1207,9 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 111482,
+    "stars": 111625,
     "source": "seed",
-    "crawled_at": "2026-08-27T17:10:25.741536+00:00",
+    "crawled_at": "2026-08-28T01:58:02.096561+00:00",
     "compatibility": {
       "claude-code": "native",
       "cursor": "compatible",
@@ -1260,7 +1260,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 101383,
+    "stars": 101444,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1317,7 +1317,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 90239,
+    "stars": 90297,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1370,7 +1370,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 90239,
+    "stars": 90297,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1424,7 +1424,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 90239,
+    "stars": 90297,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1476,7 +1476,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 90239,
+    "stars": 90297,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1529,7 +1529,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 90239,
+    "stars": 90297,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1583,7 +1583,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 90239,
+    "stars": 90297,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1636,7 +1636,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 90239,
+    "stars": 90297,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1688,7 +1688,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 59532,
+    "stars": 59652,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1737,7 +1737,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 45847,
+    "stars": 45887,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1790,7 +1790,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 43941,
+    "stars": 43965,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1849,7 +1849,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 35169,
+    "stars": 35340,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1902,9 +1902,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 30424,
+    "stars": 30427,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:10:18.956809+00:00",
+    "crawled_at": "2026-08-28T01:57:56.142401+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -1942,7 +1942,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 28543,
+    "stars": 28548,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1995,9 +1995,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 3569,
+    "stars": 3572,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:34.886892+00:00",
+    "crawled_at": "2026-08-28T01:56:17.513840+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2033,7 +2033,7 @@
     "verified_by": "crawler",
     "stars": 3326,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:36.449744+00:00",
+    "crawled_at": "2026-08-28T01:56:19.080079+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2069,9 +2069,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 3118,
+    "stars": 3119,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:09:20.468379+00:00",
+    "crawled_at": "2026-08-28T01:56:59.845541+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2106,48 +2106,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 3023,
+    "stars": 3026,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:38.137336+00:00",
-    "compatibility": {
-      "aider": "unknown",
-      "amp": "unknown",
-      "claude-code": "unknown",
-      "cline": "unknown",
-      "codex-cli": "unknown",
-      "continue": "unknown",
-      "cursor": "unknown",
-      "gemini-cli": "unknown",
-      "github-copilot": "unknown",
-      "jules": "unknown",
-      "open-standard": "compatible",
-      "windsurf": "unknown",
-      "zed": "unknown"
-    },
-    "caveats": {},
-    "caveats_zh": {}
-  },
-  {
-    "id": "claude-to-im-skill",
-    "name": "claude-to-im",
-    "repo": "op7418/Claude-to-IM-skill",
-    "url": "https://github.com/op7418/Claude-to-IM-skill",
-    "category": "integration",
-    "categories": [
-      "integration",
-      "debugging",
-      "data_docs",
-      "agent_workflow"
-    ],
-    "description": "Bridge THIS Claude Code or Codex session to Telegram, Discord, Feishu/Lark, QQ, or WeChat so the\nuser can chat with Claude from their phone. Use for: setting up, starting, stopping,\nor diagnosing the claude-to-im bridge daemon; forwarding Claude replies to a messaging\napp; any phrase like \"claude-to-im\", \"bridge\", \"消息推送\", \"消息转发\", \"桥接\",\n\"连上飞书\", \"手机上看claude\", \"启动后台服务\", \"诊断\", \"查看日志\", \"配置\".\nSubcommands: setup, start, stop, status, logs, reconfigure, doctor.\nDo NOT use for: building standalone bots, webhook integrations, or coding with IM\nplatform SDKs — those are regular programming tasks.\n",
-    "description_zh": "将此Claude Code或Codex会话桥接到Telegram、Discord、Feishu/Lark、QQ或微信，以便\n用户可以通过手机与Claude聊天。 用于：设置、启动、停止、\n或诊断claude-to-im桥接守护进程；转发Claude对消息的回复\napp;任何短语，如\"claude-to-im\", \"bridge\",消息推送 \"\", \"消息转发\", \"桥接\",\n\"连上飞书\", \"手机上看claude\", \"启动后台服务\", \"诊断\", \"查看日志\", \"配置\".\n子命令： SETUP、START、STOP、STATUS、LOGS、RECONFIGURE、DOCTOR。\n请勿用于: buildi",
-    "usage_tutorial": "# Claude-to-IM Bridge Skill\n\nYou are managing the Claude-to-IM bridge.\nUser data is stored at `~/.claude-to-im/`.\n\nThe skill directory (SKILL_DIR) is at `~/.claude/skills/claude-to-im`.\nIn Codex installs it may instead be `~/.codex/skills/Claude-to-IM-skill`.\nIf neither path exists, fall back to Glob with pattern `**/skills/**/claude-to-im/SKILL.md` or `**/skills/**/Claude-to-IM-skill/SKILL.md` and derive the root from the result.\n\n## Command parsing\n\nParse the user's intent from `$ARGUMENTS` into one of these subcommands:\n\n| User says (examples) | Subcommand |\n|---|---|\n| `setup`, `configure`, `配置`, `我想在飞书上用 Claude`, `帮我连接 Telegram`, `帮我接微信` | setup |\n| `start`, `start bridge`, `启动`, `启动桥接` | start |\n| `stop`, `stop bridge`, `停止`, `停止桥接` | stop |\n| `status`, `bridge status`, `状态`, `运行状态`, `怎么看桥接的运行状态` | status |\n| `logs`, `logs 200`, `查看日志`, `查看日志 200` | logs |\n| `reconfigure`, `修改配置`, `帮我改一下 token`, `换个 bot` | reconfigure |\n| `doctor`, `diagnose`, `诊断`, `挂了`, `没反应了`, `bot 没反应`, `出问题了` | doctor |\n\n**Disambiguation: `status` vs `doctor`** — Use `status` when the user just wants to check if the bridge is running (informational). Use `doctor` when the user reports a problem or suspects something is broken (diagnostic). When in doubt and the user describes a symptom (e.g., \"没反应了\", \"挂了\"), prefer `doctor`.\n\nExtract optional numeric argument for `logs` (default 50).\n\nBefore asking users for any platform credentials, read `SKILL_DIR/references/setup-guides.md` internally so you know where to find each credential. Do NOT dump the full guide to the user upfront — only mention the specific next step they need to do (e.g., \"Go to https://open.feishu.cn → your app → Credentials to find the App ID\"). If the user says they don't know how, then show the relevant section of the guide.\n\n## Runtime detection\n\nBefore executing any subcommand, detect which environment you are running in:\n\n1. **Claude Code** — `AskUserQuestion` tool is available. Use it for interactive setup wizards.\n2.",
-    "uses_claude_extensions": [],
-    "verified_at": "",
-    "verified_by": "crawler",
-    "stars": 2867,
-    "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:41.693129+00:00",
+    "crawled_at": "2026-08-28T01:56:21.642793+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2181,9 +2142,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 2389,
+    "stars": 2390,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:43.352382+00:00",
+    "crawled_at": "2026-08-28T01:56:25.045163+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2213,13 +2174,13 @@
     ],
     "description": "",
     "description_zh": "",
-    "usage_tutorial": "../../../.workspace-rules/skills/theme-and-design/SKILL.md",
+    "usage_tutorial": "../../../.workspace-rules/skills/manage-roles-permissions/SKILL.md",
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
     "stars": 2264,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:10:16.566001+00:00",
+    "crawled_at": "2026-08-28T01:57:29.117810+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2255,7 +2216,7 @@
     "verified_by": "crawler",
     "stars": 2130,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:10:02.120561+00:00",
+    "crawled_at": "2026-08-28T01:57:40.546752+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2290,9 +2251,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 1962,
+    "stars": 1964,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:10:51.025891+00:00",
+    "crawled_at": "2026-08-28T01:58:25.247594+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2328,7 +2289,7 @@
     "verified_by": "crawler",
     "stars": 1837,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:45.158651+00:00",
+    "crawled_at": "2026-08-28T01:56:26.561075+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2362,9 +2323,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 1673,
+    "stars": 1677,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:10:20.588872+00:00",
+    "crawled_at": "2026-08-28T01:57:57.638211+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2401,7 +2362,7 @@
     "verified_by": "crawler",
     "stars": 1391,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:58.740639+00:00",
+    "crawled_at": "2026-08-28T01:56:39.103600+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2437,7 +2398,7 @@
     "verified_by": "crawler",
     "stars": 948,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:09:01.680701+00:00",
+    "crawled_at": "2026-08-28T01:56:42.082668+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2473,7 +2434,7 @@
     "verified_by": "crawler",
     "stars": 929,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:39.795420+00:00",
+    "crawled_at": "2026-08-28T01:56:23.196604+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2509,7 +2470,7 @@
     "verified_by": "crawler",
     "stars": 874,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:47.020325+00:00",
+    "crawled_at": "2026-08-28T01:56:28.376617+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2547,7 +2508,7 @@
     "verified_by": "crawler",
     "stars": 689,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:10:52.812404+00:00",
+    "crawled_at": "2026-08-28T01:58:26.827287+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2583,7 +2544,7 @@
     "verified_by": "crawler",
     "stars": 662,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:09:09.156404+00:00",
+    "crawled_at": "2026-08-28T01:56:48.938944+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2619,9 +2580,9 @@
     "uses_claude_extensions": [],
     "verified_at": "",
     "verified_by": "crawler",
-    "stars": 661,
+    "stars": 662,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:49.136286+00:00",
+    "crawled_at": "2026-08-28T01:56:30.520613+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2657,7 +2618,7 @@
     "verified_by": "crawler",
     "stars": 651,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:51.235533+00:00",
+    "crawled_at": "2026-08-28T01:56:32.308458+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2694,7 +2655,7 @@
     "verified_by": "crawler",
     "stars": 590,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:53.762333+00:00",
+    "crawled_at": "2026-08-28T01:56:34.528162+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2732,7 +2693,7 @@
     "verified_by": "crawler",
     "stars": 578,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:10:56.341825+00:00",
+    "crawled_at": "2026-08-28T01:58:30.200813+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
@@ -2768,7 +2729,7 @@
     "verified_by": "crawler",
     "stars": 561,
     "source": "crawled",
-    "crawled_at": "2026-08-27T17:08:55.775965+00:00",
+    "crawled_at": "2026-08-28T01:56:36.380495+00:00",
     "compatibility": {
       "aider": "unknown",
       "amp": "unknown",
