@@ -1,5 +1,170 @@
 [
   {
+    "id": "superpowers-systematic-debugging",
+    "name": "systematic-debugging",
+    "repo": "obra/superpowers",
+    "url": "https://github.com/obra/superpowers",
+    "category": "debugging",
+    "categories": [
+      "debugging",
+      "code_quality",
+      "research_analysis"
+    ],
+    "description": "Four-phase root-cause debugging discipline that forbids symptom fixes by requiring investigation before any fix is proposed. Effect: eliminates patch-on-patch fixes and finds the actual cause.",
+    "description_zh": "四阶段根因调试纪律，要求先调查再提修复方案，禁止只治症状。效果：消除补丁套补丁的修复，找到真正的根因。",
+    "usage_tutorial": "",
+    "uses_claude_extensions": [],
+    "verified_at": "2026-07-31",
+    "verified_by": "matrix-maintainers",
+    "stars": 294304,
+    "source": "seed",
+    "crawled_at": null,
+    "compatibility": {
+      "claude-code": "native",
+      "cursor": "compatible",
+      "codex-cli": "compatible",
+      "gemini-cli": "native",
+      "open-standard": "compatible",
+      "windsurf": "partial",
+      "cline": "partial",
+      "aider": "compatible",
+      "github-copilot": "compatible",
+      "zed": "compatible",
+      "amp": "compatible",
+      "jules": "compatible",
+      "continue": "compatible"
+    },
+    "caveats": {
+      "cursor": "Install as .mdc; the methodology ports cleanly as on-demand guidance.",
+      "codex-cli": "Drop into AGENTS.md as a global instruction; no frontmatter needed.",
+      "open-standard": "Pure-prompt debugging discipline ports with no asset dependencies.",
+      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
+      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
+      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "continue": "Convert the skill to a prompt/slash-command file for invocation."
+    },
+    "caveats_zh": {
+      "cursor": "以 .mdc 安装;方法论作为按需指导可干净迁移。",
+      "codex-cli": "作为全局指令放入 AGENTS.md;无需 frontmatter。",
+      "open-standard": "纯提示的调试规范可迁移,无资源依赖。"
+    }
+  },
+  {
+    "id": "superpowers-tdd",
+    "name": "superpowers (TDD flow)",
+    "repo": "obra/superpowers",
+    "url": "https://github.com/obra/superpowers",
+    "category": "testing",
+    "categories": [
+      "testing",
+      "code_quality",
+      "agent_workflow"
+    ],
+    "description": "Vertical-slice red-green-refactor TDD methodology packaged as Spec→Plan→Implement→Review→Ship skills. Effect: enforces a full TDD loop per slice so features ship with covering tests by construction.",
+    "description_zh": "垂直切片的红绿重构 TDD 方法论，打包成 Spec→Plan→Implement→Review→Ship 一组 skill。效果：每个切片强制走完整 TDD 循环，功能天生带覆盖测试。",
+    "usage_tutorial": "",
+    "uses_claude_extensions": [
+      "agent",
+      "context:fork"
+    ],
+    "verified_at": "2026-07-29",
+    "verified_by": "matrix-maintainers",
+    "stars": 294304,
+    "source": "seed",
+    "crawled_at": null,
+    "compatibility": {
+      "claude-code": "native",
+      "cursor": "partial",
+      "codex-cli": "partial",
+      "gemini-cli": "native",
+      "open-standard": "compatible",
+      "windsurf": "partial",
+      "cline": "partial",
+      "aider": "partial",
+      "github-copilot": "partial",
+      "zed": "partial",
+      "amp": "partial",
+      "jules": "partial",
+      "continue": "partial"
+    },
+    "caveats": {
+      "cursor": "Spec/Plan stages rely on Claude's subagent orchestration; in Cursor they run inline without parallel agents, slower and no isolation.",
+      "codex-cli": "Requires manual conversion of SKILL.md into AGENTS.md fragments; 32 KiB budget may truncate the full methodology.",
+      "open-standard": "Procedural guidance ports cleanly; Claude-specific hooks and context:fork fall back to no-ops.",
+      "windsurf": "Rewrite as a rules file; hooks/agent/context-fork are dropped.",
+      "cline": "Rewrite as a rules file; hooks/agent/context-fork are dropped.",
+      "aider": "Flatten to CONVENTIONS.md read via read:; hooks/agent/context-fork cannot be expressed.",
+      "github-copilot": "Convert to a prompt file for slash invocation; hooks/agent/context-fork are dropped.",
+      "zed": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
+      "amp": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
+      "jules": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
+      "continue": "Convert to a prompt file for slash invocation; hooks/agent/context-fork are dropped."
+    },
+    "caveats_zh": {
+      "cursor": "Spec/Plan 阶段依赖 Claude 的 subagent 编排;在 Cursor 中它们以内联方式运行,没有并行 agent,更慢且无隔离。",
+      "codex-cli": "需要手动将 SKILL.md 转换为 AGENTS.md 片段;32 KiB 预算可能会截断完整方法论。",
+      "open-standard": "流程化的指导可干净迁移;Claude 专属的 hooks 和 context:fork 回退为 no-ops。"
+    }
+  },
+  {
+    "id": "superpowers-verification-before-completion",
+    "name": "verification-before-completion",
+    "repo": "obra/superpowers",
+    "url": "https://github.com/obra/superpowers",
+    "category": "testing",
+    "categories": [
+      "testing",
+      "code_quality",
+      "agent_workflow"
+    ],
+    "description": "Enforces evidence-before-claims by requiring fresh verification command output before any success or completion assertion. Effect: stops the agent from claiming 'done' without proof.",
+    "description_zh": "强制先有证据再下结论——任何成功或完成断言前必须先跑验证命令并看输出。效果：阻止 agent 没有证据就声称'完成'。",
+    "usage_tutorial": "",
+    "uses_claude_extensions": [],
+    "verified_at": "2026-07-31",
+    "verified_by": "matrix-maintainers",
+    "stars": 294304,
+    "source": "seed",
+    "crawled_at": null,
+    "compatibility": {
+      "claude-code": "native",
+      "cursor": "compatible",
+      "codex-cli": "compatible",
+      "gemini-cli": "native",
+      "open-standard": "compatible",
+      "windsurf": "partial",
+      "cline": "partial",
+      "aider": "compatible",
+      "github-copilot": "compatible",
+      "zed": "compatible",
+      "amp": "compatible",
+      "jules": "compatible",
+      "continue": "compatible"
+    },
+    "caveats": {
+      "cursor": "Works as .mdc guidance; there is no enforcement hook, so compliance relies on the model.",
+      "codex-cli": "Drop into AGENTS.md; the gate is instruction-only with no hard block on unverified claims.",
+      "open-standard": "Pure-prompt discipline ports; no automated gating mechanism.",
+      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
+      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
+      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "continue": "Convert the skill to a prompt/slash-command file for invocation."
+    },
+    "caveats_zh": {
+      "cursor": "作为 .mdc 指导工作;没有强制执行 hook,因此合规性依赖模型自身。",
+      "codex-cli": "放入 AGENTS.md;该 gate 仅为指令形式,对未经验证的声明没有硬性阻断。",
+      "open-standard": "纯提示的规范可迁移;没有自动化 gating 机制。"
+    }
+  },
+  {
     "id": "superpowers-dispatching-parallel-agents",
     "name": "dispatching-parallel-agents",
     "repo": "obra/superpowers",
@@ -18,7 +183,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 294180,
+    "stars": 294303,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -76,7 +241,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 294180,
+    "stars": 294303,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -116,171 +281,6 @@
     }
   },
   {
-    "id": "superpowers-systematic-debugging",
-    "name": "systematic-debugging",
-    "repo": "obra/superpowers",
-    "url": "https://github.com/obra/superpowers",
-    "category": "debugging",
-    "categories": [
-      "debugging",
-      "code_quality",
-      "research_analysis"
-    ],
-    "description": "Four-phase root-cause debugging discipline that forbids symptom fixes by requiring investigation before any fix is proposed. Effect: eliminates patch-on-patch fixes and finds the actual cause.",
-    "description_zh": "四阶段根因调试纪律，要求先调查再提修复方案，禁止只治症状。效果：消除补丁套补丁的修复，找到真正的根因。",
-    "usage_tutorial": "",
-    "uses_claude_extensions": [],
-    "verified_at": "2026-07-31",
-    "verified_by": "matrix-maintainers",
-    "stars": 294180,
-    "source": "seed",
-    "crawled_at": null,
-    "compatibility": {
-      "claude-code": "native",
-      "cursor": "compatible",
-      "codex-cli": "compatible",
-      "gemini-cli": "native",
-      "open-standard": "compatible",
-      "windsurf": "partial",
-      "cline": "partial",
-      "aider": "compatible",
-      "github-copilot": "compatible",
-      "zed": "compatible",
-      "amp": "compatible",
-      "jules": "compatible",
-      "continue": "compatible"
-    },
-    "caveats": {
-      "cursor": "Install as .mdc; the methodology ports cleanly as on-demand guidance.",
-      "codex-cli": "Drop into AGENTS.md as a global instruction; no frontmatter needed.",
-      "open-standard": "Pure-prompt debugging discipline ports with no asset dependencies.",
-      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
-      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
-      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "continue": "Convert the skill to a prompt/slash-command file for invocation."
-    },
-    "caveats_zh": {
-      "cursor": "以 .mdc 安装;方法论作为按需指导可干净迁移。",
-      "codex-cli": "作为全局指令放入 AGENTS.md;无需 frontmatter。",
-      "open-standard": "纯提示的调试规范可迁移,无资源依赖。"
-    }
-  },
-  {
-    "id": "superpowers-tdd",
-    "name": "superpowers (TDD flow)",
-    "repo": "obra/superpowers",
-    "url": "https://github.com/obra/superpowers",
-    "category": "testing",
-    "categories": [
-      "testing",
-      "code_quality",
-      "agent_workflow"
-    ],
-    "description": "Vertical-slice red-green-refactor TDD methodology packaged as Spec→Plan→Implement→Review→Ship skills. Effect: enforces a full TDD loop per slice so features ship with covering tests by construction.",
-    "description_zh": "垂直切片的红绿重构 TDD 方法论，打包成 Spec→Plan→Implement→Review→Ship 一组 skill。效果：每个切片强制走完整 TDD 循环，功能天生带覆盖测试。",
-    "usage_tutorial": "",
-    "uses_claude_extensions": [
-      "agent",
-      "context:fork"
-    ],
-    "verified_at": "2026-07-29",
-    "verified_by": "matrix-maintainers",
-    "stars": 294180,
-    "source": "seed",
-    "crawled_at": null,
-    "compatibility": {
-      "claude-code": "native",
-      "cursor": "partial",
-      "codex-cli": "partial",
-      "gemini-cli": "native",
-      "open-standard": "compatible",
-      "windsurf": "partial",
-      "cline": "partial",
-      "aider": "partial",
-      "github-copilot": "partial",
-      "zed": "partial",
-      "amp": "partial",
-      "jules": "partial",
-      "continue": "partial"
-    },
-    "caveats": {
-      "cursor": "Spec/Plan stages rely on Claude's subagent orchestration; in Cursor they run inline without parallel agents, slower and no isolation.",
-      "codex-cli": "Requires manual conversion of SKILL.md into AGENTS.md fragments; 32 KiB budget may truncate the full methodology.",
-      "open-standard": "Procedural guidance ports cleanly; Claude-specific hooks and context:fork fall back to no-ops.",
-      "windsurf": "Rewrite as a rules file; hooks/agent/context-fork are dropped.",
-      "cline": "Rewrite as a rules file; hooks/agent/context-fork are dropped.",
-      "aider": "Flatten to CONVENTIONS.md read via read:; hooks/agent/context-fork cannot be expressed.",
-      "github-copilot": "Convert to a prompt file for slash invocation; hooks/agent/context-fork are dropped.",
-      "zed": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
-      "amp": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
-      "jules": "SKILL.md body inlined into AGENTS.md; Claude-specific hooks/agent/context-fork are dropped.",
-      "continue": "Convert to a prompt file for slash invocation; hooks/agent/context-fork are dropped."
-    },
-    "caveats_zh": {
-      "cursor": "Spec/Plan 阶段依赖 Claude 的 subagent 编排;在 Cursor 中它们以内联方式运行,没有并行 agent,更慢且无隔离。",
-      "codex-cli": "需要手动将 SKILL.md 转换为 AGENTS.md 片段;32 KiB 预算可能会截断完整方法论。",
-      "open-standard": "流程化的指导可干净迁移;Claude 专属的 hooks 和 context:fork 回退为 no-ops。"
-    }
-  },
-  {
-    "id": "superpowers-verification-before-completion",
-    "name": "verification-before-completion",
-    "repo": "obra/superpowers",
-    "url": "https://github.com/obra/superpowers",
-    "category": "testing",
-    "categories": [
-      "testing",
-      "code_quality",
-      "agent_workflow"
-    ],
-    "description": "Enforces evidence-before-claims by requiring fresh verification command output before any success or completion assertion. Effect: stops the agent from claiming 'done' without proof.",
-    "description_zh": "强制先有证据再下结论——任何成功或完成断言前必须先跑验证命令并看输出。效果：阻止 agent 没有证据就声称'完成'。",
-    "usage_tutorial": "",
-    "uses_claude_extensions": [],
-    "verified_at": "2026-07-31",
-    "verified_by": "matrix-maintainers",
-    "stars": 294180,
-    "source": "seed",
-    "crawled_at": null,
-    "compatibility": {
-      "claude-code": "native",
-      "cursor": "compatible",
-      "codex-cli": "compatible",
-      "gemini-cli": "native",
-      "open-standard": "compatible",
-      "windsurf": "partial",
-      "cline": "partial",
-      "aider": "compatible",
-      "github-copilot": "compatible",
-      "zed": "compatible",
-      "amp": "compatible",
-      "jules": "compatible",
-      "continue": "compatible"
-    },
-    "caveats": {
-      "cursor": "Works as .mdc guidance; there is no enforcement hook, so compliance relies on the model.",
-      "codex-cli": "Drop into AGENTS.md; the gate is instruction-only with no hard block on unverified claims.",
-      "open-standard": "Pure-prompt discipline ports; no automated gating mechanism.",
-      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
-      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
-      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "continue": "Convert the skill to a prompt/slash-command file for invocation."
-    },
-    "caveats_zh": {
-      "cursor": "作为 .mdc 指导工作;没有强制执行 hook,因此合规性依赖模型自身。",
-      "codex-cli": "放入 AGENTS.md;该 gate 仅为指令形式,对未经验证的声明没有硬性阻断。",
-      "open-standard": "纯提示的规范可迁移;没有自动化 gating 机制。"
-    }
-  },
-  {
     "id": "mattpocock-code-review",
     "name": "code-review (dual-axis)",
     "repo": "mattpocock/skills",
@@ -299,7 +299,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 274310,
+    "stars": 274519,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -354,7 +354,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 274310,
+    "stars": 274519,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -406,7 +406,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 274310,
+    "stars": 274519,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -461,7 +461,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 274310,
+    "stars": 274519,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -517,7 +517,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 274310,
+    "stars": 274519,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -572,7 +572,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 274310,
+    "stars": 274519,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -626,7 +626,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 274310,
+    "stars": 274519,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -680,7 +680,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 216471,
+    "stars": 216548,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -732,7 +732,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 179387,
+    "stars": 179389,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -786,7 +786,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 179387,
+    "stars": 179389,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -838,7 +838,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 179387,
+    "stars": 179389,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -891,7 +891,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 179387,
+    "stars": 179389,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -944,7 +944,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 179387,
+    "stars": 179389,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -996,7 +996,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 179387,
+    "stars": 179389,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1048,7 +1048,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 179387,
+    "stars": 179389,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1101,7 +1101,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 179387,
+    "stars": 179389,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1153,7 +1153,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 179387,
+    "stars": 179389,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1207,7 +1207,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 123196,
+    "stars": 123250,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1260,7 +1260,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 108837,
+    "stars": 108957,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1317,7 +1317,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 100429,
+    "stars": 100440,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1370,7 +1370,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 100429,
+    "stars": 100440,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1424,7 +1424,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 100429,
+    "stars": 100440,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1476,7 +1476,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 100429,
+    "stars": 100440,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1529,7 +1529,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 100429,
+    "stars": 100440,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1583,7 +1583,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 100429,
+    "stars": 100440,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1636,7 +1636,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 100429,
+    "stars": 100440,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1688,7 +1688,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 63373,
+    "stars": 63367,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1737,7 +1737,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 52223,
+    "stars": 52309,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1790,7 +1790,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 50136,
+    "stars": 50164,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1849,7 +1849,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 47351,
+    "stars": 47358,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
