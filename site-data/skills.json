@@ -18,7 +18,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 317163,
+    "stars": 317579,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -73,7 +73,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 317163,
+    "stars": 317579,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -125,7 +125,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 317163,
+    "stars": 317579,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -180,7 +180,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 317163,
+    "stars": 317579,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -236,7 +236,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 317163,
+    "stars": 317579,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -291,7 +291,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 317163,
+    "stars": 317579,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -345,7 +345,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 317163,
+    "stars": 317579,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -401,7 +401,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 313840,
+    "stars": 314058,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -459,7 +459,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 313840,
+    "stars": 314058,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -515,7 +515,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 313840,
+    "stars": 314058,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -572,7 +572,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 313840,
+    "stars": 314058,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -626,7 +626,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 313840,
+    "stars": 314058,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -680,7 +680,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 230449,
+    "stars": 230594,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -732,7 +732,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 188347,
+    "stars": 188684,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -786,7 +786,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 188347,
+    "stars": 188684,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -838,7 +838,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 188347,
+    "stars": 188684,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -891,7 +891,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 188347,
+    "stars": 188684,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -944,7 +944,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 188347,
+    "stars": 188684,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -982,58 +982,6 @@
     }
   },
   {
-    "id": "anthropics-skill-creator",
-    "name": "skill-creator",
-    "repo": "anthropics/skills",
-    "url": "https://github.com/anthropics/skills",
-    "category": "agent_workflow",
-    "categories": [
-      "agent_workflow"
-    ],
-    "description": "Drafts, evaluates, and iteratively improves agent skills using a bundled eval harness with quantitative benchmarks. Effect: produces higher-quality skills whose behavior is measured, not guessed.",
-    "description_zh": "用内置的评测工具和量化基准来起草、评估并迭代改进 agent skill。效果：产出的 skill 质量更高，行为有数据支撑而非凭感觉。",
-    "usage_tutorial": "",
-    "uses_claude_extensions": [],
-    "verified_at": "2026-07-31",
-    "verified_by": "matrix-maintainers",
-    "stars": 188347,
-    "source": "seed",
-    "crawled_at": null,
-    "compatibility": {
-      "claude-code": "native",
-      "cursor": "compatible",
-      "codex-cli": "compatible",
-      "gemini-cli": "native",
-      "open-standard": "compatible",
-      "windsurf": "partial",
-      "cline": "partial",
-      "aider": "compatible",
-      "github-copilot": "compatible",
-      "zed": "compatible",
-      "amp": "compatible",
-      "jules": "compatible",
-      "continue": "compatible"
-    },
-    "caveats": {
-      "cursor": "Install as alwaysApply:false .mdc; the eval-viewer/generate_review.py harness runs via bash but must be invoked manually.",
-      "codex-cli": "Drop the prompt body into AGENTS.md; eval scripts under scripts/eval-viewer must be referenced explicitly and the 32 KiB budget may truncate the methodology.",
-      "open-standard": "Procedural authoring guidance ports cleanly; the quantitative eval harness is bundled scripts that need manual wiring.",
-      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
-      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
-      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "continue": "Convert the skill to a prompt/slash-command file for invocation."
-    },
-    "caveats_zh": {
-      "cursor": "以 alwaysApply:false 的 .mdc 安装;eval-viewer/generate_review.py 测试套件通过 bash 运行,但必须手动调用。",
-      "codex-cli": "将提示主体放入 AGENTS.md;scripts/eval-viewer 下的 eval 脚本必须显式引用,且 32 KiB 预算可能会截断方法论。",
-      "open-standard": "流程化的编写指导可干净迁移;定量 eval 套件是打包脚本,需要手动连接。"
-    }
-  },
-  {
     "id": "anthropics-theme-factory",
     "name": "theme-factory",
     "repo": "anthropics/skills",
@@ -1048,7 +996,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 188347,
+    "stars": 188684,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1101,7 +1049,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 188347,
+    "stars": 188684,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1153,7 +1101,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 188347,
+    "stars": 188684,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1191,6 +1139,58 @@
     }
   },
   {
+    "id": "anthropics-skill-creator",
+    "name": "skill-creator",
+    "repo": "anthropics/skills",
+    "url": "https://github.com/anthropics/skills",
+    "category": "agent_workflow",
+    "categories": [
+      "agent_workflow"
+    ],
+    "description": "Drafts, evaluates, and iteratively improves agent skills using a bundled eval harness with quantitative benchmarks. Effect: produces higher-quality skills whose behavior is measured, not guessed.",
+    "description_zh": "用内置的评测工具和量化基准来起草、评估并迭代改进 agent skill。效果：产出的 skill 质量更高，行为有数据支撑而非凭感觉。",
+    "usage_tutorial": "",
+    "uses_claude_extensions": [],
+    "verified_at": "2026-07-31",
+    "verified_by": "matrix-maintainers",
+    "stars": 188683,
+    "source": "seed",
+    "crawled_at": null,
+    "compatibility": {
+      "claude-code": "native",
+      "cursor": "compatible",
+      "codex-cli": "compatible",
+      "gemini-cli": "native",
+      "open-standard": "compatible",
+      "windsurf": "partial",
+      "cline": "partial",
+      "aider": "compatible",
+      "github-copilot": "compatible",
+      "zed": "compatible",
+      "amp": "compatible",
+      "jules": "compatible",
+      "continue": "compatible"
+    },
+    "caveats": {
+      "cursor": "Install as alwaysApply:false .mdc; the eval-viewer/generate_review.py harness runs via bash but must be invoked manually.",
+      "codex-cli": "Drop the prompt body into AGENTS.md; eval scripts under scripts/eval-viewer must be referenced explicitly and the 32 KiB budget may truncate the methodology.",
+      "open-standard": "Procedural authoring guidance ports cleanly; the quantitative eval harness is bundled scripts that need manual wiring.",
+      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
+      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
+      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "continue": "Convert the skill to a prompt/slash-command file for invocation."
+    },
+    "caveats_zh": {
+      "cursor": "以 alwaysApply:false 的 .mdc 安装;eval-viewer/generate_review.py 测试套件通过 bash 运行,但必须手动调用。",
+      "codex-cli": "将提示主体放入 AGENTS.md;scripts/eval-viewer 下的 eval 脚本必须显式引用,且 32 KiB 预算可能会截断方法论。",
+      "open-standard": "流程化的编写指导可干净迁移;定量 eval 套件是打包脚本,需要手动连接。"
+    }
+  },
+  {
     "id": "graphify",
     "name": "graphify",
     "repo": "Graphify-Labs/graphify",
@@ -1207,7 +1207,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 143752,
+    "stars": 143952,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1260,7 +1260,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 118085,
+    "stars": 118156,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1317,7 +1317,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 113814,
+    "stars": 113888,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1370,7 +1370,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 113814,
+    "stars": 113888,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1424,7 +1424,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 113814,
+    "stars": 113888,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1476,7 +1476,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 113814,
+    "stars": 113888,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1529,7 +1529,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 113814,
+    "stars": 113888,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1583,7 +1583,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 113814,
+    "stars": 113888,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1636,7 +1636,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 113814,
+    "stars": 113888,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1688,7 +1688,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 66892,
+    "stars": 66934,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1737,7 +1737,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 58994,
+    "stars": 59046,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1790,7 +1790,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 56373,
+    "stars": 56397,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1847,7 +1847,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 55698,
+    "stars": 55735,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1905,7 +1905,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 31174,
+    "stars": 31184,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
