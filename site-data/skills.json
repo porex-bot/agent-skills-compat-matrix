@@ -18,7 +18,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 329733,
+    "stars": 329850,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -73,7 +73,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 329733,
+    "stars": 329850,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -125,7 +125,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 329733,
+    "stars": 329850,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -180,7 +180,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 329733,
+    "stars": 329850,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -236,7 +236,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 329733,
+    "stars": 329850,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -291,7 +291,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 329733,
+    "stars": 329850,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -345,7 +345,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 329733,
+    "stars": 329850,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -401,7 +401,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 323669,
+    "stars": 323816,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -459,7 +459,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 323669,
+    "stars": 323816,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -515,7 +515,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 323669,
+    "stars": 323816,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -572,7 +572,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 323669,
+    "stars": 323816,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -626,7 +626,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 323669,
+    "stars": 323816,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -680,7 +680,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 234914,
+    "stars": 234932,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -732,7 +732,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 198452,
+    "stars": 198553,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -770,6 +770,216 @@
     }
   },
   {
+    "id": "anthropics-pdf",
+    "name": "pdf",
+    "repo": "anthropics/skills",
+    "url": "https://github.com/anthropics/skills",
+    "category": "devops",
+    "categories": [
+      "devops",
+      "data_docs"
+    ],
+    "description": "Extracts, merges, splits, OCRs, and encrypts PDFs using pypdf, pdfplumber, reportlab, and qpdf with bundled reference docs. Effect: turns ad-hoc PDF chores into reliable, repeatable pipelines.",
+    "description_zh": "用 pypdf、pdfplumber、reportlab、qpdf 完成 PDF 的抽取、合并、拆分、OCR、加密，附带参考文档。效果：把零散的 PDF 处理变成可靠、可重复的流水线。",
+    "usage_tutorial": "",
+    "uses_claude_extensions": [],
+    "verified_at": "2026-07-31",
+    "verified_by": "matrix-maintainers",
+    "stars": 198553,
+    "source": "seed",
+    "crawled_at": null,
+    "compatibility": {
+      "claude-code": "native",
+      "cursor": "compatible",
+      "codex-cli": "compatible",
+      "gemini-cli": "native",
+      "open-standard": "compatible",
+      "windsurf": "partial",
+      "cline": "partial",
+      "aider": "compatible",
+      "github-copilot": "compatible",
+      "zed": "compatible",
+      "amp": "compatible",
+      "jules": "compatible",
+      "continue": "compatible"
+    },
+    "caveats": {
+      "cursor": "Install as .mdc; REFERENCE.md and FORMS.md load as context and pip deps must be installed manually.",
+      "codex-cli": "Drop into AGENTS.md; the large REFERENCE.md may hit the 32 KiB budget and must be loaded selectively.",
+      "open-standard": "Pure-prompt guide ports cleanly; only the bundled reference docs need path adjustment.",
+      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
+      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
+      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "continue": "Convert the skill to a prompt/slash-command file for invocation."
+    },
+    "caveats_zh": {
+      "cursor": "以 .mdc 安装;REFERENCE.md 和 FORMS.md 作为上下文加载,pip 依赖必须手动安装。",
+      "codex-cli": "放入 AGENTS.md;较大的 REFERENCE.md 可能触及 32 KiB 预算,需有选择地加载。",
+      "open-standard": "纯提示指南可干净迁移;仅打包的参考文档需要调整路径。"
+    }
+  },
+  {
+    "id": "anthropics-skill-creator",
+    "name": "skill-creator",
+    "repo": "anthropics/skills",
+    "url": "https://github.com/anthropics/skills",
+    "category": "agent_workflow",
+    "categories": [
+      "agent_workflow"
+    ],
+    "description": "Drafts, evaluates, and iteratively improves agent skills using a bundled eval harness with quantitative benchmarks. Effect: produces higher-quality skills whose behavior is measured, not guessed.",
+    "description_zh": "用内置的评测工具和量化基准来起草、评估并迭代改进 agent skill。效果：产出的 skill 质量更高，行为有数据支撑而非凭感觉。",
+    "usage_tutorial": "",
+    "uses_claude_extensions": [],
+    "verified_at": "2026-07-31",
+    "verified_by": "matrix-maintainers",
+    "stars": 198553,
+    "source": "seed",
+    "crawled_at": null,
+    "compatibility": {
+      "claude-code": "native",
+      "cursor": "compatible",
+      "codex-cli": "compatible",
+      "gemini-cli": "native",
+      "open-standard": "compatible",
+      "windsurf": "partial",
+      "cline": "partial",
+      "aider": "compatible",
+      "github-copilot": "compatible",
+      "zed": "compatible",
+      "amp": "compatible",
+      "jules": "compatible",
+      "continue": "compatible"
+    },
+    "caveats": {
+      "cursor": "Install as alwaysApply:false .mdc; the eval-viewer/generate_review.py harness runs via bash but must be invoked manually.",
+      "codex-cli": "Drop the prompt body into AGENTS.md; eval scripts under scripts/eval-viewer must be referenced explicitly and the 32 KiB budget may truncate the methodology.",
+      "open-standard": "Procedural authoring guidance ports cleanly; the quantitative eval harness is bundled scripts that need manual wiring.",
+      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
+      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
+      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "continue": "Convert the skill to a prompt/slash-command file for invocation."
+    },
+    "caveats_zh": {
+      "cursor": "以 alwaysApply:false 的 .mdc 安装;eval-viewer/generate_review.py 测试套件通过 bash 运行,但必须手动调用。",
+      "codex-cli": "将提示主体放入 AGENTS.md;scripts/eval-viewer 下的 eval 脚本必须显式引用,且 32 KiB 预算可能会截断方法论。",
+      "open-standard": "流程化的编写指导可干净迁移;定量 eval 套件是打包脚本,需要手动连接。"
+    }
+  },
+  {
+    "id": "anthropics-webapp-testing",
+    "name": "webapp-testing",
+    "repo": "anthropics/skills",
+    "url": "https://github.com/anthropics/skills",
+    "category": "testing",
+    "categories": [
+      "testing",
+      "debugging"
+    ],
+    "description": "Drives, inspects, and verifies local web apps with Playwright via a bundled with_server.py lifecycle helper. Effect: catches runtime/DOM/console regressions before a human would, without manual clicking.",
+    "description_zh": "用 Playwright 驱动、检查并验证本地 web 应用，附带 with_server.py 生命周期助手。效果：在人工点击之前就能发现运行时、DOM、控制台的回归问题。",
+    "usage_tutorial": "",
+    "uses_claude_extensions": [],
+    "verified_at": "2026-07-31",
+    "verified_by": "matrix-maintainers",
+    "stars": 198553,
+    "source": "seed",
+    "crawled_at": null,
+    "compatibility": {
+      "claude-code": "native",
+      "cursor": "compatible",
+      "codex-cli": "partial",
+      "gemini-cli": "native",
+      "open-standard": "compatible",
+      "windsurf": "partial",
+      "cline": "partial",
+      "aider": "compatible",
+      "github-copilot": "compatible",
+      "zed": "compatible",
+      "amp": "compatible",
+      "jules": "compatible",
+      "continue": "compatible"
+    },
+    "caveats": {
+      "cursor": "Scripts run via bash but Playwright must be installed separately and scripts/with_server.py invoked manually rather than auto-discovered.",
+      "codex-cli": "Bundled scripts/with_server.py is not auto-discovered; it must be referenced explicitly in AGENTS.md and the multi-server orchestration pattern degrades without it.",
+      "open-standard": "Procedural testing guidance ports; the bundled Python helpers need manual asset wiring.",
+      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
+      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
+      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "continue": "Convert the skill to a prompt/slash-command file for invocation."
+    },
+    "caveats_zh": {
+      "cursor": "脚本通过 bash 运行,但 Playwright 必须单独安装,且 scripts/with_server.py 需手动调用而非自动发现。",
+      "codex-cli": "打包的 scripts/with_server.py 不会被自动发现;必须在 AGENTS.md 中显式引用,缺少它则多服务器编排模式会退化。",
+      "open-standard": "流程化的测试指导可迁移;打包的 Python 辅助工具需要手动连接资源。"
+    }
+  },
+  {
+    "id": "anthropics-xlsx",
+    "name": "xlsx",
+    "repo": "anthropics/skills",
+    "url": "https://github.com/anthropics/skills",
+    "category": "data_docs",
+    "categories": [
+      "data_docs"
+    ],
+    "description": "Creates and edits spreadsheets with openpyxl and pandas plus a mandatory LibreOffice recalc step and financial-modeling conventions. Effect: ships workbooks whose cached formula values are correct on first open in Excel.",
+    "description_zh": "用 openpyxl 和 pandas 创建、编辑电子表格，强制走 LibreOffice 重算步骤，遵循金融建模规范。效果：交付的工作簿在 Excel 中首次打开时缓存的公式值就是正确的。",
+    "usage_tutorial": "",
+    "uses_claude_extensions": [],
+    "verified_at": "2026-07-31",
+    "verified_by": "matrix-maintainers",
+    "stars": 198553,
+    "source": "seed",
+    "crawled_at": null,
+    "compatibility": {
+      "claude-code": "native",
+      "cursor": "compatible",
+      "codex-cli": "partial",
+      "gemini-cli": "native",
+      "open-standard": "compatible",
+      "windsurf": "partial",
+      "cline": "partial",
+      "aider": "compatible",
+      "github-copilot": "compatible",
+      "zed": "compatible",
+      "amp": "compatible",
+      "jules": "compatible",
+      "continue": "compatible"
+    },
+    "caveats": {
+      "cursor": "LibreOffice/soffice must be installed; scripts/recalc.py and scripts/office/soffice.py are invoked manually rather than auto-triggered.",
+      "codex-cli": "The mandatory recalc.py step is not auto-discovered and must be referenced explicitly in AGENTS.md, so shipped workbooks ship with None cached formula values.",
+      "open-standard": "Guidance ports; the recalc/soffice helper scripts need manual asset wiring.",
+      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
+      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
+      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
+      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
+      "continue": "Convert the skill to a prompt/slash-command file for invocation."
+    },
+    "caveats_zh": {
+      "cursor": "必须安装 LibreOffice/soffice;scripts/recalc.py 和 scripts/office/soffice.py 需手动调用而非自动触发。",
+      "codex-cli": "必需的 recalc.py 步骤不会被自动发现,必须在 AGENTS.md 中显式引用,因此发布的工作簿会以 None 缓存的公式值发布。",
+      "open-standard": "指导可迁移;recalc/soffice 辅助脚本需要手动连接资源。"
+    }
+  },
+  {
     "id": "anthropics-brand-guidelines",
     "name": "brand-guidelines",
     "repo": "anthropics/skills",
@@ -786,7 +996,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 198452,
+    "stars": 198552,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -838,7 +1048,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 198452,
+    "stars": 198552,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -891,7 +1101,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 198452,
+    "stars": 198552,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -929,111 +1139,6 @@
     }
   },
   {
-    "id": "anthropics-pdf",
-    "name": "pdf",
-    "repo": "anthropics/skills",
-    "url": "https://github.com/anthropics/skills",
-    "category": "devops",
-    "categories": [
-      "devops",
-      "data_docs"
-    ],
-    "description": "Extracts, merges, splits, OCRs, and encrypts PDFs using pypdf, pdfplumber, reportlab, and qpdf with bundled reference docs. Effect: turns ad-hoc PDF chores into reliable, repeatable pipelines.",
-    "description_zh": "用 pypdf、pdfplumber、reportlab、qpdf 完成 PDF 的抽取、合并、拆分、OCR、加密，附带参考文档。效果：把零散的 PDF 处理变成可靠、可重复的流水线。",
-    "usage_tutorial": "",
-    "uses_claude_extensions": [],
-    "verified_at": "2026-07-31",
-    "verified_by": "matrix-maintainers",
-    "stars": 198452,
-    "source": "seed",
-    "crawled_at": null,
-    "compatibility": {
-      "claude-code": "native",
-      "cursor": "compatible",
-      "codex-cli": "compatible",
-      "gemini-cli": "native",
-      "open-standard": "compatible",
-      "windsurf": "partial",
-      "cline": "partial",
-      "aider": "compatible",
-      "github-copilot": "compatible",
-      "zed": "compatible",
-      "amp": "compatible",
-      "jules": "compatible",
-      "continue": "compatible"
-    },
-    "caveats": {
-      "cursor": "Install as .mdc; REFERENCE.md and FORMS.md load as context and pip deps must be installed manually.",
-      "codex-cli": "Drop into AGENTS.md; the large REFERENCE.md may hit the 32 KiB budget and must be loaded selectively.",
-      "open-standard": "Pure-prompt guide ports cleanly; only the bundled reference docs need path adjustment.",
-      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
-      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
-      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "continue": "Convert the skill to a prompt/slash-command file for invocation."
-    },
-    "caveats_zh": {
-      "cursor": "以 .mdc 安装;REFERENCE.md 和 FORMS.md 作为上下文加载,pip 依赖必须手动安装。",
-      "codex-cli": "放入 AGENTS.md;较大的 REFERENCE.md 可能触及 32 KiB 预算,需有选择地加载。",
-      "open-standard": "纯提示指南可干净迁移;仅打包的参考文档需要调整路径。"
-    }
-  },
-  {
-    "id": "anthropics-skill-creator",
-    "name": "skill-creator",
-    "repo": "anthropics/skills",
-    "url": "https://github.com/anthropics/skills",
-    "category": "agent_workflow",
-    "categories": [
-      "agent_workflow"
-    ],
-    "description": "Drafts, evaluates, and iteratively improves agent skills using a bundled eval harness with quantitative benchmarks. Effect: produces higher-quality skills whose behavior is measured, not guessed.",
-    "description_zh": "用内置的评测工具和量化基准来起草、评估并迭代改进 agent skill。效果：产出的 skill 质量更高，行为有数据支撑而非凭感觉。",
-    "usage_tutorial": "",
-    "uses_claude_extensions": [],
-    "verified_at": "2026-07-31",
-    "verified_by": "matrix-maintainers",
-    "stars": 198452,
-    "source": "seed",
-    "crawled_at": null,
-    "compatibility": {
-      "claude-code": "native",
-      "cursor": "compatible",
-      "codex-cli": "compatible",
-      "gemini-cli": "native",
-      "open-standard": "compatible",
-      "windsurf": "partial",
-      "cline": "partial",
-      "aider": "compatible",
-      "github-copilot": "compatible",
-      "zed": "compatible",
-      "amp": "compatible",
-      "jules": "compatible",
-      "continue": "compatible"
-    },
-    "caveats": {
-      "cursor": "Install as alwaysApply:false .mdc; the eval-viewer/generate_review.py harness runs via bash but must be invoked manually.",
-      "codex-cli": "Drop the prompt body into AGENTS.md; eval scripts under scripts/eval-viewer must be referenced explicitly and the 32 KiB budget may truncate the methodology.",
-      "open-standard": "Procedural authoring guidance ports cleanly; the quantitative eval harness is bundled scripts that need manual wiring.",
-      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
-      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
-      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "continue": "Convert the skill to a prompt/slash-command file for invocation."
-    },
-    "caveats_zh": {
-      "cursor": "以 alwaysApply:false 的 .mdc 安装;eval-viewer/generate_review.py 测试套件通过 bash 运行,但必须手动调用。",
-      "codex-cli": "将提示主体放入 AGENTS.md;scripts/eval-viewer 下的 eval 脚本必须显式引用,且 32 KiB 预算可能会截断方法论。",
-      "open-standard": "流程化的编写指导可干净迁移;定量 eval 套件是打包脚本,需要手动连接。"
-    }
-  },
-  {
     "id": "anthropics-theme-factory",
     "name": "theme-factory",
     "repo": "anthropics/skills",
@@ -1048,7 +1153,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 198452,
+    "stars": 198552,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1086,111 +1191,6 @@
     }
   },
   {
-    "id": "anthropics-webapp-testing",
-    "name": "webapp-testing",
-    "repo": "anthropics/skills",
-    "url": "https://github.com/anthropics/skills",
-    "category": "testing",
-    "categories": [
-      "testing",
-      "debugging"
-    ],
-    "description": "Drives, inspects, and verifies local web apps with Playwright via a bundled with_server.py lifecycle helper. Effect: catches runtime/DOM/console regressions before a human would, without manual clicking.",
-    "description_zh": "用 Playwright 驱动、检查并验证本地 web 应用，附带 with_server.py 生命周期助手。效果：在人工点击之前就能发现运行时、DOM、控制台的回归问题。",
-    "usage_tutorial": "",
-    "uses_claude_extensions": [],
-    "verified_at": "2026-07-31",
-    "verified_by": "matrix-maintainers",
-    "stars": 198452,
-    "source": "seed",
-    "crawled_at": null,
-    "compatibility": {
-      "claude-code": "native",
-      "cursor": "compatible",
-      "codex-cli": "partial",
-      "gemini-cli": "native",
-      "open-standard": "compatible",
-      "windsurf": "partial",
-      "cline": "partial",
-      "aider": "compatible",
-      "github-copilot": "compatible",
-      "zed": "compatible",
-      "amp": "compatible",
-      "jules": "compatible",
-      "continue": "compatible"
-    },
-    "caveats": {
-      "cursor": "Scripts run via bash but Playwright must be installed separately and scripts/with_server.py invoked manually rather than auto-discovered.",
-      "codex-cli": "Bundled scripts/with_server.py is not auto-discovered; it must be referenced explicitly in AGENTS.md and the multi-server orchestration pattern degrades without it.",
-      "open-standard": "Procedural testing guidance ports; the bundled Python helpers need manual asset wiring.",
-      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
-      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
-      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "continue": "Convert the skill to a prompt/slash-command file for invocation."
-    },
-    "caveats_zh": {
-      "cursor": "脚本通过 bash 运行,但 Playwright 必须单独安装,且 scripts/with_server.py 需手动调用而非自动发现。",
-      "codex-cli": "打包的 scripts/with_server.py 不会被自动发现;必须在 AGENTS.md 中显式引用,缺少它则多服务器编排模式会退化。",
-      "open-standard": "流程化的测试指导可迁移;打包的 Python 辅助工具需要手动连接资源。"
-    }
-  },
-  {
-    "id": "anthropics-xlsx",
-    "name": "xlsx",
-    "repo": "anthropics/skills",
-    "url": "https://github.com/anthropics/skills",
-    "category": "data_docs",
-    "categories": [
-      "data_docs"
-    ],
-    "description": "Creates and edits spreadsheets with openpyxl and pandas plus a mandatory LibreOffice recalc step and financial-modeling conventions. Effect: ships workbooks whose cached formula values are correct on first open in Excel.",
-    "description_zh": "用 openpyxl 和 pandas 创建、编辑电子表格，强制走 LibreOffice 重算步骤，遵循金融建模规范。效果：交付的工作簿在 Excel 中首次打开时缓存的公式值就是正确的。",
-    "usage_tutorial": "",
-    "uses_claude_extensions": [],
-    "verified_at": "2026-07-31",
-    "verified_by": "matrix-maintainers",
-    "stars": 198452,
-    "source": "seed",
-    "crawled_at": null,
-    "compatibility": {
-      "claude-code": "native",
-      "cursor": "compatible",
-      "codex-cli": "partial",
-      "gemini-cli": "native",
-      "open-standard": "compatible",
-      "windsurf": "partial",
-      "cline": "partial",
-      "aider": "compatible",
-      "github-copilot": "compatible",
-      "zed": "compatible",
-      "amp": "compatible",
-      "jules": "compatible",
-      "continue": "compatible"
-    },
-    "caveats": {
-      "cursor": "LibreOffice/soffice must be installed; scripts/recalc.py and scripts/office/soffice.py are invoked manually rather than auto-triggered.",
-      "codex-cli": "The mandatory recalc.py step is not auto-discovered and must be referenced explicitly in AGENTS.md, so shipped workbooks ship with None cached formula values.",
-      "open-standard": "Guidance ports; the recalc/soffice helper scripts need manual asset wiring.",
-      "windsurf": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "cline": "Rewrite the SKILL.md into this agent's rules format (description/glob or always-on).",
-      "aider": "Flatten the skill body into a CONVENTIONS.md file loaded via .aider.conf.yml read:.",
-      "github-copilot": "Convert the skill to a prompt/slash-command file for invocation.",
-      "zed": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "amp": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "jules": "Inline the SKILL.md body into AGENTS.md; frontmatter is dropped.",
-      "continue": "Convert the skill to a prompt/slash-command file for invocation."
-    },
-    "caveats_zh": {
-      "cursor": "必须安装 LibreOffice/soffice;scripts/recalc.py 和 scripts/office/soffice.py 需手动调用而非自动触发。",
-      "codex-cli": "必需的 recalc.py 步骤不会被自动发现,必须在 AGENTS.md 中显式引用,因此发布的工作簿会以 None 缓存的公式值发布。",
-      "open-standard": "指导可迁移;recalc/soffice 辅助脚本需要手动连接资源。"
-    }
-  },
-  {
     "id": "graphify",
     "name": "graphify",
     "repo": "Graphify-Labs/graphify",
@@ -1207,7 +1207,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 151594,
+    "stars": 151657,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1260,7 +1260,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 121968,
+    "stars": 122001,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1317,7 +1317,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 119571,
+    "stars": 119614,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1370,7 +1370,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 119571,
+    "stars": 119614,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1424,7 +1424,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 119571,
+    "stars": 119614,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1476,7 +1476,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 119571,
+    "stars": 119614,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1529,7 +1529,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 119571,
+    "stars": 119614,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1583,7 +1583,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 119571,
+    "stars": 119614,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1636,7 +1636,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 119571,
+    "stars": 119614,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1688,7 +1688,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 71955,
+    "stars": 72092,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1737,7 +1737,7 @@
     "uses_claude_extensions": [],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 61872,
+    "stars": 61906,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1790,7 +1790,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 58027,
+    "stars": 58042,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1847,7 +1847,7 @@
     ],
     "verified_at": "2026-07-31",
     "verified_by": "matrix-maintainers",
-    "stars": 57986,
+    "stars": 58010,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
@@ -1905,7 +1905,7 @@
     ],
     "verified_at": "2026-07-29",
     "verified_by": "matrix-maintainers",
-    "stars": 31583,
+    "stars": 31589,
     "source": "seed",
     "crawled_at": null,
     "compatibility": {
